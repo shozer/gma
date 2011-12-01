@@ -68,7 +68,11 @@
   <ItemGroup>
     <Compile Include="Arquivo.vb" />
     <Compile Include="Cliente.vb" />
+    <Compile Include="ConsultorEspecializado.vb" />
     <Compile Include="Contatos.vb" />
+    <Compile Include="FichaTecnica.vb" />
+    <Compile Include="HistoricoProjeto.vb" />
+    <Compile Include="ImagemProjeto.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -84,9 +88,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Noticia.vb" />
     <Compile Include="Perfil.vb" />
+    <Compile Include="Profissional.vb" />
+    <Compile Include="Projeto.vb" />
     <Compile Include="Restricao.vb" />
     <Compile Include="Parceiro.vb" />
+    <Compile Include="SituacaoProjeto.vb" />
+    <Compile Include="TipoProjeto.vb" />
     <Compile Include="Usuario.vb" />
   </ItemGroup>
   <ItemGroup>
