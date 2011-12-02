@@ -8,13 +8,26 @@
 
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 
-    <script src="js/droplinemenu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+	
+$("ul#topnav li").hover(function() { //Hover over event on list item
+	$(this).css({ 'background' : '#000000'}); //Add background color + image on hovered list item
+	$(this).find("span").show(); //Show the subnav
+} , function() { //on hover out...
+	$(this).css({ 'background' : 'none'}); //Ditch the background
+	$(this).find("span").hide(); //Hide the subnav
+});
+	
+});
+    </script>
+
+    <!--script src="js/droplinemenu.js" type="text/javascript"></script>
 
     <script type="text/javascript">
     //build menu with DIV ID="myslidemenu" on page:
     droplinemenu.buildmenu("droplinetabs1")
-    </script>
-
+    </script-->
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,43 +39,15 @@
                 </a>
             </h1>
             <!-- Teste -->
-            <nav id="droplinetabs1" class="menu">
-                <ul>
-                    <li><a href="#">PROJETOS</a>
-                        <ul>
-                            <li><a href="#">submenu 1</a>
-                            <li><a href="#">submenu 2</a>
-                            <li><a href="#">submenu 3</a>
-                        </ul>
-                    </li>
-                    <li><a href="#">CONSULTORIA</a>
-                        <ul>
-                            <li><a href="#">submenu 1</a>
-                            <li><a href="#">submenu 2</a>
-                            <li><a href="#">submenu 3</a>
-                        </ul>
-                    </li>
-                    <li><a href="#">GESTÃO DE OBRAS</a>
-                        <ul>
-                            <li><a href="#">submenu 1</a>
-                            <li><a href="#">submenu 2</a>
-                            <li><a href="#">submenu 3</a>
-                        </ul>
-                    </li>
-                    <li><a href="#">VISUALIZAÇÃO 3D</a>
-                        <ul>
-                            <li><a href="#">submenu 1</a>
-                            <li><a href="#">submenu 2</a>
-                            <li><a href="#">submenu 3</a>
-                        </ul>
-                    </li>
-                    <li class="margin_right_0"><a href="#">UTILITÁRIOS</a>
-                        <ul>
-                            <li><a href="#">submenu 1</a>
-                            <li><a href="#">submenu 2</a>
-                            <li><a href="#">submenu 3</a>
-                        </ul>
-                    </li>
+            <nav class="menu">
+                <ul id="topnav">
+                    <li><a href="#">PROJETOS</a> <span><a href="#">RESIDENCIAL</a> <a href="#">COMERCIAL</a>
+                        <a href="#">URBANISMO/PAISAGISMO</a><a href="#">RESTAURO</a><a href="#"> INTERIOR/ DESIGN</a>
+                    </span></li>
+                    <li><a href="#">CONSULTORIA</a></li>
+                    <li><a href="#">GESTÃO DE OBRAS</a> </li>
+                    <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
+                    <li><a href="#">UTILITÁRIOS</a></li>
                 </ul>
             </nav>
             <!--nav class="menu">
@@ -82,6 +67,8 @@
             <div class="clear">
             </div>
         </header>
+        <div class="divisao_header">
+        </div>
         <section class="main">
             <div class="banner_destaque">
                 <img src="img/banner_destaque.jpg" alt="Destaque GMA" />
