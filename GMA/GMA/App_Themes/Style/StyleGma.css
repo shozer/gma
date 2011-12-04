@@ -4,9 +4,11 @@
 	padding: 0;
 	background-image: url(../../img/bg_geral.jpg);
 	background-repeat: repeat;
+	font-family:Lucida Sans Unicode;
+	
 }
 
-h1, h2, h3, h4, h5, ul, li, a
+h1, h2, h3, h4, h5, ul, li, a, p
 {
 	margin: 0;
 	padding: 0;
@@ -77,17 +79,22 @@ a.idioma span
 .topo
 {
 	width: 960px;
-	margin-top: 10px;
-	
+	margin-top: 12px;
+}
+
+.layer_inf
+{
+	width: 960px;
+	position: relative;
+	z-index: 1;
 }
 
 .divisao_header
 {
+	width: 960px;
 	border-bottom: 1px solid #28449c;
-	position:relative;
-	
-	
-	}
+	margin-top: 5px;
+}
 
 .logo
 {
@@ -101,10 +108,13 @@ a.idioma span
 
 .menu
 {
-	width: 664px;
-	float: left;
-	margin-left: 36px;
-	margin-top: 115px;
+	width: 687px;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	padding-top: 130px;
+	margin-left: 280px;
 }
 
 ul#topnav
@@ -116,49 +126,42 @@ ul#topnav
 	list-style: none;
 	position: relative;
 	font-size: 11px;
-	font-family:Lucida Sans Unicode;
-	
+	font-family: Lucida Sans Unicode;
 }
 ul#topnav li
 {
 	float: left;
 	margin: 0 20px 0 0;
 	padding: 0;
-
-
 }
 ul#topnav li a
 {
-	padding:17px 30px 5px 30px;
+	padding: 17px 23px 5px 23px;
 	display: block;
 	color: #ffffff;
 	text-decoration: none;
-	
-
 }
 ul#topnav li a:hover
 {
-	
 	color: #F7A30F;
-	background-color:Black;
+	background-color: Black;
 	border-top: 1px solid #28449c;
 	border-left: 1px solid #28449c;
 	border-right: 1px solid #28449c;
 	border-bottom: 2px solid #00000;
-	padding:16px 29px 5px 29px;
-	
+	padding: 16px 22px 5px 22px;
 }
 ul#topnav li span
 {
 	float: left;
-	padding: 15px 0;
+	padding: 9px 10px 0 0;
 	position: absolute;
 	left: 0;
-	top: 30px;
+	top: 37px;
+	margin-left: -6px;
 	display: none;
 	width: 834px;
-	color: #fff;
-	
+	color: white;
 }
 ul#topnav li:hover span
 {
@@ -167,10 +170,16 @@ ul#topnav li:hover span
 ul#topnav li span a
 {
 	display: inline;
+	padding: 7px 23px 5px 23px !important;
+	margin-right:17px;
 }
 ul#topnav li span a:hover
 {
-	text-decoration: underline;
+	text-decoration: none;
+	border: none;
+	background-color: transparent;
+	color: #F7A30F;
+	margin-left: 0px;
 }
 
 .parceiro
@@ -178,7 +187,7 @@ ul#topnav li span a:hover
 	width: 139px;
 	height: 134px;
 	float: right;
-	margin-top:10px;
+	margin-top: 10px;
 }
 
 /*main --------------------*/
@@ -193,6 +202,123 @@ ul#topnav li span a:hover
 	width: 960px;
 	margin-top: 35px;
 }
+
+.lateral_banner
+{
+	width:284px;
+	height:395px;
+	background-image:url(../../img/bg_lateral_banner.png);
+	background-repeat:repeat-y;
+	position:absolute;
+	z-index:2;
+}
+
+.descricao_projeto
+{
+	width:284px;
+	
+	}
+
+.descricao_projeto h2
+{
+	color:#000000;
+	font-size:37px;
+	padding-top:17px;
+	padding-left:25px;
+	font-family:Lucida Sans;
+}
+
+.descricao_projeto h3
+{
+	color:Black;
+	font-size:24px;
+	float:right;
+	font-weight:bolder;
+	margin-right:53px;
+}
+
+.descricao_projeto span
+{
+	color:#ffffff;
+	font-size:14px;
+	width:220px;
+	margin-left:10px;
+	display:block;
+	margin-top:15px;
+
+	
+}
+
+span.branca
+{
+	color:#ffffff;
+	border:none;
+	font-size:37px;
+}
+.divisao_descricao
+{
+	width:220px;
+	height:1px;
+	border-bottom:1px solid #ffb83a;
+	margin-left:10px;
+	margin-top:5px;
+	
+	}	
+		
+/*################### banner carrossel #############################*/
+ 
+.buttons{
+	width:155px;
+	height:13px;
+	position:absolute;
+	top:0;
+	left:0;
+	margin-left:170px;
+	margin-top:370px;
+}
+.buttons span{
+	color:#0080FF;
+	padding:0 12px;
+	cursor:pointer;
+	background-image:url(../../img/bullet_banner_inativo.jpg);
+	background-repeat:no-repeat;
+	width:13px;
+	height:13px;	
+}
+.buttons span.active, .buttons span:hover{
+	
+	background-image:url(../../img/bullet_banner_ativo.jpg);
+	background-repeat:no-repeat;
+	width:13px;
+	height:13px;
+}
+
+#box4{
+	position:absolute;
+}
+
+#box4 p{
+	text-indent:16px;
+}
+
+/* ********************************** */
+
+.mask3{
+	position:relative;
+	width:961px;
+	height:395px;
+	overflow:hidden;
+	z-index:1;
+}
+
+.container_banner{
+	width:961px;
+	height:395px;
+	float:left;
+}	
+ 
+  /*################### fim banner carrossel #############################*/
+  
 
 /*footer ---------------------*/
 
