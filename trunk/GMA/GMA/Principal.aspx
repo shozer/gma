@@ -6,39 +6,19 @@
     <title>GMA Arquitetura</title>
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
 
-    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/mootools-1.2-core.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-$(document).ready(function() {
-	
-$("ul#topnav li").hover(function() { //Hover over event on list item
-	$(this).css({ 'background' : '#000000'}); //Add background color + image on hovered list item
-	$(this).find("span").show(); //Show the subnav
-} , function() { //on hover out...
-	$(this).css({ 'background' : 'none'}); //Ditch the background
-	$(this).find("span").hide(); //Hide the subnav
-});
-	
-});
+    <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
+
+    <script type="text/javascript">        window.addEvent('domready', function () {            //SAMPLE 4 (walk to item)            var nS4 = new noobSlide({                box: $('box4'),                items: $$('#box4 div'),                size: 961,                interval: 10000,                autoPlay: true,                handles: $$('#handles4 span'),                onWalk: function (currentItem, currentHandle) {                    this.handles.removeClass('active');                    currentHandle.addClass('active');                }            });
+        });
     </script>
 
-    <!--script src="js/droplinemenu.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-    //build menu with DIV ID="myslidemenu" on page:
-    droplinemenu.buildmenu("droplinetabs1")
-    </script-->
 </head>
 <body>
     <form id="form1" runat="server">
     <div class="container_geral">
         <header class="topo">
-            <h1 class="logo">
-                <a href="#">
-                    <img src="img/logo_site.jpg" style="border: 0;" alt="GMA Arquitetura" />
-                </a>
-            </h1>
-            <!-- Teste -->
             <nav class="menu">
                 <ul id="topnav">
                     <li><a href="#">PROJETOS</a> <span><a href="#">RESIDENCIAL</a> <a href="#">COMERCIAL</a>
@@ -49,31 +29,67 @@ $("ul#topnav li").hover(function() { //Hover over event on list item
                     <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
                     <li><a href="#">UTILITÁRIOS</a></li>
                 </ul>
+                <div class="clear">
+                </div>
             </nav>
-            <!--nav class="menu">
-                <ul>
-                    <li><a href="#">PROJETOS</a></li>
-                    <li><a href="#">CONSULTORIA</a></li>
-                    <li><a href="#">GESTÃO DE OBRAS</a></li>
-                    <li><a href="#">VISUALIZAÇÃO 3D</a></li>
-                    <li class="margin_right_0"><a href="#">UTILITÁRIOS</a></li>
-                </ul>
-            </nav-->
-            <div class="parceiro">
-                <a href="#">
-                    <img src="img/_logo_eliane.jpg" style="border: 0;" alt="GMA Arquitetura" />
-                </a>
+            <div class="layer_inf">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="img/logo_site.jpg" style="border: 0;" alt="GMA Arquitetura" />
+                    </a>
+                </h1>
+                <!-- Teste -->
+                <div class="parceiro">
+                    <a href="#">
+                        <img src="img/_logo_eliane.jpg" style="border: 0;" alt="GMA Arquitetura" />
+                    </a>
+                </div>
+                <div class="clear">
+                </div>
             </div>
-            <div class="clear">
+            <div class="divisao_header">
             </div>
         </header>
-        <div class="divisao_header">
+        <div class="main">
+            <section class="banner_destaque">
+                <div class="lateral_banner">
+                    <div class="descricao_projeto">
+                        <h2>
+                            Casamalha</h2>
+                        <h3>
+                            Paraty-Br</h3>
+                        <div class="clear">
+                        </div>
+                        <div class="divisao_descricao"></div>
+                        <span>A empresa GMA (Grupo Multidisciplinar capacitados a traduzir as necessidades do
+                            cliente desenvolvendo critérios e ações para uma arquitetura de qualidade eficiente
+                            e econômica. </span>
+                    </div>
+                    <p class="buttons" id="handles4">
+                        <span></span><span></span><span></span>
+                    </p>
+                </div>
+                <div class="mask3">
+                    <div id="box4">
+                        <div class="container_banner">
+                            <a href="/Paginas/Contato.aspx">
+                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            </a>
+                        </div>
+                        <div class="container_banner">
+                            <a href="/Paginas/Convenios-e-Beneficios.aspx">
+                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            </a>
+                        </div>
+                        <div class="container_banner">
+                            <a href="/Paginas/Convenios-e-Beneficios.aspx">
+                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-        <section class="main">
-            <div class="banner_destaque">
-                <img src="img/banner_destaque.jpg" alt="Destaque GMA" />
-            </div>
-        </section>
         <footer>
             <div class="footer_sup">
                 <div class="container_link_box">
