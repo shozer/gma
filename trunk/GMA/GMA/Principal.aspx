@@ -10,7 +10,8 @@
 
     <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
 
-    <script type="text/javascript">        window.addEvent('domready', function() {
+    <script type="text/javascript">
+        window.addEvent('domready', function() {
             //SAMPLE 4 (walk to item)
             var nS4 = new noobSlide({
                 box: $('box4'),
