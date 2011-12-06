@@ -10,7 +10,20 @@
 
     <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
 
-    <script type="text/javascript">        window.addEvent('domready', function () {            //SAMPLE 4 (walk to item)            var nS4 = new noobSlide({                box: $('box4'),                items: $$('#box4 div'),                size: 961,                interval: 10000,                autoPlay: true,                handles: $$('#handles4 span'),                onWalk: function (currentItem, currentHandle) {                    this.handles.removeClass('active');                    currentHandle.addClass('active');                }            });
+    <script type="text/javascript">        window.addEvent('domready', function() {
+            //SAMPLE 4 (walk to item)
+            var nS4 = new noobSlide({
+                box: $('box4'),
+                items: $$('#box4 div'),
+                size: 961,
+                interval: 10000,
+                autoPlay: true,
+                handles: $$('#handles4 span'),
+                onWalk: function(currentItem, currentHandle) {
+                    this.handles.removeClass('active');
+                    currentHandle.addClass('active');
+                }
+            });
         });
     </script>
 
@@ -118,6 +131,17 @@
                     <span class="noticia_list">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry. Lorem Ipsum has been the indus </span><span class="noticia_list">Lorem Ipsum
                             is simply dummy text of the printing and </span>
+                            <span class="noticia_list">
+                            <%If Session("idioma") Is Nothing Then%>
+                                Nothing - Português
+                                <%ElseIf Session("idioma") = "1" Then%>
+                                Português
+                                <%ElseIf Session("idioma") = "2" Then%>
+                                Espanhol
+                                <%ElseIf Session("idioma") = "3" Then%>
+                                Inglês
+                            <%End If%>
+                            </span>
                 </div>
             </div>
         </footer>
