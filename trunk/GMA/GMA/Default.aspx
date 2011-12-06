@@ -5,10 +5,19 @@
 <head runat="server">
     <title>GMA Arquitetura</title>
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
-<!--[if lt IE 9]>
+
+    <script type="text/javascript">
+        function forward(id) {
+            document.getElementById("hfIdioma").value = id;
+            var btn = document.getElementById("btnSpace");
+            btn.click();
+        }
+    </script>
+
+    <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 < ![endif]-->
-<!--[if IE]>
+    <!--[if IE]>
 <script type="text/javascript">
 document.createElement("article");
 document.createElement("nav");
@@ -20,20 +29,11 @@ document.createElement("legend");
 document.createElement("footer");
 </script>
 <![endif] -->
-    <script type="text/javascript">
-        function forward(id) {
-            document.getElementById("hfIdioma").value = id;
-            var btn = document.getElementById("btnSpace");
-            btn.click();
-        }
-    </script>
-
-    
 </head>
 <body>
     <form id="form1" runat="server">
     <div id="container_intro">
-        <section class="container_idiomas">
+        <div class="container_idiomas">
             <h1 class="logo_intro">
                 <img src="img/logo_intro.png" alt="GMA - Grupo Multidisciplinar para Arquitetura" />
             </h1>
@@ -47,7 +47,7 @@ document.createElement("footer");
                 <asp:HiddenField ID="hfIdioma" runat="server"></asp:HiddenField>
                 <asp:ImageButton ID="btnSpace" runat="server" ImageUrl="~/img/spacer.gif"></asp:ImageButton>
             </div>
-        </section>
+        </div>
     </div>
     </form>
 </body>

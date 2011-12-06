@@ -6,6 +6,7 @@
     <title>GMA Arquitetura</title>
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
 
+
     <script src="js/mootools-1.2-core.js" type="text/javascript"></script>
 
     <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
@@ -120,8 +121,8 @@ document.createElement("footer");
         <footer>
             <div class="footer_sup">
                 <div class="container_link_box">
-                    <a href="#" class="link_box">CONTATO</a> <a href="#" class="link_box margin_right_0">
-                        ESPAÇO DO CLIENTE</a>
+                    <a class="link_box">CONTATO</a> <a href="#" class="link_box margin_right_0">ESPAÇO DO
+                        CLIENTE</a>
                 </div>
                 <div class="titulo_noticias">
                     <span>NOTÍCIAS</span>
