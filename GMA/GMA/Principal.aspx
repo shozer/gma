@@ -27,6 +27,18 @@
         });
     </script>
 
+    <!--[if IE]>
+<script type="text/javascript">
+document.createElement("article");
+document.createElement("nav");
+document.createElement("section");
+document.createElement("header");
+document.createElement("aside");
+document.createElement("figure");
+document.createElement("legend");
+document.createElement("footer");
+</script>
+<![endif] -->
 </head>
 <body>
     <form id="form1" runat="server">
@@ -63,8 +75,8 @@
             <div class="divisao_header">
             </div>
         </header>
-        <div class="main">
-            <section class="banner_destaque">
+        <section class="main">
+            <div class="banner_destaque">
                 <div class="lateral_banner">
                     <div class="descricao_projeto">
                         <h2>
@@ -73,7 +85,8 @@
                             Paraty-Br</h3>
                         <div class="clear">
                         </div>
-                        <div class="divisao_descricao"></div>
+                        <div class="divisao_descricao">
+                        </div>
                         <span>A empresa GMA (Grupo Multidisciplinar capacitados a traduzir as necessidades do
                             cliente desenvolvendo critérios e ações para uma arquitetura de qualidade eficiente
                             e econômica. </span>
@@ -101,8 +114,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
         <footer>
             <div class="footer_sup">
                 <div class="container_link_box">
@@ -130,9 +143,8 @@
                 <div class="noticias">
                     <span class="noticia_list">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry. Lorem Ipsum has been the indus </span><span class="noticia_list">Lorem Ipsum
-                            is simply dummy text of the printing and </span>
-                            <span class="noticia_list">
-                            <%If Session("idioma") Is Nothing Then%>
+                            is simply dummy text of the printing and </span><span class="noticia_list">
+                                <%If Session("idioma") Is Nothing Then%>
                                 Nothing - Português
                                 <%ElseIf Session("idioma") = "1" Then%>
                                 Português
@@ -140,7 +152,7 @@
                                 Espanhol
                                 <%ElseIf Session("idioma") = "3" Then%>
                                 Inglês
-                            <%End If%>
+                                <%End If%>
                             </span>
                 </div>
             </div>
