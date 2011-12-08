@@ -8,6 +8,7 @@ Partial Class TesteBD
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            VerificarCookie()
             LimparCampos()
         End If
     End Sub
@@ -79,6 +80,27 @@ Partial Class TesteBD
         des_email_con.Text = ""
         num_telefone_con.Text = ""
         num_celular_con.Text = ""
+    End Sub
+
+    Private Sub VerificarCookie()
+        If Request.Cookies("GMA_Dados") Is Nothing Then
+            Dim cookie As New HttpCookie("GMA_Dados")
+            cookie.Values("ID") = Session.SessionID
+            cookie.Values("user") = "login"
+            cookie.Values("pass") = "senha"
+            cookie.Expires = DateTime.Now.AddDays(1)
+            Response.Cookies.Add(cookie)
+        Else
+            Dim cookie As HttpCookie = Request.Cookies("GMA_Dados")
+
+            If Session.SessionID <> cookie.Values("ID") Then
+                cookie.Values("ID") = Session.SessionID
+                cookie.Values("user") = "login"
+                cookie.Values("pass") = "senha"
+                cookie.Expires = DateTime.Now.AddDays(1)
+                Response.Cookies.Add(cookie)
+            End If
+        End If
     End Sub
 
 #End Region
