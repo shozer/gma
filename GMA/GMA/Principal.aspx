@@ -6,13 +6,24 @@
     <title>GMA Arquitetura</title>
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
 
+    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+    <script src="js/exemploModal.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="js/jquery-modal-1.0.js"></script>
+
+    <script type="text/javascript">
+           jQuery(document).ready(function(){
+	            jQuery('a#exemplo').modal();
+           });
+    </script>
 
     <script src="js/mootools-1.2-core.js" type="text/javascript"></script>
 
     <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        window.addEvent('domready', function() {
+    <script type="text/javascript">        
+    window.addEvent('domready', function() {
             //SAMPLE 4 (walk to item)
             var nS4 = new noobSlide({
                 box: $('box4'),
@@ -121,8 +132,8 @@ document.createElement("footer");
         <footer>
             <div class="footer_sup">
                 <div class="container_link_box">
-                    <a class="link_box">CONTATO</a> <a href="#" class="link_box margin_right_0">ESPAÇO DO
-                        CLIENTE</a>
+                    <a id="exemplo" href="Contato.aspx" class="link_box modal">CONTATO</a> <a href="#"
+                        class="link_box margin_right_0">ESPAÇODO CLIENTE</a>
                 </div>
                 <div class="titulo_noticias">
                     <span>NOTÍCIAS</span>
