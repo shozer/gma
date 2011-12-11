@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Erros>
+  <Erro>
+    <keyErro>fky_tb_tri_atributo_tb_tri_associacao_atributo</keyErro>
+    <desErro>Não é possível excluir o Componente, existem Associações para este Componente!</desErro>
+  </Erro>
+  <Erro>
+    <keyErro>fky_tb_tri_roteiro_teste_tb_tri_associacao_roteiro</keyErro>
+    <desErro>Não é possível excluir o Roteiro de teste, existem Associações para este Roteiro!</desErro>
+  </Erro>
+  <Erro>
+    <keyErro>fky_tb_tri_triagem_tb_tri_foto</keyErro>
+    <desErro>Não é possível excluir a Triagem, existem Fotos associadas!</desErro>
+  </Erro>
+  <Erro>
+    <keyErro>fky_tb_tri_associacao_atributo_tb_tri_triagem_atributo</keyErro>
+    <desErro>Não é possível excluir a Associação do Componente, existem Componentes associados para a Triagem!</desErro>
+  </Erro>
+  <Erro>
+    <keyErro>fky_tb_tri_triagem_tb_tri_triagem_atributo</keyErro>
+    <desErro>Não é possível excluir a Triagem, existem Componentes associados!</desErro>
+  </Erro>
+  <Erro>
+    <keyErro>fky_tb_tri_idr_tb_tri_triagem</keyErro>
+    <desErro>Não é possível excluir o IDR, existem Triagens associadas!</desErro>
+  </Erro>
+</Erros>
