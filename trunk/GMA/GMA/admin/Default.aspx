@@ -11,7 +11,7 @@
     <div id="container_intro">
         <section class="container_idiomas">
             <h1 class="logo_intro">
-                <img src="img/logo_intro.png" alt="GMA Arquitetura" />
+                <img src="../img/logo_intro.png" alt="GMA Arquitetura" />
             </h1>
             <div class="links_idiomas">
                 <a href="#" class="idioma"><span>[</span> português <span>]</span></a> <a href="#"

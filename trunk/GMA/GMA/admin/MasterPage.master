@@ -4,12 +4,83 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>GMA - Administrativo</title>
+    <style type="text/css">
+        body
+        {
+            background-color: #000;
+        }
+        #container
+        {
+            width: 960px;
+            margin: 0 auto;
+        }
+        #menu ul
+        {
+            padding: 0px;
+            margin: 0px;
+            float: left;
+            width: 100%;
+            background-color: #EDEDED;
+            list-style: none;
+        }
+        #menu ul li
+        {
+            display: inline;
+        }
+        #menu ul li a
+        {
+            font-family: Lucida Sans Unicode;
+            font-size: 14px;
+            padding: 2px 10px;
+            float: left; /* visual do link */
+            background-color: #EDEDED;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 3px solid #EDEDED;
+        }
+        #menu ul li a:hover
+        {
+            background-color: #D6D6D6;
+            color: #6D6D6D;
+            border-bottom: 3px solid #EA0000;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <asp:ScriptManager ID="scmPrincipal" runat="server" EnableScriptGlobalization="True"
+        EnableScriptLocalization="True" OnAsyncPostBackError="HandleError">
+    </asp:ScriptManager>
+    <script type="text/javascript">
+        // Register the EndRequest Ajax event
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+        // Here the Ajax EndRequest event is used to supress any ALERT error message and
+        // show them in the lblStatus instead.
+        function EndRequestHandler(sender, args) {
+            if (args.get_error()) {
+                var msg = args.get_error().message;
+                alert(msg.substr(53, msg.length - 53));
+                // This will avoid the pop-up
+                args.set_errorHandled(true);
+            }
+        }
+    </script>
+    <div id="container">
+        <nav id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cadastro</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Arquivos</a></li>
+                <li><a href="#">Clientes</a></li>
+                <li><a href="#">Profissionais</a></li>
+                <li><a href="#">Restrição</a></li>
+                <li><a href="#">Contatos</a></li>
+                <li><a href="Default.aspx">Sair</a></li>
+            </ul>
+        </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
