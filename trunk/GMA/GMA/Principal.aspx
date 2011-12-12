@@ -10,11 +10,12 @@
 
     <script src="js/exemploModal.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="js/jquery-modal-1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-modal-1.0.js"></script> 
 
     <script type="text/javascript">
            jQuery(document).ready(function(){
 	            jQuery('a#exemplo').modal();
+	            jQuery('a#exemplo2').modal();
            });
     </script>
 
@@ -132,8 +133,9 @@ document.createElement("footer");
         <footer>
             <div class="footer_sup">
                 <div class="container_link_box">
-                    <a id="exemplo" href="Contato.aspx" class="link_box modal">CONTATO</a> <a href="#"
-                        class="link_box margin_right_0">ESPAÇODO CLIENTE</a>
+                    <a id="exemplo" href="Contato.aspx" class="link_box modal">CONTATO</a> 
+                    <a id="exemplo2"  href="Espaco_Cliente.aspx" class="link_box margin_right_0">ESPAÇODO CLIENTE</a>
+                        
                 </div>
                 <div class="titulo_noticias">
                     <span>NOTÍCIAS</span>

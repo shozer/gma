@@ -317,9 +317,8 @@ span.branca
 	float:left;
 }	
  
-  /*################### fim banner carrossel #############################*/
+/*################### fim banner carrossel #############################*/
   
-
 /*footer ---------------------*/
 
 footer
@@ -429,9 +428,10 @@ span.noticia_list
 
 .container_contato
 {
-	width:500px;
-	border:1px solid #F7A30F;
+	width:773px;
+	border-bottom:10px solid #2a2a2a;
 	background-color:Black;
+	padding-left:17px;
 	
 	
 	}
@@ -439,9 +439,206 @@ span.noticia_list
 .container_contato h2
 {
 	font-family:Lucida Sans Unicode;
-	color:#ffffff;
-	font-size:18px;
+	color:#F7A30F;
+	font-size:32px;
 	padding:20px;
-		
+	float:left;
+	width:400px;
+}
+
+.titulo_contato
+{
+	width:773px; 
+}
+
+.divisao_titulo
+{
+	width:722px;
+	border-bottom:1px solid #363636;
+	margin-left:23px;
+	margin-bottom:22px;
+	
+	}
+
+
+.container_espaco_cliente
+{
+	width:500px;
+	border-bottom:10px solid #2a2a2a;
+	background-color:Black;
+	padding-left:17px;
+	
+	
+	}
+
+.container_espaco_cliente h2
+{
+	font-family:Lucida Sans Unicode;
+	color:#F7A30F;
+	font-size:32px;
+	padding:20px;
+	float:left;
+	width:300px;
+}
+
+.titulo_espaco_cliente
+{
+	width:500px; 
+}
+
+.divisao_titulo_espaco_cliente
+{
+	width:450px;
+	border-bottom:1px solid #363636;
+	margin-left:23px;
+	margin-bottom:22px;
+	
+	}
+	
+
+a.close
+{
+	width:29px;
+	height:28px;
+	float:right;
+	background-image:url(../../img/close.jpg);
+	background-repeat:no-repeat;
+	overflow:hidden;
+	text-indent:-900px;
+	margin:23px 32px 0 0;
+	
+}
+
+.container_campos_info
+{
+	width:773px;
+
+	}
+
+.container_campo
+{
+	width:473px;
+	float:left;
+	padding-left:10px;
+	padding-bottom:10px;
+}
+
+.campo
+{
+	width:473px;
+	margin-bottom:12px;
+
+}
+
+.campo span
+{
+	width:88px;
+	text-align:right;
+	margin-right:12px;
+	display:block;
+	float:left;
+	font-family:Lucida Sans Unicode;
+	font-size:14px;
+	color:#ffffff;
+	margin-top:9px;
 	
 	}	
+
+.container_info
+{
+	width:270px;
+	float:left;
+	padding-left:20px;
+	
+	}
+
+.container_info h3
+{
+	font-size:18px;
+	font-family:Lucida Sans Unicode;
+	color:#ffcc00;
+	font-weight:normal;
+	
+}
+
+.container_info span
+{
+	font-size:14px;
+	font-family:Lucida Sans Unicode;
+	color:#ffffff;
+	margin-bottom:10px;
+
+	
+}	
+	
+
+.btn_enviar
+{
+	width:89px;
+	height:40px;
+	background-color:Black;
+	border:1px solid #4e4e4e;
+	color:#ffcc00;
+	font-size:18px;
+	cursor:pointer;
+	float:right;
+	margin-right:9px;
+	
+	}	
+
+.input_contato
+{
+	width:354px;
+	background-color:#292929;
+	border:1px solid #4f4f4f;
+	height:26px;
+	float:left;
+	padding:5px;
+	color:#ffffff;
+	font-family:Lucida Sans Unicode;
+	font-size:16px;
+	
+	}
+
+.input_contato_mensagem
+{
+	width:354px;
+	background-color:#292929;
+	border:1px solid #4f4f4f;
+	height:86px;
+	float:left;
+	padding:5px;
+	color:#ffffff;
+	font-family:Lucida Sans Unicode;
+	font-size:16px;
+	overflow:hidden;
+	
+	}
+
+.input_contato_ddd
+{
+	width:90px;
+	background-color:#292929;
+	border:1px solid #4f4f4f;
+	height:26px;
+	float:left;
+	padding:5px;
+	color:#ffffff;
+	font-family:Lucida Sans Unicode;
+	font-size:16px;
+}
+
+.input_contato_telefone
+{
+    width:234px;
+	background-color:#292929;
+	border:1px solid #4f4f4f;
+	height:26px;
+	float:left;
+	padding:5px;
+	color:#ffffff;
+	font-family:Lucida Sans Unicode;
+	font-size:16px;
+	margin-left:18px;
+	
+	}				
