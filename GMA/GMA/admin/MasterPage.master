@@ -143,7 +143,12 @@
         <nav id="menu">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Cadastro</a></li>
+                <li>
+                    <a href="#">Cadastro</a>
+                    <ul>
+                        <li><a href="TipoProjeto.aspx">Tipo de projeto</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Projetos</a></li>
                 <li><a href="Arquivo.aspx">Arquivos</a></li>
                 <li><a href="#">Clientes</a></li>
