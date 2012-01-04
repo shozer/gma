@@ -71,7 +71,7 @@ Public Class Cliente
         Dim conn As MySqlConnection = Nothing
         Dim primaryKey As Int32 = -1
 
-        Dim query As String = "Insert into tb_gma_Cliente(nom_cliente_cli, des_email_cli, num_telefone_cli, num_celular_cli, num_cnpj_cli, des_login_cli, des_senha_cli, num_cpf_cli, dat_cadastro_cli) "
+        Dim query As String = "Insert into tb_gma_cliente(nom_cliente_cli, des_email_cli, num_telefone_cli, num_celular_cli, num_cnpj_cli, des_login_cli, des_senha_cli, num_cpf_cli, dat_cadastro_cli) "
         query &= "values(?nom_cliente_cli, ?des_email_cli, ?num_telefone_cli, ?num_celular_cli, ?num_cnpj_cli, ?des_login_cli, ?des_senha_cli, ?num_cpf_cli, CURDATE()); SELECT LAST_INSERT_ID();"
 
         Try
