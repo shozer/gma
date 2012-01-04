@@ -13,8 +13,9 @@ Public Class Parceiro
         Dim conn As MySqlConnection = Nothing
         Dim lDSRetorno As New DataSet
 
-        Dim query As String = "Select cod_parceiro_par, nom_parceiro_par, des_imagem_par, des_link_par, cod_usuario_usu, sts_ativo_par "
+        Dim query As String = "Select cod_parceiro_par, nom_parceiro_par, des_imagem_par, des_link_par, tb_gma_parceiro.cod_usuario_usu, nom_usuario_usu, sts_ativo_par "
         query &= "From tb_gma_parceiro "
+        query &= "inner join tb_gma_usuario on tb_gma_parceiro.cod_usuario_usu = tb_gma_usuario.cod_usuario_usu "
         query &= "Order by nom_parceiro_par "
 
         Try

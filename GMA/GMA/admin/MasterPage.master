@@ -109,54 +109,128 @@
         {
             clear: both;
         }
-        
         /*
-  Menus drop-down horizontal-vertical (hv) e vertical-vertical (vv) até 4 níveis
-  by Micox - elmicox.blogspot.com - Ver. 2.0 - 20/02/08 - Creative Commons License
-*/    
-.menu-hv, .menu-vv { position: relative; margin: 0; padding: 0; display: block; zoom: 1;}
- .menu-hv * ,    .menu-vv * { margin: 0; padding: 0 ; list-style: none}
- .menu-hv li ,   .menu-vv li { position: relative; vertical-align: top }
- .menu-hv a ,    .menu-vv a { display: block; zoom: 1; text-decoration: none; color: #333; font-family:Lucida Sans Unicode; font-size: 14px;}
- .menu-hv li ul, .menu-vv li ul { position: absolute; visibility: hidden  }
- .menu-hv li:hover ul,  .menu-vv li:hover ul,
- .menu-hv li.hover ul,  .menu-vv li.hover ul { visibility: visible }
- .menu-hv li:hover ul ul,  .menu-vv li:hover ul ul,
- .menu-hv li.hover ul ul,  .menu-vv li.hover ul ul { visibility: hidden }
- .menu-hv li li:hover ul,  .menu-vv li li:hover ul,
- .menu-hv li li.hover ul,  .menu-vv li li.hover ul { visibility: visible }
- .menu-hv li li:hover ul ul,  .menu-vv li li:hover ul ul,
- .menu-hv li li.hover ul ul,  .menu-vv li li.hover ul ul { visibility: hidden }
- .menu-hv li li li:hover ul,  .menu-vv li li li:hover ul,
- .menu-hv li li li.hover ul,  .menu-vv li li li.hover ul { visibility: visible }
- /* características horizontal-vertical */
- .menu-hv:after, .menu-hv.after { content: "."; line-height: 0px; clear: both; display: block; visibility: hidden}
- .menu-hv li { float: left; }  
- .menu-hv li ul li { float: none; }
- .menu-hv li ul li ul { position: absolute; left: 100%; top: 0; }
- /* características vertical-vertical */
- .menu-vv { float: left; } 
- .menu-vv li ul { left: 100%; top: 0; }
- /* ****************************************
+          Menus drop-down horizontal-vertical (hv) e vertical-vertical (vv) até 4 níveis
+          by Micox - elmicox.blogspot.com - Ver. 2.0 - 20/02/08 - Creative Commons License
+        */.menu-hv, .menu-vv
+        {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            display: block;
+            zoom: 1;
+        }
+        .menu-hv *, .menu-vv *
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .menu-hv li, .menu-vv li
+        {
+            position: relative;
+            vertical-align: top;
+        }
+        .menu-hv a, .menu-vv a
+        {
+            display: block;
+            zoom: 1;
+            text-decoration: none;
+            color: #333;
+            font-family: Lucida Sans Unicode;
+            font-size: 14px;
+        }
+        .menu-hv li ul, .menu-vv li ul
+        {
+            position: absolute;
+            visibility: hidden;
+        }
+        .menu-hv li:hover ul, .menu-vv li:hover ul, .menu-hv li.hover ul, .menu-vv li.hover ul
+        {
+            visibility: visible;
+        }
+        .menu-hv li:hover ul ul, .menu-vv li:hover ul ul, .menu-hv li.hover ul ul, .menu-vv li.hover ul ul
+        {
+            visibility: hidden;
+        }
+        .menu-hv li li:hover ul, .menu-vv li li:hover ul, .menu-hv li li.hover ul, .menu-vv li li.hover ul
+        {
+            visibility: visible;
+        }
+        .menu-hv li li:hover ul ul, .menu-vv li li:hover ul ul, .menu-hv li li.hover ul ul, .menu-vv li li.hover ul ul
+        {
+            visibility: hidden;
+        }
+        .menu-hv li li li:hover ul, .menu-vv li li li:hover ul, .menu-hv li li li.hover ul, .menu-vv li li li.hover ul
+        {
+            visibility: visible;
+        }
+        /* características horizontal-vertical */.menu-hv:after, .menu-hv.after
+        {
+            content: ".";
+            line-height: 0px;
+            clear: both;
+            display: block;
+            visibility: hidden;
+        }
+        .menu-hv li
+        {
+            float: left;
+        }
+        .menu-hv li ul li
+        {
+            float: none;
+        }
+        .menu-hv li ul li ul
+        {
+            position: absolute;
+            left: 100%;
+            top: 0;
+        }
+        /* características vertical-vertical */.menu-vv
+        {
+            float: left;
+        }
+        .menu-vv li ul
+        {
+            left: 100%;
+            top: 0;
+        }
+        /* ****************************************
    ALTERE ABAIXO. defina a largura, cor, formatações, etc, dos itens do seu menu abaixo
    ou apague as linhas se for definir em outro lugar
- */
- .menu-hv li { width: 100px; background-color: #EDEDED; }
- .menu-vv li { width: 100px; background-color: #EDEDED; }
- .menu-hv li a:hover {background-color: #D6D6D6; color: #6D6D6D; }
- .menu-vv li a:hover {background-color: #D6D6D6; color: #6D6D6D; }
-
- 
-/* Micox Pseudo-class-css2 to IE (MXPC). Activate .hover and .first-child in IE 6
+ */.menu-hv li
+        {
+            width: 100px;
+            background-color: #EDEDED;
+        }
+        .menu-vv li
+        {
+            width: 100px;
+            background-color: #EDEDED;
+        }
+        .menu-hv li a:hover
+        {
+            background-color: #D6D6D6;
+            color: #6D6D6D;
+        }
+        .menu-vv li a:hover
+        {
+            background-color: #D6D6D6;
+            color: #6D6D6D;
+        }
+        /* Micox Pseudo-class-css2 to IE (MXPC). Activate .hover and .first-child in IE 6
    http://elmicox.blogspot.com/2008/03/ativando-hover-e-first-child-no-ie-6-um.html 
-   Deixe isto ao final de tudo do seu CSS pois o Webkit não interpreta nada mais abaixo do expression */
-* html * { color: expression( (function(who){ if(!who.MXPC){
+   Deixe isto ao final de tudo do seu CSS pois o Webkit não interpreta nada mais abaixo do expression */* html *
+        {
+            color: expression( (function(who){ if(!who.MXPC){
  who.MXPC = '1';
  if(who.nodeName != 'A'){
   who.onmouseenter=function(){ who.className += ' hover'};
   who.onmouseleave=function(){ who.className = who.className.replace(' hover','')}; }
  (who==who.parentNode.firstChild) ? who.className += ' first-child' : '' ;
-} } )(this) , 'auto') }
+} } )(this) , 'auto');
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -189,21 +263,23 @@
 
     <div id="container">
         <ul class="menu-hv">
-                <li><a href="#">Home</a></li>
-                <li>
-                    <a href="#">Cadastro</a>
-                    <ul>
-                        <li><a href="TipoProjeto.aspx">Tipo de projeto</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Projetos</a></li>
-                <li><a href="Arquivo.aspx">Arquivos</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Profissionais</a></li>
-                <li><a href="#">Restrição</a></li>
-                <li><a href="Contatos.aspx">Contatos</a></li>
-                <li><a href="Default.aspx">Sair</a></li>
-            </ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Cadastro</a>
+                <ul>
+                    <li><a href="TipoProjeto.aspx">Tipo de projeto</a></li>
+                    <li><a href="Parceiros.aspx">Parceiros</a></li>
+                    <li><a href="Perfil.aspx">Perfis</a></li>
+                    <li><a href="Usuario.aspx">Usuários</a></li>
+                    <li><a href="Noticia.aspx">Notícias</a></li>
+                    <li><a href="Cliente.aspx">Clientes</a></li>
+                    <li><a href="ConsultorEspecializado.aspx">Consultor especializado</a></li>
+                    <li><a href="Profissional.aspx">Profissional</a></li>
+                </ul>
+            </li>
+            <li><a href="Arquivo.aspx">Arquivos</a></li>
+            <li><a href="Contatos.aspx">Contatos</a></li>
+            <li><a href="Default.aspx">Sair</a></li>
+        </ul>
         <div id="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
