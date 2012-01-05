@@ -274,6 +274,8 @@
                     <li><a href="Cliente.aspx">Clientes</a></li>
                     <li><a href="ConsultorEspecializado.aspx">Consultor especializado</a></li>
                     <li><a href="Profissional.aspx">Profissional</a></li>
+                    <li><a href="FichaTecnica.aspx">Ficha técnica</a></li>
+                    <li><a href="SituacaoProjeto.aspx">Situação do projeto</a></li>
                 </ul>
             </li>
             <li><a href="Arquivo.aspx">Arquivos</a></li>
