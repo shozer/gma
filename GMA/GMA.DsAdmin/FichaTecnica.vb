@@ -127,7 +127,7 @@ Public Class FichaTecnica
         query &= "des_projeto_es_fte = ?des_projeto_es_fte, "
         query &= "des_programa_pt_fte = ?des_programa_pt_fte, "
         query &= "des_programa_en_fte = ?des_programa_en_fte, "
-        query &= "des_projeto_es_fte = ?des_projeto_es_fte, "
+        query &= "des_programa_es_fte = ?des_programa_es_fte, "
         query &= "des_artigo_pt_fte = ?des_artigo_pt_fte, "
         query &= "des_artigo_en_fte = ?des_artigo_en_fte, "
         query &= "des_artigo_es_fte = ?des_artigo_es_fte, "

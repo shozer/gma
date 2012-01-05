@@ -32,6 +32,38 @@ Public Class Restricao
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarRestricaoPorArquivo(ByVal cod_arquivo_arq As Int32, ByVal Tipo As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_restricao_res, cod_arquivo_arq, cod_cliente_cli, cod_perfil_per "
+        query &= "From tb_gma_restricao "
+        query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
+
+        If Tipo = 0 Then
+            query &= "and cod_perfil_per is not null "
+        ElseIf Tipo = 1 Then
+            query &= "and cod_cliente_cli is not null "
+        End If
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_arquivo_arq", cod_arquivo_arq)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_restricao")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "
@@ -42,14 +74,70 @@ Public Class Restricao
 
         Dim query As String = "Select cod_restricao_res, cod_arquivo_arq, cod_cliente_cli, cod_perfil_per "
         query &= "From tb_gma_restricao "
-        query &= "Where cod_restricao_res = @cod_restricao_res "
+        query &= "Where cod_restricao_res = ?cod_restricao_res "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_restricao_res", cod_restricao_res)
+            command.Parameters.AddWithValue("?cod_restricao_res", cod_restricao_res)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_restricao")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
+    Public Function ConsultarRestricaoPorArquivoPerfil(ByVal cod_arquivo_arq As Int32, ByVal cod_perfil_per As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_restricao_res, cod_arquivo_arq, cod_cliente_cli, cod_perfil_per "
+        query &= "From tb_gma_restricao "
+        query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
+        query &= "and cod_perfil_per = ?cod_perfil_per "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_arquivo_arq", cod_arquivo_arq)
+            command.Parameters.AddWithValue("?cod_perfil_per", cod_perfil_per)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_restricao")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
+    Public Function ConsultarRestricaoPorArquivoCliente(ByVal cod_arquivo_arq As Int32, ByVal cod_cliente_cli As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_restricao_res, cod_arquivo_arq, cod_cliente_cli, cod_perfil_per "
+        query &= "From tb_gma_restricao "
+        query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
+        query &= "and cod_cliente_cli = ?cod_cliente_cli "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_arquivo_arq", cod_arquivo_arq)
+            command.Parameters.AddWithValue("?cod_cliente_cli", cod_cliente_cli)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_restricao")
