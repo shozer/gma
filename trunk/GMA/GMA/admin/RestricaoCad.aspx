@@ -2,6 +2,25 @@
     CodeFile="RestricaoCad.aspx.vb" Inherits="admin_RestricaoCad" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <script type="text/javascript">
+        function Seleciona() {
+            var hf = document.getElementById("ctl00_ContentPlaceHolder1_hfSelecionado");
+
+            for (i = 0; i < document.aspnetForm.elements.length; i++) {
+                if (document.aspnetForm.elements[i].type == "checkbox") {
+                    if (document.aspnetForm.elements[i].checked) {
+                        hf.value = true;
+                        break;
+                    }
+                }
+            }
+
+            alert(document.getElementById("ctl00_ContentPlaceHolder1_hfSelecionado").value);
+            //document.getElementById("ctl00_ContentPlaceHolder1_hfSelecionado").value = hf.value;
+        }
+    </script>
+
     <h1>
         <asp:Label ID="lblTitulo" runat="server" Text="Restrição"></asp:Label>
     </h1>
@@ -10,10 +29,14 @@
             Arquivo:
         </div>
         <div class="campo">
-            <asp:DropDownList ID="cod_arquivo_arq" DataValueField="cod_arquivo_arq" DataTextField="nom_arquivo_arq"
-                DataSourceID="odsArquivo" EnableViewState="false" runat="server">
+            <asp:DropDownList ID="cod_arquivo_arq" AppendDataBoundItems="true" DataValueField="cod_arquivo_arq"
+                DataTextField="des_arquivo_pt_arq" DataSourceID="odsArquivo" EnableViewState="false"
+                runat="server">
+                <asp:ListItem Value="-1">Selecione</asp:ListItem>
             </asp:DropDownList>
-            <asp:ObjectDataSource ID="odsArquivo" EnableViewState="false" TypeName="GMA.DsAdmin.Restricao"
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Selecione um arquivo!"
+                Display="Dynamic" Text="*" ControlToValidate="cod_arquivo_arq" InitialValue="-1"></asp:RequiredFieldValidator>
+            <asp:ObjectDataSource ID="odsArquivo" EnableViewState="false" TypeName="GMA.DsAdmin.Arquivo"
                 runat="server" SelectMethod="ListarArquivo"></asp:ObjectDataSource>
         </div>
         <div class="campo_titulo">
@@ -40,6 +63,7 @@
         </div>
     </div>
     <div class="filtros">
+        <asp:HiddenField ID="hfSelecionado" runat="server" />
         <asp:Button ID="btnSalvar" CssClass="botao" runat="server" Text="Salvar" />
         <asp:Button ID="btnCancelar" CssClass="botao" runat="server" Text="Cancelar" CausesValidation="false"
             PostBackUrl="~/admin/Restricao.aspx" />

@@ -13,8 +13,33 @@ Public Class Restricao
         Dim conn As MySqlConnection = Nothing
         Dim lDSRetorno As New DataSet
 
-        Dim query As String = "Select cod_restricao_res, cod_arquivo_arq, cod_cliente_cli, cod_perfil_per "
+        Dim query As String = "Select cod_restricao_res, tb_gma_restricao.cod_arquivo_arq, des_arquivo_pt_arq, cod_cliente_cli, cod_perfil_per "
         query &= "From tb_gma_restricao "
+        query &= "inner join tb_gma_arquivo on tb_gma_restricao.cod_arquivo_arq = tb_gma_arquivo.cod_arquivo_arq "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_restricao")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
+    Public Function ListarRestricaoGrid() As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select distinct tb_gma_restricao.cod_arquivo_arq, des_arquivo_pt_arq "
+        query &= "From tb_gma_restricao "
+        query &= "inner join tb_gma_arquivo on tb_gma_restricao.cod_arquivo_arq = tb_gma_arquivo.cod_arquivo_arq "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -227,6 +252,27 @@ Public Class Restricao
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
             command.Parameters.AddWithValue("?cod_restricao_res", cod_restricao_res)
+
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Public Sub ExcluirRestricaoPorArquivo(ByVal cod_arquivo_arq As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Delete from tb_gma_restricao "
+        query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_arquivo_arq", cod_arquivo_arq)
 
             command.ExecuteNonQuery()
         Catch ex As Exception

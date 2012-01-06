@@ -16,6 +16,9 @@ Partial Class admin_RestricaoCad
         If Not IsPostBack Then
             If Not Request("cod_arquivo_arq") Is Nothing Then
                 lblTitulo.Text = "Alteração da restrição"
+
+                cod_arquivo_arq.SelectedValue = Request("cod_arquivo_arq")
+                cod_arquivo_arq.Enabled = False
             Else
                 lblTitulo.Text = "Inclusão da restrição"
             End If
@@ -26,34 +29,24 @@ Partial Class admin_RestricaoCad
 
 #Region " Eventos gerais "
 
-    Protected Sub cod_perfil_per_DataBound(ByVal sender As Object, ByVal e As System.EventArgs) Handles cod_perfil_per.DataBound
-        Dim lDataView As DataView
-        Using obj As New Restricao
-            lDataView = obj.ConsultarRestricaoPorArquivoPerfil(CType(Request("cod_arquivo_arq"), Int32), 1)
-        End Using
+    Protected Sub Page_PreRenderComplete(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRenderComplete
+        Dim lDataView As New DataView
 
-        With lDataView.Table
-            'nom_arquivo_arq.Text = .Rows(0)("nom_arquivo_arq")
-            'des_arquivo_pt_arq.Text = .Rows(0)("des_arquivo_pt_arq")
-            'des_arquivo_es_arq.Text = .Rows(0)("des_arquivo_es_arq").ToString()
-            'des_arquivo_en_arq.Text = .Rows(0)("des_arquivo_en_arq").ToString()
-            'sts_ativo_arq.Checked = .Rows(0)("sts_ativo_arq")
-        End With
-    End Sub
+        For Each lRow As ListItem In cod_perfil_per.Items
+            Using obj As New Restricao
+                lDataView = obj.ConsultarRestricaoPorArquivoPerfil(CType(Request("cod_arquivo_arq"), Int32), CType(lRow.Value, Int32))
+            End Using
 
-    Protected Sub cod_cliente_cli_DataBound(ByVal sender As Object, ByVal e As System.EventArgs) Handles cod_cliente_cli.DataBound
-        Dim lDataView As DataView
-        Using obj As New Restricao
-            lDataView = obj.ConsultarRestricaoPorArquivoCliente(CType(Request("cod_arquivo_arq"), Int32), 1)
-        End Using
+            lRow.Selected = lDataView.Table.Rows.Count > 0
+        Next
 
-        With lDataView.Table
-            'nom_arquivo_arq.Text = .Rows(0)("nom_arquivo_arq")
-            'des_arquivo_pt_arq.Text = .Rows(0)("des_arquivo_pt_arq")
-            'des_arquivo_es_arq.Text = .Rows(0)("des_arquivo_es_arq").ToString()
-            'des_arquivo_en_arq.Text = .Rows(0)("des_arquivo_en_arq").ToString()
-            'sts_ativo_arq.Checked = .Rows(0)("sts_ativo_arq")
-        End With
+        For Each lRow As ListItem In cod_cliente_cli.Items
+            Using obj As New Restricao
+                lDataView = obj.ConsultarRestricaoPorArquivoCliente(CType(Request("cod_arquivo_arq"), Int32), CType(lRow.Value, Int32))
+            End Using
+
+            lRow.Selected = lDataView.Table.Rows.Count > 0
+        Next
     End Sub
 
 #End Region
@@ -61,44 +54,56 @@ Partial Class admin_RestricaoCad
 #Region " Botão "
 
     Protected Sub btnSalvar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
-        'Dim arquivo As String = ""
+        Dim clientes As String = ""
+        Dim perfis As String = ""
 
-        'If nom_arquivo_arq.Text <> "" Then
-        '    arquivo = nom_arquivo_arq.Text
-        'ElseIf upl_nom_arquivo_arq.HasFile Then
-        '    Dim caminho As String = Server.MapPath("..") & "\arquivos"
-        '    Dim nome As String = "arq_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_arquivo_arq.FileName.Split(".")(1).ToLower
+        For Each lRow As ListItem In cod_cliente_cli.Items
+            If lRow.Selected Then
+                clientes &= lRow.Value & ";"
+            End If
+        Next
 
-        '    upl_nom_arquivo_arq.SaveAs(caminho & "\" & nome)
-        '    arquivo = nome
-        'End If
+        For Each lRow As ListItem In cod_perfil_per.Items
+            If lRow.Selected Then
+                perfis &= lRow.Value & ";"
+            End If
+        Next
 
-        'If arquivo <> "" Then
-        '    Using obj As New Arquivo
-        '        Dim lDataSet As DataSet = obj.ConsultarArquivo(-1).Table.DataSet
+        If clientes <> "" Or perfis <> "" Then
+            Using objRestricao As New Restricao
+                '*** Realiza a exclusão de todas as restrições associadas a esse arquivo
+                objRestricao.ExcluirRestricaoPorArquivo(CType(cod_arquivo_arq.SelectedValue, Int32))
 
-        '        With lDataSet.Tables(0)
-        '            .Rows.Add(.NewRow())
+                Dim lDataSet As DataSet = objRestricao.ConsultarRestricao(-1).Table.DataSet
+                lDataSet.Tables(0).Rows.Add(lDataSet.Tables(0).NewRow())
 
-        '            .Rows(0)("nom_arquivo_arq") = arquivo
-        '            .Rows(0)("des_arquivo_pt_arq") = des_arquivo_pt_arq.Text
-        '            .Rows(0)("des_arquivo_es_arq") = IIf(des_arquivo_es_arq.Text = "", DBNull.Value, des_arquivo_es_arq.Text)
-        '            .Rows(0)("des_arquivo_en_arq") = IIf(des_arquivo_en_arq.Text = "", DBNull.Value, des_arquivo_en_arq.Text)
-        '            .Rows(0)("sts_ativo_arq") = sts_ativo_arq.Checked
-        '        End With
+                For Each item As String In clientes.Split(";")
+                    If item <> "" Then
+                        With lDataSet.Tables(0)
+                            .Rows(0)("cod_arquivo_arq") = cod_arquivo_arq.SelectedValue
+                            .Rows(0)("cod_cliente_cli") = item
+                        End With
 
-        '        If Request("cod_arquivo_arq") Is Nothing Then
-        '            obj.IncluirArquivo(lDataSet)
-        '        Else
-        '            lDataSet.Tables(0).Rows(0)("cod_arquivo_arq") = CType(Request("cod_arquivo_arq"), Int32)
-        '            obj.AlterarArquivo(lDataSet)
-        '        End If
-        '    End Using
+                        objRestricao.IncluirRestricao(lDataSet)
+                    End If
+                Next
 
-        '    Response.Redirect("Restricao.aspx")
-        'Else
-        '    ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('É necessário adicionar um arquivo!');", True)
-        'End If
+                For Each item As String In perfis.Split(";")
+                    If item <> "" Then
+                        With lDataSet.Tables(0)
+                            .Rows(0)("cod_arquivo_arq") = cod_arquivo_arq.SelectedValue
+                            .Rows(0)("cod_perfil_per") = item
+                        End With
+
+                        objRestricao.IncluirRestricao(lDataSet)
+                    End If
+                Next
+            End Using
+
+            Response.Redirect("Restricao.aspx")
+        Else
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('É necessário selecionar um cliente ou perfil!');", True)
+        End If
     End Sub
 
 #End Region

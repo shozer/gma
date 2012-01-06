@@ -31,6 +31,6 @@
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:ObjectDataSource ID="odsPrincipal" EnableViewState="false" SelectMethod="ListarRestricao"
+    <asp:ObjectDataSource ID="odsPrincipal" EnableViewState="false" SelectMethod="ListarRestricaoGrid"
         runat="server" TypeName="GMA.DsAdmin.Restricao"></asp:ObjectDataSource>
 </asp:Content>
