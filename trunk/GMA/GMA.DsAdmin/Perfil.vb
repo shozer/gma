@@ -43,14 +43,14 @@ Public Class Perfil
 
         Dim query As String = "Select cod_perfil_per, nom_perfil_per, sts_ativo_per "
         query &= "From tb_gma_perfil "
-        query &= "Where cod_perfil_per = @cod_perfil_per "
+        query &= "Where cod_perfil_per = ?cod_perfil_per "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_perfil_per", cod_perfil_per)
+            command.Parameters.AddWithValue("?cod_perfil_per", cod_perfil_per)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_perfil")

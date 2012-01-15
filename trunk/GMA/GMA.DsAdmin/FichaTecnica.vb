@@ -43,14 +43,14 @@ Public Class FichaTecnica
 
         Dim query As String = "Select cod_ficha_tecnica_fte, nom_projeto_pt_fte, nom_projeto_en_fte, nom_projeto_es_fte, des_projeto_pt_fte, des_projeto_en_fte, des_projeto_es_fte, des_programa_pt_fte, des_programa_en_fte, des_programa_es_fte, des_artigo_pt_fte, des_artigo_en_fte, des_artigo_es_fte, des_video_pt_fte, des_video_en_fte, des_video_es_fte, des_entrevista_pt_fte, des_entrevista_en_fte, des_entrevista_es_fte, des_livro_pt_fte, des_livro_en_fte, des_livro_es_fte "
         query &= "From tb_gma_ficha_tecnica "
-        query &= "Where cod_ficha_tecnica_fte = @cod_ficha_tecnica_fte "
+        query &= "Where cod_ficha_tecnica_fte = ?cod_ficha_tecnica_fte "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_ficha_tecnica_fte", cod_ficha_tecnica_fte)
+            command.Parameters.AddWithValue("?cod_ficha_tecnica_fte", cod_ficha_tecnica_fte)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_ficha_tecnica")

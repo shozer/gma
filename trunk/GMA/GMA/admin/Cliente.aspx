@@ -14,15 +14,23 @@
         <ContentTemplate>
             <asp:GridView ID="grvPrincipal" EnableViewState="false" AllowPaging="true" AllowSorting="true"
                 PageSize="30" AutoGenerateColumns="false" runat="server" DataSourceID="odsPrincipal"
-                DataKeyNames="cod_cliente_cli">
+                DataKeyNames="cod_cliente_cli" Width="500px">
                 <Columns>
                     <asp:BoundField DataField="nom_cliente_cli" HeaderText="Cliente" SortExpression="nom_cliente_cli">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:BoundField DataField="des_email_cli" HeaderText="E-mail" SortExpression="des_email_cli">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:BoundField DataField="des_login_cli" HeaderText="Login" SortExpression="des_login_cli">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
                         <ItemTemplate>
                             <asp:ImageButton ID="btnAlterar" runat="server" ImageUrl="~/img/alterar.png" Width="32px"
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_cliente_cli", "~/admin/ClienteCad.aspx?cod_cliente_cli={0}") %>' />

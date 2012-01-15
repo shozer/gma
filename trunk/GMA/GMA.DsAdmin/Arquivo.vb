@@ -43,14 +43,14 @@ Public Class Arquivo
 
         Dim query As String = "Select cod_arquivo_arq, nom_arquivo_arq, des_arquivo_pt_arq, des_arquivo_en_arq, des_arquivo_es_arq, dat_cadastro_arq, sts_ativo_arq "
         query &= "From tb_gma_arquivo "
-        query &= "Where cod_arquivo_arq = @cod_arquivo_arq "
+        query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_arquivo_arq", cod_arquivo_arq)
+            command.Parameters.AddWithValue("?cod_arquivo_arq", cod_arquivo_arq)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_arquivo")

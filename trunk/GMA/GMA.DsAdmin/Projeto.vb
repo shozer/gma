@@ -43,14 +43,14 @@ Public Class Projeto
 
         Dim query As String = "Select cod_projeto_pro, des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, cod_ficha_tecnica_fte, cod_tipo_projeto_tpr, cod_usuario_usu, cod_cliente_cli, cod_situacao_projeto_spr, sts_ativo_pro "
         query &= "From tb_gma_projeto "
-        query &= "Where cod_projeto_pro = @cod_projeto_pro "
+        query &= "Where cod_projeto_pro = ?cod_projeto_pro "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_projeto_pro", cod_projeto_pro)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_projeto")

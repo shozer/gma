@@ -42,14 +42,14 @@ Public Class HistoricoProjeto
 
         Dim query As String = "Select cod_historico_projeto_hpr, cod_usuario_usu, cod_situacao_projeto_spr, cod_projeto_pro, dat_cadastro_hpr "
         query &= "From tb_gma_historico_projeto "
-        query &= "Where cod_historico_projeto_hpr = @cod_historico_projeto_hpr "
+        query &= "Where cod_historico_projeto_hpr = ?cod_historico_projeto_hpr "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_historico_projeto_hpr", cod_historico_projeto_hpr)
+            command.Parameters.AddWithValue("?cod_historico_projeto_hpr", cod_historico_projeto_hpr)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_historico_projeto")

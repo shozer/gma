@@ -44,14 +44,14 @@ Public Class Parceiro
 
         Dim query As String = "Select cod_parceiro_par, nom_parceiro_par, des_imagem_par, des_link_par, cod_usuario_usu, sts_ativo_par "
         query &= "From tb_gma_parceiro "
-        query &= "Where cod_parceiro_par = @cod_parceiro_par "
+        query &= "Where cod_parceiro_par = ?cod_parceiro_par "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_parceiro_par", cod_parceiro_par)
+            command.Parameters.AddWithValue("?cod_parceiro_par", cod_parceiro_par)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_parceiro")
@@ -72,7 +72,7 @@ Public Class Parceiro
         Dim conn As MySqlConnection = Nothing
         Dim primaryKey As Int32 = -1
 
-        Dim query As String = "Insert into tb_gma_Parceiro(nom_parceiro_par, des_imagem_par, des_link_par, cod_usuario_usu, sts_ativo_par) "
+        Dim query As String = "Insert into tb_gma_parceiro(nom_parceiro_par, des_imagem_par, des_link_par, cod_usuario_usu, sts_ativo_par) "
         query &= "values(?nom_parceiro_par, ?des_imagem_par, ?des_link_par, ?cod_usuario_usu, ?sts_ativo_par); SELECT LAST_INSERT_ID();"
 
         Try

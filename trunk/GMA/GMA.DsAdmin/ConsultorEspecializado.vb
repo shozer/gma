@@ -43,14 +43,14 @@ Public Class ConsultorEspecializado
 
         Dim query As String = "Select cod_consultor_especializado_ces, nom_consultor_ces, des_email_ces, num_telefone_ces, sts_ativo_ces "
         query &= "From tb_gma_consultor_especializado "
-        query &= "Where cod_consultor_especializado_ces = @cod_consultor_especializado_ces "
+        query &= "Where cod_consultor_especializado_ces = ?cod_consultor_especializado_ces "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_consultor_especializado_ces", cod_consultor_especializado_ces)
+            command.Parameters.AddWithValue("?cod_consultor_especializado_ces", cod_consultor_especializado_ces)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_consultor_especializado")
