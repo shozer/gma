@@ -1,0 +1,235 @@
+﻿body
+{
+	font-size: 12px;
+	font-family: Lucida Sans Unicode;
+	color: #333;
+	background: #F5F5F5;
+}
+h1
+{
+	padding: 0;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Lucida Sans Unicode; /*border-bottom: 1px solid #000;*/
+}
+#container
+{
+	width: 960px;
+	margin: 0 auto;
+}
+#content
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px 0px 10px 10px;
+	width: 960px;
+	float: left;
+	background-color: #fff;
+}
+#menu ul
+{
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	width: 100%;
+	background-color: #EDEDED;
+	list-style: none;
+}
+#menu ul li
+{
+	display: inline;
+}
+#menu ul li a
+{
+	font-family: Lucida Sans Unicode;
+	font-size: 14px;
+	padding: 2px 10px;
+	float: left; /* visual do link */
+	background-color: #EDEDED;
+	color: #333;
+	text-decoration: none;
+	border-bottom: 3px solid #EDEDED;
+}
+#menu ul li a:hover
+{
+	background-color: #D6D6D6;
+	color: #6D6D6D;
+	border-bottom: 3px solid #EA0000;
+}
+.botao
+{
+	background: #e2e2e2; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2e2e2), color-stop(50%,#dbdbdb), color-stop(51%,#d1d1d1), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* IE10+ */
+	background: linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	/*border-radius: 7px;*/
+	height: 30px;
+	font-family: Lucida Sans Unicode;
+}
+.campos
+{
+	margin-top: 5px;
+	margin-bottom: 7px;
+	width: 100%;
+}
+.campo_titulo
+{
+	width: 250px;
+	float: left;
+	margin-bottom: 5px;
+}
+.campo
+{
+	width: 710px;
+	float: left;
+	margin-bottom: 5px;
+}
+.filtros
+{
+	margin-top: 5px;
+	margin-bottom: 7px;
+	padding: 6px 0px 6px 0px;
+	border: 1px solid #EDCCFF;
+	float: left;
+	width: 500px;
+}
+.clear
+{
+	clear: both;
+}
+
+/*  Menus drop-down horizontal-vertical (hv) e vertical-vertical (vv) até 4 níveis
+    by Micox - elmicox.blogspot.com - Ver. 2.0 - 20/02/08 - Creative Commons License
+*/
+        
+.menu-hv, .menu-vv
+{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	display: block;
+	/*zoom: 1;*/
+}
+.menu-hv *, .menu-vv *
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.menu-hv li, .menu-vv li
+{
+	position: relative;
+	vertical-align: top;
+}
+.menu-hv a, .menu-vv a
+{
+	display: block;
+	/*zoom: 1;*/
+	text-decoration: none;
+	color: #333;
+	font-family: Lucida Sans Unicode;
+	font-size: 14px;
+}
+.menu-hv li ul, .menu-vv li ul
+{
+	position: absolute;
+	visibility: hidden;
+}
+.menu-hv li:hover ul, .menu-vv li:hover ul, .menu-hv li.hover ul, .menu-vv li.hover ul
+{
+	visibility: visible;
+}
+.menu-hv li:hover ul ul, .menu-vv li:hover ul ul, .menu-hv li.hover ul ul, .menu-vv li.hover ul ul
+{
+	visibility: hidden;
+}
+.menu-hv li li:hover ul, .menu-vv li li:hover ul, .menu-hv li li.hover ul, .menu-vv li li.hover ul
+{
+	visibility: visible;
+}
+.menu-hv li li:hover ul ul, .menu-vv li li:hover ul ul, .menu-hv li li.hover ul ul, .menu-vv li li.hover ul ul
+{
+	visibility: hidden;
+}
+.menu-hv li li li:hover ul, .menu-vv li li li:hover ul, .menu-hv li li li.hover ul, .menu-vv li li li.hover ul
+{
+	visibility: visible;
+}
+
+/* características horizontal-vertical */
+
+.menu-hv:after, .menu-hv.after
+{
+	content: ".";
+	line-height: 0px;
+	clear: both;
+	display: block;
+	visibility: hidden;
+}
+.menu-hv li
+{
+	float: left;
+}
+.menu-hv li ul li
+{
+	float: none;
+}
+.menu-hv li ul li ul
+{
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+
+/* características vertical-vertical */
+
+.menu-vv
+{
+	float: left;
+}
+.menu-vv li ul
+{
+	left: 100%;
+	top: 0;
+}
+
+/* ****************************************
+   ALTERE ABAIXO. defina a largura, cor, formatações, etc, dos itens do seu menu abaixo
+   ou apague as linhas se for definir em outro lugar
+ */
+ 
+ .menu-hv li
+{
+	width: 100px;
+	background-color: #EDEDED;
+}
+.menu-vv li
+{
+	width: 100px;
+	background-color: #EDEDED;
+}
+.menu-hv li a:hover
+{
+	background-color: #D6D6D6;
+	color: #6D6D6D;
+}
+.menu-vv li a:hover
+{
+	background-color: #D6D6D6;
+	color: #6D6D6D;
+}
+
+/* Micox Pseudo-class-css2 to IE (MXPC). Activate .hover and .first-child in IE 6
+   http://elmicox.blogspot.com/2008/03/ativando-hover-e-first-child-no-ie-6-um.html 
+   Deixe isto ao final de tudo do seu CSS pois o Webkit não interpreta nada mais abaixo do expression */
+
+* html *
+{
+	/*color: expression( (function(who){ if(!who.MXPC){  who.MXPC = '1';  if(who.nodeName != 'A'){   who.onmouseenter=function(){ who.className += ' hover'};   who.onmouseleave=function(){ who.className = who.className.replace(' hover','')}; }  (who==who.parentNode.firstChild) ? who.className += ' first-child' : '' ; } } )(this) , 'auto' );*/
+}

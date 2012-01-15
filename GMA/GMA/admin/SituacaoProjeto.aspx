@@ -14,11 +14,15 @@
         <ContentTemplate>
             <asp:GridView ID="grvPrincipal" EnableViewState="false" AllowPaging="true" AllowSorting="true"
                 PageSize="30" AutoGenerateColumns="false" runat="server" DataSourceID="odsPrincipal"
-                DataKeyNames="cod_situacao_projeto_spr">
+                DataKeyNames="cod_situacao_projeto_spr" Width="400px">
                 <Columns>
                     <asp:BoundField DataField="nom_situacao_projeto_pt_spr" HeaderText="Situação" SortExpression="nom_situacao_projeto_pt_spr">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
                         <ItemTemplate>
                             <asp:ImageButton ID="btnAlterar" runat="server" ImageUrl="~/img/alterar.png" Width="32px"
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_situacao_projeto_spr", "~/admin/SituacaoProjetoCad.aspx?cod_situacao_projeto_spr={0}") %>' />

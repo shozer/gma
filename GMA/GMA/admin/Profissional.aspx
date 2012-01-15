@@ -14,15 +14,23 @@
         <ContentTemplate>
             <asp:GridView ID="grvPrincipal" EnableViewState="false" AllowPaging="true" AllowSorting="true"
                 PageSize="30" AutoGenerateColumns="false" runat="server" DataSourceID="odsPrincipal"
-                DataKeyNames="cod_profissional_prf">
+                DataKeyNames="cod_profissional_prf" Width="600px">
                 <Columns>
-                    <asp:BoundField DataField="nom_profissional_prf" HeaderText="Profissional"
-                        SortExpression="nom_profissional_prf"></asp:BoundField>
+                    <asp:BoundField DataField="nom_profissional_prf" HeaderText="Profissional" SortExpression="nom_profissional_prf">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="des_email_prf" HeaderText="E-mail" SortExpression="des_email_prf">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:BoundField DataField="sts_ativo_prf" HeaderText="Ativo" SortExpression="sts_ativo_prf">
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
                         <ItemTemplate>
                             <asp:ImageButton ID="btnAlterar" runat="server" ImageUrl="~/img/alterar.png" Width="32px"
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_profissional_prf", "~/admin/ProfissionalCad.aspx?cod_profissional_prf={0}") %>' />

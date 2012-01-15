@@ -14,15 +14,23 @@
         <ContentTemplate>
             <asp:GridView ID="grvPrincipal" EnableViewState="false" AllowPaging="true" AllowSorting="true"
                 PageSize="30" AutoGenerateColumns="false" runat="server" DataSourceID="odsPrincipal"
-                DataKeyNames="cod_consultor_especializado_ces">
+                DataKeyNames="cod_consultor_especializado_ces" Width="600px">
                 <Columns>
-                    <asp:BoundField DataField="nom_consultor_ces" HeaderText="Consultor"
-                        SortExpression="nom_consultor_ces"></asp:BoundField>
+                    <asp:BoundField DataField="nom_consultor_ces" HeaderText="Consultor" SortExpression="nom_consultor_ces">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="des_email_ces" HeaderText="E-mail" SortExpression="des_email_ces">
+                        <HeaderStyle HorizontalAlign="Left" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:BoundField DataField="sts_ativo_ces" HeaderText="Ativo" SortExpression="sts_ativo_ces">
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" />
                     </asp:BoundField>
                     <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
                         <ItemTemplate>
                             <asp:ImageButton ID="btnAlterar" runat="server" ImageUrl="~/img/alterar.png" Width="32px"
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_consultor_especializado_ces", "~/admin/ConsultorEspecializadoCad.aspx?cod_consultor_especializado_ces={0}") %>' />

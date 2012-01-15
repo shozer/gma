@@ -43,14 +43,14 @@ Public Class Profissional
 
         Dim query As String = "Select cod_profissional_prf, nom_profissional_prf, des_email_prf, num_telefone_prf, num_celular_prf, sts_ativo_prf "
         query &= "From tb_gma_profissional "
-        query &= "Where cod_profissional_prf = @cod_profissional_prf "
+        query &= "Where cod_profissional_prf = ?cod_profissional_prf "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_profissional_prf", cod_profissional_prf)
+            command.Parameters.AddWithValue("?cod_profissional_prf", cod_profissional_prf)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_profissional")

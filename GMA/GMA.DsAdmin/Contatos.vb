@@ -43,14 +43,14 @@ Public Class Contatos
 
         Dim query As String = "Select cod_contato_con, nom_contato_con, des_email_con, num_telefone_con, num_celular_con "
         query &= "From tb_gma_contatos "
-        query &= "Where cod_contato_con = @cod_contato_con "
+        query &= "Where cod_contato_con = ?cod_contato_con "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_contato_con", cod_contato_con)
+            command.Parameters.AddWithValue("?cod_contato_con", cod_contato_con)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_contatos")

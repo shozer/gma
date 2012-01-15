@@ -60,7 +60,7 @@ Partial Class admin_NoticiaCad
                 .Rows(0)("des_noticia_es_not") = IIf(des_noticia_es_not.Text = "", DBNull.Value, des_noticia_es_not.Text)
                 .Rows(0)("des_noticia_en_not") = IIf(des_noticia_en_not.Text = "", DBNull.Value, des_noticia_en_not.Text)
                 .Rows(0)("sts_ativo_not") = sts_ativo_not.Checked
-                .Rows(0)("cod_usuario_usu") = Session("cod_usuario_usu")
+                .Rows(0)("cod_usuario_usu") = IIf(Not Session("cod_usuario_usu") Is Nothing, Session("cod_usuario_usu"), "malmeida")
             End With
 
             If Request("cod_noticia_not") Is Nothing Then

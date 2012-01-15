@@ -46,7 +46,7 @@ Partial Class admin_ParceirosCad
         ElseIf upl_des_imagem_par.HasFile Then
             Dim extensao As String = upl_des_imagem_par.FileName.Split(".")(1).ToLower
 
-            If extensao <> "jpg" Or extensao <> "png" Or extensao <> "gif" Or extensao <> "bmp" Then
+            If extensao <> "jpg" And extensao <> "png" And extensao <> "gif" And extensao <> "bmp" Then
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('É necessário adicionar um arquivo com extensão .jpg ou .png ou .gif ou .bmp!');", True)
                 Exit Sub
             End If
@@ -69,7 +69,7 @@ Partial Class admin_ParceirosCad
                     .Rows(0)("des_imagem_par") = imagem
                     .Rows(0)("des_link_par") = IIf(des_link_par.Text = "", DBNull.Value, des_link_par.Text)
                     .Rows(0)("sts_ativo_par") = sts_ativo_par.Checked
-                    .Rows(0)("cod_usuario_usu") = Session("cod_usuario_usu")
+                    .Rows(0)("cod_usuario_usu") = IIf(Not Session("cod_usuario_usu") Is Nothing, Session("cod_usuario_usu"), "malmeida")
                 End With
 
                 If Request("cod_parceiro_par") Is Nothing Then

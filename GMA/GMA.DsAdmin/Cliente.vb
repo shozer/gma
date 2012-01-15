@@ -43,14 +43,14 @@ Public Class Cliente
 
         Dim query As String = "Select cod_cliente_cli, nom_cliente_cli, des_email_cli, num_telefone_cli, num_celular_cli, num_cnpj_cli, des_login_cli, des_senha_cli, num_cpf_cli, dat_cadastro_cli "
         query &= "From tb_gma_cliente "
-        query &= "Where cod_cliente_cli = @cod_cliente_cli "
+        query &= "Where cod_cliente_cli = ?cod_cliente_cli "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_cliente_cli", cod_cliente_cli)
+            command.Parameters.AddWithValue("?cod_cliente_cli", cod_cliente_cli)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_cliente")

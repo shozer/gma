@@ -43,14 +43,14 @@ Public Class ImagemProjeto
 
         Dim query As String = "Select cod_imagem_projeto_ipr, nom_imagem_projeto_ipr, cod_projeto_pro, nom_ordem_ipr "
         query &= "From tb_gma_imagem_projeto "
-        query &= "Where cod_imagem_projeto_ipr = @cod_imagem_projeto_ipr "
+        query &= "Where cod_imagem_projeto_ipr = ?cod_imagem_projeto_ipr "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_imagem_projeto_ipr", cod_imagem_projeto_ipr)
+            command.Parameters.AddWithValue("?cod_imagem_projeto_ipr", cod_imagem_projeto_ipr)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_imagem_projeto")

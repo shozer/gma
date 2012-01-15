@@ -44,14 +44,14 @@ Public Class Usuario
 
         Dim query As String = "Select cod_usuario_usu, nom_usuario_usu, des_email_usu, num_telefone_usu, num_celular_usu, cod_perfil_per, des_senha_usu, sts_ativo_usu "
         query &= "From tb_gma_usuario "
-        query &= "Where cod_usuario_usu = @cod_usuario_usu "
+        query &= "Where cod_usuario_usu = ?cod_usuario_usu "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
             conn.Open()
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@cod_usuario_usu", cod_usuario_usu)
+            command.Parameters.AddWithValue("?cod_usuario_usu", cod_usuario_usu)
 
             Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
             DA.Fill(lDSRetorno, "tb_gma_usuario")
