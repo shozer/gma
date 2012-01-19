@@ -70,6 +70,7 @@
     <Compile Include="Cliente.vb" />
     <Compile Include="ConsultorEspecializado.vb" />
     <Compile Include="Contatos.vb" />
+    <Compile Include="Erros.vb" />
     <Compile Include="FichaTecnica.vb" />
     <Compile Include="HistoricoProjeto.vb" />
     <Compile Include="ImagemProjeto.vb" />
