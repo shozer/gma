@@ -8,3 +8,5 @@
         <AlternatingRowStyle BackColor="White" Font-Size="12px"/>
         <EmptyDataRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" Font-Size="12px"/>
     </asp:GridView>
+    
+    <asp:Button runat="server" CssClass="botao" />

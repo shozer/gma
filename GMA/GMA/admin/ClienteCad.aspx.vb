@@ -63,7 +63,8 @@ Partial Class admin_ClienteCad
                 .Rows(0)("num_cnpj_cli") = IIf(num_cnpj_cli.Text = "", DBNull.Value, num_cnpj_cli.Text)
 
                 If des_senha_cli.Text <> "" Then
-                    .Rows(0)("des_senha_cli") = FormsAuthentication.HashPasswordForStoringInConfigFile(des_senha_cli.Text, "sha1")
+                    Dim seg As New Seguranca
+                    .Rows(0)("des_senha_cli") = seg.Criptografar(des_senha_cli.Text)
                 Else
                     .Rows(0)("des_senha_cli") = obj.ConsultarCliente(CType(Request("cod_cliente_cli"), Int32)).Table.Rows(0)("des_senha_cli")
                 End If

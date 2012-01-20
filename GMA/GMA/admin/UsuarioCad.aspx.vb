@@ -57,7 +57,8 @@ Partial Class admin_UsuarioCad
                 .Rows(0)("sts_ativo_usu") = sts_ativo_usu.Checked
 
                 If des_senha_usu.Text <> "" Then
-                    .Rows(0)("des_senha_usu") = FormsAuthentication.HashPasswordForStoringInConfigFile(des_senha_usu.Text, "sha1")
+                    Dim seg As New Seguranca
+                    .Rows(0)("des_senha_usu") = seg.Criptografar(des_senha_usu.Text)
                 Else
                     .Rows(0)("des_senha_usu") = obj.ConsultarUsuario(Request("cod_usuario_usu")).Table.Rows(0)("des_senha_usu")
                 End If

@@ -57,7 +57,7 @@
                 </ul>
             </li>
             <li><a href="Arquivo.aspx">Arquivos</a></li>
-            <li><a href="Default.aspx">Sair</a></li>
+            <li><a href="RemoveSessao.aspx">Sair</a></li>
         </ul>
         <div id="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

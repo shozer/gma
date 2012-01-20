@@ -95,6 +95,7 @@
     <Compile Include="Projeto.vb" />
     <Compile Include="Restricao.vb" />
     <Compile Include="Parceiro.vb" />
+    <Compile Include="Seguranca.vb" />
     <Compile Include="SituacaoProjeto.vb" />
     <Compile Include="TipoProjeto.vb" />
     <Compile Include="Usuario.vb" />
