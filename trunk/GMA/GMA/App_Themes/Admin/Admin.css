@@ -26,6 +26,55 @@ h1
 	float: left;
 	background-color: #fff;
 }
+
+#content_default
+{
+	width: 500px;
+	background-color: #2F4F4F;
+	margin: 0 auto;
+	margin-top: 15%;
+	height: 300px;
+	padding: 40px 0px 0px 15px;
+}
+
+.linha_default
+{
+	width: 285px;
+	margin-bottom: 5px;
+}
+
+.coluna_texto_default
+{
+	width: 60px;
+	float: left;
+}
+
+.coluna_campo_default
+{
+	width: 225px;
+	float: left;
+}
+
+.botao_default
+{
+	width: 285px;
+	margin-top: 15px;
+}
+
+.logo_default
+{
+	width: 190px;
+	float: left;
+	padding: 0px 0px 0px 15px;
+}
+
+.texto_default
+{
+	width: 285px;
+	float: left;
+	padding: 67px 0px 15px 0px;
+}
+
 #menu ul
 {
 	padding: 0px;
@@ -64,11 +113,9 @@ h1
 	background: -webkit-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* IE10+ */
-	background: linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C */
-	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); /* W3C */ /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
 	-webkit-border-radius: 7px;
-	-moz-border-radius: 7px;
-	/*border-radius: 7px;*/
+	-moz-border-radius: 7px; /*border-radius: 7px;*/
 	height: 30px;
 	font-family: Lucida Sans Unicode;
 }
@@ -107,14 +154,13 @@ h1
 /*  Menus drop-down horizontal-vertical (hv) e vertical-vertical (vv) até 4 níveis
     by Micox - elmicox.blogspot.com - Ver. 2.0 - 20/02/08 - Creative Commons License
 */
-        
+
 .menu-hv, .menu-vv
 {
 	position: relative;
 	margin: 0;
 	padding: 0;
-	display: block;
-	/*zoom: 1;*/
+	display: block; /*zoom: 1;*/
 }
 .menu-hv *, .menu-vv *
 {
@@ -129,8 +175,7 @@ h1
 }
 .menu-hv a, .menu-vv a
 {
-	display: block;
-	/*zoom: 1;*/
+	display: block; /*zoom: 1;*/
 	text-decoration: none;
 	color: #333;
 	font-family: Lucida Sans Unicode;
@@ -203,8 +248,8 @@ h1
    ALTERE ABAIXO. defina a largura, cor, formatações, etc, dos itens do seu menu abaixo
    ou apague as linhas se for definir em outro lugar
  */
- 
- .menu-hv li
+
+.menu-hv li
 {
 	width: 185px;
 	background-color: #EDEDED;

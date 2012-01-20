@@ -137,6 +137,40 @@ Public Class Usuario
 
 #End Region
 
+#Region " Validar acesso "
+
+    Public Function ValidarUsuario(ByVal cod_usuario_usu As String, ByVal des_senha_usu As String) As Boolean
+        Dim seg As New Seguranca
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_usuario_usu, nom_usuario_usu, des_email_usu, num_telefone_usu, num_celular_usu, cod_perfil_per, des_senha_usu, sts_ativo_usu "
+        query &= "From tb_gma_usuario "
+        query &= "Where cod_usuario_usu = ?cod_usuario_usu "
+        query &= "and des_senha_usu = ?des_senha_usu "
+        query &= "and sts_ativo_usu = 1 "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_usuario_usu", cod_usuario_usu)
+            command.Parameters.AddWithValue("?des_senha_usu", seg.Criptografar(des_senha_usu))
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_usuario")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).Rows.Count > 0
+    End Function
+
+#End Region
+
 #Region " Excluir "
 
     Public Sub ExcluirUsuario(ByVal cod_usuario_usu As String)
