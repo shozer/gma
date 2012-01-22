@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Contato</title>
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
 </head>
@@ -26,7 +26,7 @@
                 <div class="campo">
                     <span>Nome </span>&nbsp;
                     <asp:TextBox ID="txbNome" CssClass="input_contato" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbNome"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="validat" runat="server" ControlToValidate="txbNome"
                         Display="Dynamic" ErrorMessage="Preencha o Nome!">*</asp:RequiredFieldValidator>
                     <div class="clear">
                     </div>
@@ -34,7 +34,7 @@
                 <div class="campo">
                     <span>E-mail</span>
                     <asp:TextBox ID="txbEmail" CssClass="input_contato" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbEmail"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" CssClass="validat" ControlToValidate="txbEmail"
                         Display="Dynamic" ErrorMessage="Preencha o E-mail!">*</asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbEmail"
                         Display="Dynamic" ErrorMessage="E-mail inválido!" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
@@ -51,15 +51,15 @@
                 <div class="campo">
                     <span>Assunto</span>
                     <asp:TextBox ID="txbAssunto" CssClass="input_contato" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbAssunto"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="validat" runat="server" ControlToValidate="txbAssunto"
                         Display="Dynamic" ErrorMessage="Preencha o Assunto!">*</asp:RequiredFieldValidator>
                     <div class="clear">
                     </div>
                 </div>
                 <div class="campo">
                     <span>Mensagem</span>
-                    <asp:TextBox ID="txbMensagem" CssClass="input_contato_mensagem" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbMensagem"
+                    <asp:TextBox ID="txbMensagem" CssClass="input_contato_mensagem"  runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" CssClass="validat" runat="server" ControlToValidate="txbMensagem"
                         Display="Dynamic" ErrorMessage="Preencha a Mensagem!">*</asp:RequiredFieldValidator>
                     <div class="clear">
                     </div>
