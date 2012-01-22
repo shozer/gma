@@ -3,6 +3,20 @@
 Partial Class admin_MasterPage
     Inherits System.Web.UI.MasterPage
 
+#Region " Load "
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            If Session("cod_usuario_usu") Is Nothing Then
+                Response.Redirect("RemoveSessao.aspx")
+            Else
+                Session("cod_usuario_usu") = Session("cod_usuario_usu")
+            End If
+        End If
+    End Sub
+
+#End Region
+
 #Region " HandleError "
 
     Protected Sub HandleError(ByVal sender As Object, ByVal e As AsyncPostBackErrorEventArgs)
