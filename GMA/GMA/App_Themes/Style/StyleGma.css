@@ -351,7 +351,9 @@ a.next
 
 span.texto_menor
 {
-	font-size: 10px;
+	display: inline !important;
+    font-size: 11px !important;
+    margin-top: 0 !important;
 }
 
 .descricao_projeto
@@ -402,7 +404,7 @@ span.branca
 	margin-top: 5px;
 }
 
-.cotent_interna_projetos
+.container_interna_projetos
 {
     border-bottom: 1px solid #28449C;
     padding-bottom: 5px;
@@ -411,7 +413,13 @@ span.branca
 	
 	}
 
-.content_sidebar_left
+.container_interna_projetos h4
+{
+    font-size:14px;
+	color:#ffffff;
+	font-weight:normal;	
+}
+.container_sidebar_left
 {
 	width:361px;
 	float:left;
@@ -419,25 +427,18 @@ span.branca
 	
 	}
 
-.content_sidebar_left h2
+.container_sidebar_left h2
 {
 	font-size:28px;
 	color:#ffffff;	
 	}	
 
-
-.content_sidebar_left h4
-{
-	font-size:14px;
-	color:#ffffff;
-	font-weight:normal;	
-	}
-
-.content_sidebar_left p
+.container_sidebar_left p
 {
 	font-size:13px;
 	color:#ffffff;
 	width:331px;
+	height:425px;
 	background-color:#f7a30f;
 	padding:15px;
 	line-height:18px;
@@ -445,21 +446,70 @@ span.branca
 	margin-bottom:20px;	
 	}			
 
-.content_sidebar_right
+.container_sidebar_right
 {
 	width:556px;
 	float:right;
-	padding-top:19px;
-	
+	padding-top:20px;
+	 
 	}
 
 
-.content_sidebar_right h3
+.container_sidebar_right h3
 {
 	font-size:15px;
 	color:#ffffff;
 	
-	}					
+	}
+
+.container_info_sidebar_right
+{
+	width:556px;
+	margin-bottom:51px;
+
+	
+	}
+
+.left_info_sidebar_right
+{
+	width:280px;
+	float:left;
+	margin-top: 38px;
+	
+	}
+.left_info_sidebar_right span
+{
+	font-size:13px;
+	color:#d5d5d5;
+	margin-top:10px;
+	display:block;
+	
+	}	
+
+.right_info_sidebar_right
+{
+	width:229px;
+	float:right;
+	margin-top: 38px;
+	
+	}
+
+.border_azul_menor
+{
+	border-bottom: 1px solid #28449C;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	
+	}	
+
+.right_info_sidebar_right span
+{
+	font-size:13px;
+	color:#d5d5d5;
+	margin-top:10px;
+	display:block;
+	
+	}									
 
 /*################### banner carrossel #############################*/
 
@@ -507,8 +557,9 @@ span.branca
 	background-repeat: no-repeat;
 	width: 145px;
 	height: 9px;
-	padding:0 72px;
-	margin-right: 18.8px;
+	margin-right: 17.6px;
+	display:block;
+	float:left;
 }
 .buttons_slide_int span.active, .buttons_slide_int span:hover
 {
@@ -516,6 +567,8 @@ span.branca
 	background-repeat: no-repeat;
 	width: 145px;
 	height: 9px;
+	display:block;
+	float:left;
 }
 
 
@@ -696,6 +749,11 @@ span.noticia_list
 {
 	margin-right: 0px !important;
 }
+.margin_top_0
+{
+	margin-top: 0px !important;
+	
+	}
 
 .clear
 {
