@@ -4,10 +4,10 @@ Partial Class Principal
 
 #Region " Load "
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Session("idioma") = Session("idioma")
-    End Sub
+    'Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    'Session("idioma") = Session("idioma")
+    'End Sub
 
 #End Region
-    
+
 End Class
