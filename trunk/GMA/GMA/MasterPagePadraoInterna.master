@@ -1,6 +1,7 @@
-﻿<%@ Master Language="VB" CodeFile="MasterPagePadrao.master.vb" Inherits="MasterPagePadrao" %>
+﻿<%@ Master Language="VB" CodeFile="MasterPagePadraoInterna.master.vb" Inherits="MasterPagePadraoInterna" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>GMA Arquitetura</title>
@@ -45,7 +46,7 @@ jQuery(function(){
             var nS4 = new noobSlide({
                 box: $('box4'),
                 items: $$('#box4 div'),
-                size: 961,
+                size: 958,
                 interval: 10000,
                 autoPlay: true,
                 handles: $$('#handles4 span'),
@@ -127,29 +128,7 @@ document.createElement("footer");
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </section>
-        <footer>
-            <div class="footer_sup">
-                <div class="container_link_box">
-                    <a id="exemplo" href="Contato.aspx" class="link_box modal">CONTATO</a> <a id="exemplo2"
-                        href="Espaco_Cliente.aspx" class="link_box margin_right_0">ESPAÇODO CLIENTE</a>
-                </div>
-                <div class="clear">
-                </div>
-            </div>
-            <div class="footer_inf">
-                <div class="redes_sociais">
-                    <a href="#" class="icone_rede_social">
-                        <img src="img/twitter.png" style="border: 0;" alt="twitter" />
-                    </a><a href="#" class="icone_rede_social">
-                        <img src="img/facebook.png" style="border: 0;" alt="twitter" />
-                    </a><a href="#" class="icone_rede_social">
-                        <img src="img/email.png" style="border: 0;" alt="twitter" />
-                    </a>
-                    <div class="clear">
-                    </div>
-                </div>
-            </div>
-        </footer>
+        
     </div>
     </form>
 </body>

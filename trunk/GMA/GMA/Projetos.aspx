@@ -18,7 +18,7 @@
                     <div class="bloco_projeto_vazio">
                     </div>
                     <div class="bloco_projeto">
-                        <a href="#">
+                        <a href="Res_Page1.aspx">
                             <img src="img/img_pag_projetos.jpg" style="border: 0;" alt="" />
                         </a>
                         <div class="descricao_bloco_projeto">
