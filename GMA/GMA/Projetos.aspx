@@ -3,7 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="sidebar_left_projetos">
-        <h2 id="lblTitulo" runat="server"></h2>
+        <h2 id="lblTitulo" runat="server">
+        </h2>
         <div class="divisao_descricao">
         </div>
         <span>A empresa GMA (Grupo Multidisciplinar capacitados a traduzir as necessidades do
