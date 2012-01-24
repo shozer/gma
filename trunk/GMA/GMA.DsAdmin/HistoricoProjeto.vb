@@ -71,7 +71,7 @@ Public Class HistoricoProjeto
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_historico_projeto(cod_usuario_usu, cod_situacao_projeto_spr, cod_projeto_pro, dat_cadastro_hpr) "
-        query &= "values(?cod_usuario_usu, ?cod_situacao_projeto_spr, ?cod_projeto_pro, CURDATE()); SELECT LAST_INSERT_ID();"
+        query &= "values(?cod_usuario_usu, ?cod_situacao_projeto_spr, ?cod_projeto_pro, NOW()); SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -103,7 +103,7 @@ Public Class HistoricoProjeto
         query &= "cod_usuario_usu = ?cod_usuario_usu, "
         query &= "cod_situacao_projeto_spr = ?cod_situacao_projeto_spr, "
         query &= "cod_projeto_pro = ?cod_projeto_pro, "
-        query &= "dat_cadastro_hpr = CURDATE() "
+        query &= "dat_cadastro_hpr = NOW() "
         query &= "Where cod_historico_projeto_hpr = ?cod_historico_projeto_hpr "
 
         Try
