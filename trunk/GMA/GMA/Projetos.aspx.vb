@@ -19,8 +19,21 @@ Partial Class Projetos
 
                     If lDataView.Table.Rows.Count > 0 Then
                         Dim count As Int32 = 0
-                        qtd_projetos_vitrine_tpr = CType(lDataView.Table.Rows(0)("qtd_projetos_vitrine_tpr"), Int32)
-                        qtd_projetos_vitrine_tpr = 16
+                        Dim countLi As Int32 = 0
+
+                        With lDataView.Table
+                            qtd_projetos_vitrine_tpr = CType(.Rows(0)("qtd_projetos_vitrine_tpr"), Int32)
+
+                            Select Case Session("idioma")
+                                Case "2"
+                                    lblTitulo.InnerText = IIf(.Rows(0)("nom_tipo_projeto_es_tpr") Is DBNull.Value, .Rows(0)("nom_tipo_projeto_pt_tpr"), .Rows(0)("nom_tipo_projeto_es_tpr"))
+                                Case "3"
+                                    lblTitulo.InnerText = IIf(.Rows(0)("nom_tipo_projeto_en_tpr") Is DBNull.Value, .Rows(0)("nom_tipo_projeto_pt_tpr"), .Rows(0)("nom_tipo_projeto_en_tpr"))
+                                Case Else
+                                    lblTitulo.InnerText = .Rows(0)("nom_tipo_projeto_pt_tpr")
+                            End Select
+                        End With
+                        
                         Using objProjetos As New Projeto
                             lDataView = objProjetos.ListarProjetoAtivoPorTipoProjeto(CType(Request("cod_tipo_projeto_tpr"), Int32))
                         End Using
@@ -28,6 +41,11 @@ Partial Class Projetos
                         For iterator As Int32 = 1 To qtd_projetos_vitrine_tpr
                             Dim ProjetoBranco As Boolean = True
                             count += 1
+                            countLi += 1
+
+                            If countLi = 1 Then
+                                divProjetos.InnerHtml &= "<li>"
+                            End If
 
                             For Each lRow As DataRow In lDataView.Table.Rows
                                 If CType(lRow("num_posicao_vitrine_pro"), Int32) = iterator Then
@@ -71,6 +89,14 @@ Partial Class Projetos
 
                                 If iterator = qtd_projetos_vitrine_tpr Then
                                     divProjetos.InnerHtml &= "<div class='clear'>" & vbCrLf
+                                End If
+                            End If
+
+                            If countLi = 15 Or iterator = qtd_projetos_vitrine_tpr Then
+                                divProjetos.InnerHtml &= "</li>"
+
+                                If countLi = 15 And iterator < qtd_projetos_vitrine_tpr Then
+                                    countLi = 0
                                 End If
                             End If
                         Next
