@@ -95,9 +95,11 @@ document.createElement("footer");
         <header class="topo">
             <nav class="menu">
                 <ul id="topnav">
-                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx">RESIDENCIAL</a> <a href="#">COMERCIAL</a>
-                        <a href="#">URBANISMO/PAISAGISMO</a><a href="#">RESTAURO</a><a href="#"> INTERIOR/ DESIGN</a>
-                    </span></li>
+                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx?cod_tipo_projeto_tpr=2">RESIDENCIAL</a>
+                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=3">COMERCIAL</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=1">
+                            URBANISMO/PAISAGISMO</a><a href="Projetos.aspx?cod_tipo_projeto_tpr=4">RESTAURO</a><a
+                                href="Projetos.aspx?cod_tipo_projeto_tpr=5"> INTERIOR/ DESIGN</a> </span>
+                    </li>
                     <li><a href="#">CONSULTORIA</a></li>
                     <li><a href="#">GESTÃO DE OBRAS</a> </li>
                     <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
