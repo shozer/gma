@@ -4,8 +4,7 @@
 <asp:Content ID="Header" ContentPlaceHolderID="head" runat="Server">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 	<script type="text/javascript">$.ajaxSetup({ dataType: "json", type: "POST", contentType: "application/json; charset=utf-8" });</script>
-	<style type="text/css">
-		body { font-family:Arial; font-size:12pt; padding:20px; width: 800px; margin:20px auto; border:solid 1px black; }
+	<style type="text/css">		
 		h1 { font-size:16pt; }
 		h2 { font-size:13pt; }
 		ul { width:350px; list-style-type: none; margin:0px; padding:0px; }
