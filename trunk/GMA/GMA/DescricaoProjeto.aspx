@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="VB" MasterPageFile="~/MasterPagePadraoInterna.master" AutoEventWireup="false"
-    CodeFile="DescricaoProjeto.aspx.vb" Inherits="Res_Page1" %>
+    CodeFile="DescricaoProjeto.aspx.vb" Inherits="DescricaoProjeto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="banner_destaque">

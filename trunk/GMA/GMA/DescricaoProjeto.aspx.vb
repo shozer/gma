@@ -1,5 +1,5 @@
 ﻿
-Partial Class Res_Page1
+Partial Class DescricaoProjeto
     Inherits System.Web.UI.Page
 
 End Class
