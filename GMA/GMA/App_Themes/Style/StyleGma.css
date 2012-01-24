@@ -214,7 +214,7 @@ ul#topnav li span a:hover
 .sidebar_left_projetos
 {
 	width: 241px;
-	height: 397px;
+	height: 403px;
 	background-color: #f7a30f;
 	margin-top: 34px;
 	float: left;
@@ -262,7 +262,7 @@ ul#topnav li span a:hover
 {
 	width: 687px;
 	margin-left:22px;
-	margin-top:3px;
+	margin-top:6px;
 }
 
 #carrossel ul
@@ -328,6 +328,7 @@ a.next
 	height: 85px;
 	margin-right: 22.6px;
 	border: 1px solid #f6ae02;
+	margin-bottom:30px;
 }
 
 .bloco_projeto img
