@@ -11,17 +11,17 @@
     <script type="text/javascript" src="js/cycle.js"></script>
 
     <script type="text/javascript">
-jQuery(function(){
-   jQuery('#noticias ul').cycle({
-     fx:'scrollDown',
-     visible:2, 
-     speed:300, 
-     timeout:2000,
-     next: '#up',
-     prev: '#down',
-     pager: '#pager'
-   })
- })
+        jQuery(function() {
+            jQuery('#noticias ul').cycle({
+                fx: 'scrollDown',
+                visible: 2,
+                speed: 300,
+                timeout: 2000,
+                next: '#up',
+                prev: '#down',
+                pager: '#pager'
+            })
+        })
     </script>
 
     <script src="js/exemploModal.js" type="text/javascript"></script>
@@ -29,18 +29,18 @@ jQuery(function(){
     <script type="text/javascript" src="js/jquery-modal-1.0.js"></script>
 
     <script type="text/javascript">
-           jQuery(document).ready(function(){
-	            jQuery('a#exemplo').modal();
-	            jQuery('a#exemplo2').modal();
-           });
+        jQuery(document).ready(function() {
+            jQuery('a#exemplo').modal();
+            jQuery('a#exemplo2').modal();
+        });
     </script>
 
     <script src="js/mootools-1.2-core.js" type="text/javascript"></script>
 
     <script src="js/_class.noobSlide.packed.js" type="text/javascript"></script>
 
-    <script type="text/javascript">        
-    window.addEvent('domready', function() {
+    <script type="text/javascript">
+        window.addEvent('domready', function() {
             //SAMPLE 4 (walk to item)
             var nS4 = new noobSlide({
                 box: $('box4'),
@@ -76,9 +76,11 @@ document.createElement("footer");
         <header class="topo">
             <nav class="menu">
                 <ul id="topnav">
-                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx">RESIDENCIAL</a> <a href="#">
-                        COMERCIAL</a> <a href="#">URBANISMO/PAISAGISMO</a><a href="#">RESTAURO</a><a href="#">
-                            INTERIOR/ DESIGN</a> </span></li>
+                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx?cod_tipo_projeto_tpr=2">RESIDENCIAL</a>
+                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=3">COMERCIAL</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=1">
+                            URBANISMO/PAISAGISMO</a><a href="Projetos.aspx?cod_tipo_projeto_tpr=4">RESTAURO</a><a
+                                href="Projetos.aspx?cod_tipo_projeto_tpr=5"> INTERIOR/ DESIGN</a> </span>
+                    </li>
                     <li><a href="#">CONSULTORIA</a></li>
                     <li><a href="#">GESTÃO DE OBRAS</a> </li>
                     <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
