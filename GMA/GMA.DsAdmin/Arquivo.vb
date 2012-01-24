@@ -72,7 +72,7 @@ Public Class Arquivo
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_arquivo(nom_arquivo_arq, des_arquivo_pt_arq, des_arquivo_en_arq, des_arquivo_es_arq, dat_cadastro_arq, sts_ativo_arq) "
-        query &= "values(?nom_arquivo_arq, ?des_arquivo_pt_arq, ?des_arquivo_en_arq, ?des_arquivo_es_arq, CURDATE(), ?sts_ativo_arq); SELECT LAST_INSERT_ID();"
+        query &= "values(?nom_arquivo_arq, ?des_arquivo_pt_arq, ?des_arquivo_en_arq, ?des_arquivo_es_arq, NOW(), ?sts_ativo_arq); SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -107,7 +107,7 @@ Public Class Arquivo
         query &= "des_arquivo_pt_arq = ?des_arquivo_pt_arq, "
         query &= "des_arquivo_en_arq = ?des_arquivo_en_arq, "
         query &= "des_arquivo_es_arq = ?des_arquivo_es_arq, "
-        query &= "dat_cadastro_arq = CURDATE(), "
+        query &= "dat_cadastro_arq = NOW(), "
         query &= "sts_ativo_arq = ?sts_ativo_arq "
         query &= "Where cod_arquivo_arq = ?cod_arquivo_arq "
 

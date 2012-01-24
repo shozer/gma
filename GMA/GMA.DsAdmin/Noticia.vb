@@ -73,7 +73,7 @@ Public Class Noticia
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_noticia(des_titulo_pt_not, des_titulo_en_not, des_titulo_es_not, des_descricao_pt_not, des_descricao_en_not, des_descricao_es_not, des_noticia_pt_not, des_noticia_en_not, des_noticia_es_not, dat_cadastro_not, sts_ativo_not, cod_usuario_usu) "
-        query &= "values(?des_titulo_pt_not, ?des_titulo_en_not, ?des_titulo_es_not, ?des_descricao_pt_not, ?des_descricao_en_not, ?des_descricao_es_not, ?des_noticia_pt_not, ?des_noticia_en_not, ?des_noticia_es_not, CURDATE(), ?sts_ativo_not, ?cod_usuario_usu); SELECT LAST_INSERT_ID();"
+        query &= "values(?des_titulo_pt_not, ?des_titulo_en_not, ?des_titulo_es_not, ?des_descricao_pt_not, ?des_descricao_en_not, ?des_descricao_es_not, ?des_noticia_pt_not, ?des_noticia_en_not, ?des_noticia_es_not, NOW(), ?sts_ativo_not, ?cod_usuario_usu); SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -119,7 +119,7 @@ Public Class Noticia
         query &= "des_noticia_pt_not = ?des_noticia_pt_not, "
         query &= "des_noticia_en_not = ?des_noticia_en_not, "
         query &= "des_noticia_es_not = ?des_noticia_es_not, "
-        query &= "dat_cadastro_not = CURDATE(), "
+        query &= "dat_cadastro_not = NOW(), "
         query &= "sts_ativo_not = ?sts_ativo_not, "
         query &= "cod_usuario_usu = ?cod_usuario_usu "
         query &= "Where cod_noticia_not = ?cod_noticia_not "

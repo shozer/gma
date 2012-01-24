@@ -72,7 +72,7 @@ Public Class Cliente
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_cliente(nom_cliente_cli, des_email_cli, num_telefone_cli, num_celular_cli, num_cnpj_cli, des_login_cli, des_senha_cli, num_cpf_cli, dat_cadastro_cli) "
-        query &= "values(?nom_cliente_cli, ?des_email_cli, ?num_telefone_cli, ?num_celular_cli, ?num_cnpj_cli, ?des_login_cli, ?des_senha_cli, ?num_cpf_cli, CURDATE()); SELECT LAST_INSERT_ID();"
+        query &= "values(?nom_cliente_cli, ?des_email_cli, ?num_telefone_cli, ?num_celular_cli, ?num_cnpj_cli, ?des_login_cli, ?des_senha_cli, ?num_cpf_cli, NOW()); SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -114,7 +114,7 @@ Public Class Cliente
         query &= "des_login_cli = ?des_login_cli, "
         query &= "des_senha_cli = ?des_senha_cli, "
         query &= "num_cpf_cli = ?num_cpf_cli, "
-        query &= "dat_cadastro_cli = CURDATE() "
+        query &= "dat_cadastro_cli = NOW() "
         query &= "Where cod_cliente_cli = ?cod_cliente_cli "
 
         Try

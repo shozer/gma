@@ -72,7 +72,7 @@ Public Class Erros
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_erros(nom_pagina_err, num_ip_err, des_message_err, des_stacktrace_err, des_source_err, dat_cadastro_err, flg_verificado_err) "
-        query &= "values(?nom_pagina_err, ?num_ip_err, ?des_message_err, ?des_stacktrace_err, ?des_source_err, CURDATE(), 0); SELECT LAST_INSERT_ID();"
+        query &= "values(?nom_pagina_err, ?num_ip_err, ?des_message_err, ?des_stacktrace_err, ?des_source_err, NOW(), 0); SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -109,7 +109,7 @@ Public Class Erros
         query &= "des_stacktrace_err = ?des_stacktrace_err, "
         query &= "des_stacktrace_err = ?des_stacktrace_err, "
         query &= "flg_verificado_err = ?flg_verificado_err, "
-        query &= "dat_cadastro_err = CURDATE() "
+        query &= "dat_cadastro_err = NOW() "
         query &= "Where cod_erros_err = ?cod_erros_err "
 
         Try
