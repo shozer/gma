@@ -13,22 +13,6 @@
             btn.click();
         }
     </script>
-
-    <!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-< ![endif]-->
-    <!--[if IE]>
-<script type="text/javascript">
-document.createElement("article");
-document.createElement("nav");
-document.createElement("section");
-document.createElement("header");
-document.createElement("aside");
-document.createElement("figure");
-document.createElement("legend");
-document.createElement("footer");
-</script>
-<![endif] -->
 </head>
 <body>
     <form id="form1" runat="server">
