@@ -174,32 +174,8 @@ document.createElement("footer");
                     <div class="clear">
                     </div>
                 </div>
-                <div id="noticias">
-                    <ul>
-                        <li><span class="noticia_list">Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the indus </span></li>
-                        <li><span class="noticia_list">Lorem Ipsum is simply dummy text of the printing and
-                        </span></li>
-                        <li><span class="noticia_list">Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the indus </span></li>
-                    </ul>
-                    <div class="setas_noticias">
-                        <a id="up" href="#">up</a> <a id="down" href="#">down</a>
-                    </div>
-                    <div class="clear">
-                    </div>
+                <div id="noticias" runat="server">
                 </div>
-                <span class="noticia_list">
-                    <%If Session("idioma") Is Nothing Then%>
-                    Nothing - Português
-                    <%ElseIf Session("idioma") = "1" Then%>
-                    Português
-                    <%ElseIf Session("idioma") = "2" Then%>
-                    Espanhol
-                    <%ElseIf Session("idioma") = "3" Then%>
-                    Inglês
-                    <%End If%>
-                </span>
             </div>
         </footer>
     </div>
