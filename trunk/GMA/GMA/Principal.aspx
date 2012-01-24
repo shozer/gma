@@ -76,9 +76,9 @@ document.createElement("footer");
         <header class="topo">
             <nav class="menu">
                 <ul id="topnav">
-                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx">RESIDENCIAL</a> <a href="#">COMERCIAL</a>
-                        <a href="#">URBANISMO/PAISAGISMO</a><a href="#">RESTAURO</a><a href="#"> INTERIOR/ DESIGN</a>
-                    </span></li>
+                    <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx">RESIDENCIAL</a> <a href="#">
+                        COMERCIAL</a> <a href="#">URBANISMO/PAISAGISMO</a><a href="#">RESTAURO</a><a href="#">
+                            INTERIOR/ DESIGN</a> </span></li>
                     <li><a href="#">CONSULTORIA</a></li>
                     <li><a href="#">GESTÃO DE OBRAS</a> </li>
                     <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
@@ -180,11 +180,22 @@ document.createElement("footer");
                             typesetting industry. Lorem Ipsum has been the indus </span></li>
                     </ul>
                     <div class="setas_noticias">
-                        <a id="up" href="#">up</a> 
-                        <a id="down" href="#">down</a>
+                        <a id="up" href="#">up</a> <a id="down" href="#">down</a>
                     </div>
-                    <div class="clear"></div>
+                    <div class="clear">
+                    </div>
                 </div>
+                <span class="noticia_list">
+                    <%If Session("idioma") Is Nothing Then%>
+                    Nothing - Português
+                    <%ElseIf Session("idioma") = "1" Then%>
+                    Português
+                    <%ElseIf Session("idioma") = "2" Then%>
+                    Espanhol
+                    <%ElseIf Session("idioma") = "3" Then%>
+                    Inglês
+                    <%End If%>
+                </span>
             </div>
         </footer>
     </div>
