@@ -3,7 +3,7 @@
 	font-size: 12px;
 	font-family: Lucida Sans Unicode;
 	color: #333;
-	background: #F5F5F5;
+	background: #000000;
 }
 h1
 {
@@ -30,11 +30,18 @@ h1
 #content_default
 {
 	width: 500px;
-	background-color: #2F4F4F;
+	background-color: #000000;
 	margin: 0 auto;
 	margin-top: 15%;
 	height: 300px;
 	padding: 40px 0px 0px 15px;
+	border-top:1px solid #f7a30f;
+	border-left:1px solid #f7a30f;
+	border-right:1px solid #f7a30f;
+	border-bottom: 1px solid #f7a30f;
+	-moz-box-shadow: 6px 6px 0px #131313;
+    -webkit-box-shadow: 6px 6px 0px #131313;
+    box-shadow: 6px 6px 0px #131313;
 }
 
 .linha_default
