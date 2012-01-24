@@ -49,7 +49,7 @@
                 interval: 10000,
                 autoPlay: true,
                 handles: $$('#handles4 span'),
-                onWalk: function(currentItem, currentHandle) {
+                onWalk: function(currentItem, currentHandle) { 
                     this.handles.removeClass('active');
                     currentHandle.addClass('active');
                 }
@@ -81,9 +81,11 @@ document.createElement("footer");
                             URBANISMO/PAISAGISMO</a><a href="Projetos.aspx?cod_tipo_projeto_tpr=4">RESTAURO</a><a
                                 href="Projetos.aspx?cod_tipo_projeto_tpr=5"> INTERIOR/ DESIGN</a> </span>
                     </li>
-                    <li><a href="#">CONSULTORIA</a></li>
-                    <li><a href="#">GESTÃO DE OBRAS</a> </li>
-                    <li><a href="#">VISUALIZAÇÃO 3D</a> </li>
+                    <li><a href="#">CONSULTORIA</a> <span><a href="#">PROJETO</a><a href="#">OBRAS</a> <a
+                        href="#">LAYOUT</a> </span></li>
+                    <li><a href="#">GESTÃO DE OBRAS</a></li>
+                    <li><a href="#">VISUALIZAÇÃO 3D</a> <span><a href="#">RENDERINGS</a><a href="#">PLANTAS
+                        DECORADAS</a><a href="#">ANIMAÇÃO</a> </span></li>
                     <li><a href="#">UTILITÁRIOS</a></li>
                 </ul>
                 <div class="clear">
