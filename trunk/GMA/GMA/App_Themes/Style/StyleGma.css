@@ -730,7 +730,7 @@ a#down
 	text-indent: -900px;
 	margin-top: 50px;
 }
-span.noticia_list
+span.noticia_list a
 {
 	width: 351px;
 	padding-left: 25px;
@@ -741,6 +741,7 @@ span.noticia_list
 	background-image: url(../../img/bullet_noticias.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px 3px;
+	text-decoration: none;
 }
 
 
