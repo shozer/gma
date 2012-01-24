@@ -15,6 +15,7 @@
         <div id="carrossel">
             <ul>
                 <li>
+                    <div id="divProjetos" runat="server"></div>
                     <div class="bloco_projeto_vazio">
                     </div>
                     <div class="bloco_projeto">
