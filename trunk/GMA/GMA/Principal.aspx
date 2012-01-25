@@ -154,7 +154,7 @@ document.createElement("footer");
             <div class="footer_sup">
                 <div class="container_link_box">
                     <a id="exemplo" href="Contato.aspx" class="link_box modal">CONTATO</a> <a id="exemplo2"
-                        href="Espaco_Cliente.aspx" class="link_box margin_right_0">ESPAÇODO CLIENTE</a>
+                        href="Espaco_Cliente.aspx" class="link_box margin_right_0">ESPAÇO DO CLIENTE</a>
                 </div>
                 <div class="titulo_noticias">
                     <span>NOTÍCIAS</span>
