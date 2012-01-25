@@ -16,7 +16,7 @@ Partial Class admin_Default
 
         If UsuarioValido Then
             Session("cod_usuario_usu") = cod_usuario_usu.Text.Trim
-            Response.Redirect("Projetos.aspx")
+            Response.Redirect("Usuario.aspx")
         Else
             cod_usuario_usu.Text = ""
             des_senha_usu.Text = ""
