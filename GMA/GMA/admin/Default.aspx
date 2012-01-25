@@ -36,7 +36,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Usuário:" ForeColor="White"></asp:Label>
                 </div>
                 <div class="coluna_campo_default">
-                    <asp:TextBox ID="cod_usuario_usu" runat="server" EnableViewState="false" Width="150px"></asp:TextBox><asp:RequiredFieldValidator
+                    <asp:TextBox ID="cod_usuario_usu" CssClass="input_contato" runat="server" EnableViewState="false"></asp:TextBox><asp:RequiredFieldValidator
                         ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha o Usuário!"
                         Display="Dynamic" ControlToValidate="cod_usuario_usu">*</asp:RequiredFieldValidator>
                 </div>
@@ -48,15 +48,15 @@
                     <asp:Label ID="Label2" runat="server" Text="Senha:" ForeColor="White"></asp:Label>
                 </div>
                 <div class="coluna_campo_default">
-                    <asp:TextBox ID="des_senha_usu" runat="server" EnableViewState="false" TextMode="Password"
-                        Width="150px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2"
+                    <asp:TextBox ID="des_senha_usu" runat="server" CssClass="input_contato" EnableViewState="false"
+                        TextMode="Password"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2"
                             runat="server" ErrorMessage="Preencha a Senha!" Display="Dynamic" ControlToValidate="des_senha_usu">*</asp:RequiredFieldValidator>
                 </div>
                 <div class="clear">
                 </div>
             </div>
             <div class="botao_default">
-                <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" />
+                <asp:Button ID="btnConfirmar" CssClass="btn_enviar" runat="server" Text="Entrar" />
             </div>
             <div class="clear">
             </div>
