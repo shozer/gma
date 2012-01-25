@@ -4,6 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Contato</title>
+    <meta name="title" content="GMA - Grupo Multidisciplinar para Arquitetura" />
+    <meta name="url" content="www.webgma.com" />
+    <meta name="description" content="Grupo de arquitetos especializados em projetos residenciais, comerciais, urbanismo ou paisagismo, restauração, interior ou design." />
+    <meta name="keywords" content="Arquitetura, Arquitetos, Arquitetos em Salvador, Restauração, Urbanismo, Paisagismo, design de interiores, projetos residenciais, projetos comerciais" />
+    <meta name="charset" content="ISO-8859-1" />
+    <meta name="revisit-after" content="5" />
     <link href="App_Themes/Style/StyleGma.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
