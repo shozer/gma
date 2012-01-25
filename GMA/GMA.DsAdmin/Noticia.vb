@@ -41,7 +41,32 @@ Public Class Noticia
         Dim query As String = "Select cod_noticia_not, des_titulo_pt_not, des_titulo_en_not, des_titulo_es_not, des_descricao_pt_not, des_descricao_en_not, des_descricao_es_not, des_noticia_pt_not, des_noticia_en_not, des_noticia_es_not, dat_cadastro_not, sts_ativo_not, tb_gma_noticia.cod_usuario_usu, nom_usuario_usu "
         query &= "From tb_gma_noticia "
         query &= "inner join tb_gma_usuario on tb_gma_noticia.cod_usuario_usu = tb_gma_usuario.cod_usuario_usu "
-        query &= "Order by des_titulo_pt_not "
+        query &= "Order by dat_cadastro_not desc "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_noticia")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
+    Public Function ListarNoticiaAtivoPrincipal() As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_noticia_not, des_titulo_pt_not, des_titulo_en_not, des_titulo_es_not, des_descricao_pt_not, des_descricao_en_not, des_descricao_es_not, des_noticia_pt_not, des_noticia_en_not, des_noticia_es_not, dat_cadastro_not, sts_ativo_not, tb_gma_noticia.cod_usuario_usu, nom_usuario_usu "
+        query &= "From tb_gma_noticia "
+        query &= "inner join tb_gma_usuario on tb_gma_noticia.cod_usuario_usu = tb_gma_usuario.cod_usuario_usu "
+        query &= "Order by dat_cadastro_not desc LIMIT 5 "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)

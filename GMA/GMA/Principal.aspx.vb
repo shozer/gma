@@ -19,7 +19,7 @@ Partial Class Principal
             noticias.InnerHtml = ""
 
             Using objNoticia As New Noticia
-                lDataView = objNoticia.ListarNoticiaAtivo()
+                lDataView = objNoticia.ListarNoticiaAtivoPrincipal()
             End Using
 
             For Each lRow As DataRow In lDataView.Table.Rows
@@ -32,7 +32,7 @@ Partial Class Principal
                 '*** Cadastro das notícias
                 noticias.InnerHtml &= "<li>" & vbCrLf
                 noticias.InnerHtml &= " <span class='noticia_list'>" & vbCrLf
-                noticias.InnerHtml &= " <a href='Noticias.aspx?cod_noticia_not=" & lRow("cod_noticia_not") & "'>" & vbCrLf
+                noticias.InnerHtml &= " <a href='DescricaoNoticia.aspx?cod_noticia_not=" & lRow("cod_noticia_not") & "'>" & vbCrLf
 
                 If Session("idioma") = "2" And Not lRow("des_descricao_es_not") Is DBNull.Value Then
                     noticias.InnerHtml &= lRow("des_descricao_es_not")
