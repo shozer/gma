@@ -58,6 +58,11 @@
                 </ul>
             </li>
             <li><a href="Arquivo.aspx">Arquivos</a></li>
+            <li><a href="#">Relatórios</a>
+                <ul>
+                    <li><a href="#">Histórico do projeto</a></li>
+                </ul>
+            </li>
             <li><a href="RemoveSessao.aspx">Sair</a></li>
         </ul>
         <div id="content">
