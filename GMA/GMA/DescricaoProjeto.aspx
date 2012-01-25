@@ -41,7 +41,7 @@
             <span></span><span></span><span></span><span></span><span></span><span></span>
         </p>
     </div>
-    <div class="cotent_interna_projetos">
+    <div class="content_interna_projetos">
         <div class="content_sidebar_left">
             <h2>
                 Casa Espaço</h2>
