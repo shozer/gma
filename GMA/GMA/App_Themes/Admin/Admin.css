@@ -14,7 +14,7 @@ h1
 }
 #container
 {
-	width: 960px;
+	width: 970px;
 	margin: 0 auto;
 }
 #content
@@ -191,12 +191,36 @@ h1
     by Micox - elmicox.blogspot.com - Ver. 2.0 - 20/02/08 - Creative Commons License
 */
 
+.topo_admin
+{
+	width:970px;
+	
+	}
+
+.logo
+{
+	width: 90px;
+	height: 134px;
+	margin-top: 15px;
+	float:left;
+}
+
+.divisao_menu_admin
+{
+	width:970px;
+	border-bottom: 1px solid #28449C;
+	
+	}
+
 .menu-hv, .menu-vv
 {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	display: block; /*zoom: 1;*/
+	width: 836px;
+	margin-top:134px;
+	float:left;
 }
 .menu-hv *, .menu-vv *
 {
@@ -213,7 +237,7 @@ h1
 {
 	display: block; /*zoom: 1;*/
 	text-decoration: none;
-	color: #333;
+	color: #fff;
 	font-family: Lucida Sans Unicode;
 	font-size: 14px;
 }
@@ -221,6 +245,12 @@ h1
 {
 	position: absolute;
 	visibility: hidden;
+	top:20px;
+	border-bottom:1px solid #28449C;
+	border-left:1px solid #28449C;
+	border-right:1px solid #28449C;
+	padding-top:6px;
+	
 }
 .menu-hv li:hover ul, .menu-vv li:hover ul, .menu-hv li.hover ul, .menu-vv li.hover ul
 {
@@ -260,6 +290,11 @@ h1
 .menu-hv li ul li
 {
 	float: none;
+	padding:3px 3px 3px 7px;
+	width:180px;
+	margin-left:0px !important;
+	margin-right:0px !important;
+	
 }
 .menu-hv li ul li ul
 {
@@ -287,8 +322,10 @@ h1
 
 .menu-hv li
 {
-	width: 185px;
-	background-color: #EDEDED;
+	
+	background-color: #000000;
+	margin-left:32px;
+	margin-right:50px;
 }
 .menu-vv li
 {
@@ -297,8 +334,8 @@ h1
 }
 .menu-hv li a:hover
 {
-	background-color: #D6D6D6;
-	color: #6D6D6D;
+	color: #F7A30F;
+	background-color:Black;
 }
 .menu-vv li a:hover
 {
@@ -314,3 +351,17 @@ h1
 {
 	/*color: expression( (function(who){ if(!who.MXPC){  who.MXPC = '1';  if(who.nodeName != 'A'){   who.onmouseenter=function(){ who.className += ' hover'};   who.onmouseleave=function(){ who.className = who.className.replace(' hover','')}; }  (who==who.parentNode.firstChild) ? who.className += ' first-child' : '' ; } } )(this) , 'auto' );*/
 }
+
+/*reutilizável --------------------*/
+.margin_right_0
+{
+	margin-right: 0px !important;
+}
+.margin_top_0
+{
+	margin-top: 0px !important;
+	
+	}
+
+.clear
+{
