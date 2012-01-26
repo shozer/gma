@@ -33,6 +33,60 @@ Public Class ImagemProjeto
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarImagemProjetoPorProjeto(ByVal cod_projeto_pro As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_imagem_projeto_ipr, nom_imagem_projeto_ipr, cod_projeto_pro, nom_ordem_ipr "
+        query &= "From tb_gma_imagem_projeto "
+        query &= "Where cod_projeto_pro = ?cod_projeto_pro "
+        query &= "Order by nom_ordem_ipr "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_imagem_projeto")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
+    Public Function ListarImagemProjetoPrincipalPorProjeto(ByVal cod_projeto_pro As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_imagem_projeto_ipr, nom_imagem_projeto_ipr, cod_projeto_pro, nom_ordem_ipr "
+        query &= "From tb_gma_imagem_projeto "
+        query &= "Where cod_projeto_pro = ?cod_projeto_pro "
+        query &= "Order by nom_ordem_ipr LIMIT 3 "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_imagem_projeto")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "

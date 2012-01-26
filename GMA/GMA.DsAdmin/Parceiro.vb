@@ -34,6 +34,32 @@ Public Class Parceiro
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarParceiroAtivo() As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_parceiro_par, nom_parceiro_par, des_imagem_par, des_link_par, tb_gma_parceiro.cod_usuario_usu, nom_usuario_usu, sts_ativo_par "
+        query &= "From tb_gma_parceiro "
+        query &= "inner join tb_gma_usuario on tb_gma_parceiro.cod_usuario_usu = tb_gma_usuario.cod_usuario_usu "
+        query &= "Where sts_ativo_par = 1 "
+        query &= "Order by nom_parceiro_par "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_parceiro")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "
