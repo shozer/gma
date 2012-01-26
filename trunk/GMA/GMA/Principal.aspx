@@ -26,7 +26,14 @@
                 next: '#up',
                 prev: '#down',
                 pager: '#pager'
-            })
+            });
+
+            jQuery('#parceiro ul').cycle({
+                fx: 'fade',
+                visible: 2,
+                speed: 500,
+                timeout: 4000
+            });
         })
     </script>
 
@@ -55,7 +62,7 @@
                 interval: 10000,
                 autoPlay: true,
                 handles: $$('#handles4 span'),
-                onWalk: function(currentItem, currentHandle) { 
+                onWalk: function(currentItem, currentHandle) {
                     this.handles.removeClass('active');
                     currentHandle.addClass('active');
                 }
@@ -104,10 +111,7 @@ document.createElement("footer");
                     </a>
                 </h1>
                 <!-- Teste -->
-                <div class="parceiro">
-                    <a href="#">
-                        <img src="img/_logo_eliane.jpg" style="border: 0;" alt="GMA Arquitetura" />
-                    </a>
+                <div id="parceiro" class="parceiro" runat="server">
                 </div>
                 <div class="clear">
                 </div>
@@ -119,37 +123,37 @@ document.createElement("footer");
             <div class="banner_destaque">
                 <div class="lateral_banner">
                     <div class="descricao_projeto">
-                        <h2>
+                        <h2 id="lblTituloProjeto" runat="server">
                             Casamalha</h2>
-                        <h3>
+                        <h3 id="lblLocalProjeto" runat="server">
                             Paraty-Br</h3>
                         <div class="clear">
                         </div>
                         <div class="divisao_descricao">
                         </div>
-                        <span>A empresa GMA (Grupo Multidisciplinar capacitados a traduzir as necessidades do
+                        <span>A empresa GMA (Grupo Multidisciplinar para Arquitetura) capacitados a traduzir as necessidades do
                             cliente desenvolvendo critérios e ações para uma arquitetura de qualidade eficiente
-                            e econômica. </span>
+                            e econômica.</span>
                     </div>
-                    <p class="buttons" id="handles4">
+                    <p class="buttons" id="handles4" runat="server">
                         <span></span><span></span><span></span>
                     </p>
                 </div>
                 <div class="mask3">
-                    <div id="box4">
+                    <div id="box4" runat="server">
                         <div class="container_banner">
-                            <a href="/Paginas/Contato.aspx">
-                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            <a href="#">
+                                <img src="img/banner_teste.jpg" alt="Banner" style="border: 0;" />
                             </a>
                         </div>
                         <div class="container_banner">
-                            <a href="/Paginas/Convenios-e-Beneficios.aspx">
-                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            <a href="#">
+                                <img src="img/banner_teste.jpg" alt="Banner" style="border: 0;" />
                             </a>
                         </div>
                         <div class="container_banner">
-                            <a href="/Paginas/Convenios-e-Beneficios.aspx">
-                                <img src="img/banner_teste.jpg" alt="Cadastre-se" style="border: 0;" />
+                            <a href="#">
+                                <img src="img/banner_teste.jpg" alt="Banner" style="border: 0;" />
                             </a>
                         </div>
                     </div>

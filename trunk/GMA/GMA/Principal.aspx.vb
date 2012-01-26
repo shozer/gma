@@ -16,6 +16,40 @@ Partial Class Principal
 
             Dim lDataView As DataView
             Dim count As Int32 = 0
+
+            Using objProjeto As New Projeto
+                lDataView = objProjeto.ListarProjetoPrincipal()
+            End Using
+
+            If lDataView.Table.Rows.Count > 0 Then
+                Dim lDV As DataView
+
+                With lDataView.Table
+                    Using objIP As New ImagemProjeto
+                        lDV = objIP.ListarImagemProjetoPrincipalPorProjeto(CType(.Rows(0)("cod_projeto_pro"), Int32))
+                    End Using
+
+                    If lDV.Table.Rows.Count > 0 Then
+                        lblTituloProjeto.InnerText = .Rows(0)("des_identificacao_pro")
+                        lblLocalProjeto.InnerText = .Rows(0)("des_local_pro")
+
+                        box4.InnerHtml = ""
+                        handles4.InnerHtml = ""
+                    End If
+
+                    For Each lRow As DataRow In lDV.Table.Rows
+                        handles4.InnerHtml &= "<span></span>"
+
+                        box4.InnerHtml &= "<div class='container_banner'>" & vbCrLf
+                        box4.InnerHtml &= " <a href='Projetos.aspx?cod_projeto_pro=" & .Rows(0)("cod_projeto_pro") & "'>" & vbCrLf
+                        box4.InnerHtml &= lRow("nom_imagem_projeto_ipr") & vbCrLf
+                        box4.InnerHtml &= " </a>" & vbCrLf
+                        box4.InnerHtml &= "</div>" & vbCrLf
+                    Next
+                End With
+            End If
+
+            '***** Notícias
             noticias.InnerHtml = ""
 
             Using objNoticia As New Noticia
@@ -53,6 +87,38 @@ Partial Class Principal
                     noticias.InnerHtml &= "</div>" & vbCrLf
                     noticias.InnerHtml &= "<div class='clear'>" & vbCrLf
                     noticias.InnerHtml &= "</div>" & vbCrLf
+                End If
+            Next
+
+            Using objParceiro As New Parceiro
+                lDataView = objParceiro.ListarParceiroAtivo()
+            End Using
+
+            count = 0
+            parceiro.InnerHtml = ""
+
+            For Each lRow As DataRow In lDataView.Table.Rows
+                count += 1
+
+                If count = 1 Then
+                    parceiro.InnerHtml &= "<ul>" & vbCrLf
+                End If
+
+                '*** Cadastro das notícias
+                parceiro.InnerHtml &= "<li>" & vbCrLf
+
+                If Not lRow("des_link_par") Is DBNull.Value Then
+                    parceiro.InnerHtml &= "<a href='" & lRow("des_link_par") & "' target='_blank'>"
+                    parceiro.InnerHtml &= "    <img src='img/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' />"
+                    parceiro.InnerHtml &= "</a>"
+                Else
+                    parceiro.InnerHtml &= "    <img src='img/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' />"
+                End If
+
+                parceiro.InnerHtml &= "</li>" & vbCrLf
+
+                If count = lDataView.Table.Rows.Count Then
+                    parceiro.InnerHtml &= "</ul>" & vbCrLf
                 End If
             Next
         End If
