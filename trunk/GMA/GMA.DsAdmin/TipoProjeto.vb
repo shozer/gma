@@ -33,6 +33,38 @@ Public Class TipoProjeto
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarTipoProjetoPorFiltro(ByVal cod_tipo_projeto_tpr As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_tipo_projeto_tpr, cod_tipo_projeto_pai_tpr, nom_tipo_projeto_pt_tpr, nom_tipo_projeto_en_tpr, nom_tipo_projeto_es_tpr, qtd_projetos_vitrine_tpr, sts_ativo_tpr "
+        query &= "From tb_gma_tipo_projeto "
+        query &= "Where ((cod_tipo_projeto_tpr = ?cod_tipo_projeto_tpr) or (?cod_tipo_projeto_tpr is null)) "
+        query &= "Order by nom_tipo_projeto_pt_tpr "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+
+            If cod_tipo_projeto_tpr > -1 Then
+                command.Parameters.AddWithValue("?cod_tipo_projeto_tpr", cod_tipo_projeto_tpr)
+            Else
+                command.Parameters.AddWithValue("?cod_tipo_projeto_tpr", DBNull.Value)
+            End If
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_tipo_projeto")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "

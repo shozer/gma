@@ -27,6 +27,7 @@ Partial Class Contato
 
         Else
             Dim Mensagem As String = ""
+            Dim flag As Boolean
 
             Mensagem &= "<b>Nome: </b>" & txbNome.Text & "<br>"
             Mensagem &= "<b>E-mail: </b>" & txbEmail.Text & "<br>"
@@ -37,7 +38,15 @@ Partial Class Contato
 
             Mensagem &= "<b>Mensagem: </b>" & txbMensagem.Text
 
-            EnviarEmail(txbAssunto.Text.Trim, Mensagem, txbNome.Text, txbEmail.Text, Nothing)
+            flag = EnviarEmail(txbAssunto.Text.Trim, Mensagem, txbNome.Text, txbEmail.Text, Nothing)
+
+            If flag Then
+                Mensagem = "O contato foi enviado com sucesso!"
+            Else
+                Mensagem = "O contato não pode ser enviado, por favor tente em outro momento!"
+            End If
+
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "block", "alert('" & Mensagem & "'); window.history.back();", True)
         End If
     End Sub
 
