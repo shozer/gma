@@ -18,8 +18,8 @@ Partial Class admin_ParceirosCad
                 lblTitulo.Text = "Alteração do parceiro"
 
                 Dim lDataView As DataView
-                Using obj As New Contatos
-                    lDataView = obj.ConsultarContatos(CType(Request("cod_parceiro_par"), Int32))
+                Using obj As New Parceiro
+                    lDataView = obj.ConsultarParceiro(CType(Request("cod_parceiro_par"), Int32))
                 End Using
 
                 With lDataView.Table
@@ -41,9 +41,8 @@ Partial Class admin_ParceirosCad
     Protected Sub btnSalvar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
         Dim imagem As String = ""
 
-        If des_imagem_par.Text <> "" Then
-            imagem = des_imagem_par.Text
-        ElseIf upl_des_imagem_par.HasFile Then
+        
+        If upl_des_imagem_par.HasFile Then
             Dim extensao As String = upl_des_imagem_par.FileName.Split(".")(1).ToLower
 
             If extensao <> "jpg" And extensao <> "png" And extensao <> "gif" And extensao <> "bmp" Then
@@ -56,6 +55,8 @@ Partial Class admin_ParceirosCad
 
             upl_des_imagem_par.SaveAs(caminho & "\" & nome)
             imagem = nome
+        ElseIf des_imagem_par.Text <> "" Then
+            imagem = des_imagem_par.Text
         End If
 
         If imagem <> "" Then
@@ -69,7 +70,7 @@ Partial Class admin_ParceirosCad
                     .Rows(0)("des_imagem_par") = imagem
                     .Rows(0)("des_link_par") = IIf(des_link_par.Text = "", DBNull.Value, des_link_par.Text)
                     .Rows(0)("sts_ativo_par") = sts_ativo_par.Checked
-                    .Rows(0)("cod_usuario_usu") = IIf(Not Session("cod_usuario_usu") Is Nothing, Session("cod_usuario_usu"), "malmeida")
+                    .Rows(0)("cod_usuario_usu") = Session("cod_usuario_usu")
                 End With
 
                 If Request("cod_parceiro_par") Is Nothing Then

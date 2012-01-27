@@ -22,7 +22,7 @@
             Mensagem &= "<br><br><b>StackTrace: </b>" & ex.StackTrace
             Mensagem &= "<br><br><b>Source: </b>" & ex.Source
         
-            Utilitaria.EnviarEmail("Erro no site GMA", Mensagem, "Erro no site GMA", System.Configuration.ConfigurationManager.AppSettings("EmailErros"))
+            Utilitaria.EnviarEmail("Erro no site GMA", Mensagem, System.Configuration.ConfigurationManager.AppSettings("EmailErros"))
         
             Using objErro As New GMA.DsAdmin.Erros
                 Dim lDataSet As System.Data.DataSet = objErro.ConsultarErros(-1).Table.DataSet
@@ -40,7 +40,7 @@
             End Using
             
             Server.ClearError()
-            Server.Transfer("~/Erro.aspx?cod_erro_err=" & cod_erro_err)
+            Server.Transfer("~/admin/Erro.aspx?cod_erro_err=" & cod_erro_err)
         End If
     End Sub
                                       
