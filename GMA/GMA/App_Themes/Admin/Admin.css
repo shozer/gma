@@ -35,13 +35,13 @@ h1
 	margin-top: 15%;
 	height: 300px;
 	padding: 40px 0px 0px 15px;
-	border-top:1px solid #f7a30f;
-	border-left:1px solid #f7a30f;
-	border-right:1px solid #f7a30f;
+	border-top: 1px solid #f7a30f;
+	border-left: 1px solid #f7a30f;
+	border-right: 1px solid #f7a30f;
 	border-bottom: 1px solid #f7a30f;
 	-moz-box-shadow: 6px 6px 0px #131313;
-    -webkit-box-shadow: 6px 6px 0px #131313;
-    box-shadow: 6px 6px 0px #131313;
+	-webkit-box-shadow: 6px 6px 0px #131313;
+	box-shadow: 6px 6px 0px #131313;
 }
 
 .btn_enviar
@@ -66,10 +66,8 @@ h1
 {
 	width: 60px;
 	float: left;
-	margin-top:7px;
-	font-size:14px;
-	
-	
+	margin-top: 7px;
+	font-size: 14px;
 }
 
 .coluna_campo_default
@@ -182,6 +180,37 @@ h1
 	float: left;
 	width: 500px;
 }
+
+.campo_titulo_filtro
+{
+	width: 120px;
+	float: left;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+
+.campo_filtro
+{
+	width: 170px;
+	float: left;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.botao_filtro
+{
+	width: 80px;
+	margin: 15px 0px 0px 0px;
+	float: left;
+}
+
+.linha_filtro
+{
+	width: 100%;
+	float: left;
+}
+
 .clear
 {
 	clear: both;
@@ -193,24 +222,22 @@ h1
 
 .topo_admin
 {
-	width:970px;
-	
-	}
+	width: 970px;
+}
 
 .logo
 {
 	width: 90px;
 	height: 134px;
 	margin-top: 15px;
-	float:left;
+	float: left;
 }
 
 .divisao_menu_admin
 {
-	width:970px;
+	width: 970px;
 	border-bottom: 1px solid #28449C;
-	
-	}
+}
 
 .menu-hv, .menu-vv
 {
@@ -219,8 +246,8 @@ h1
 	padding: 0;
 	display: block; /*zoom: 1;*/
 	width: 836px;
-	margin-top:134px;
-	float:left;
+	margin-top: 134px;
+	float: left;
 }
 .menu-hv *, .menu-vv *
 {
@@ -245,12 +272,11 @@ h1
 {
 	position: absolute;
 	visibility: hidden;
-	top:20px;
-	border-bottom:1px solid #28449C;
-	border-left:1px solid #28449C;
-	border-right:1px solid #28449C;
-	padding-top:6px;
-	
+	top: 20px;
+	border-bottom: 1px solid #28449C;
+	border-left: 1px solid #28449C;
+	border-right: 1px solid #28449C;
+	padding-top: 6px;
 }
 .menu-hv li:hover ul, .menu-vv li:hover ul, .menu-hv li.hover ul, .menu-vv li.hover ul
 {
@@ -290,12 +316,11 @@ h1
 .menu-hv li ul li
 {
 	float: none;
-	padding:3px 3px 3px 7px;
-	width:180px;
-	margin-left:0px !important;
-	margin-right:0px !important;
-	margin-top:0px !important;
-	
+	padding: 3px 3px 3px 7px;
+	width: 180px;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-top: 0px !important;
 }
 .menu-hv li ul li ul
 {
@@ -323,12 +348,11 @@ h1
 
 .menu-hv li
 {
-	
 	background-color: #000000;
-	margin-left:32px;
-	margin-right:50px;
+	margin-left: 32px;
+	margin-right: 50px;
 	margin-top: 4px;
-	line-height:20px;
+	line-height: 20px;
 }
 .menu-vv li
 {
@@ -338,7 +362,7 @@ h1
 .menu-hv li a:hover
 {
 	color: #F7A30F;
-	background-color:Black;
+	background-color: Black;
 }
 .menu-vv li a:hover
 {
@@ -363,8 +387,7 @@ h1
 .margin_top_0
 {
 	margin-top: 0px !important;
-	
-	}
+}
 
 .clear
 {

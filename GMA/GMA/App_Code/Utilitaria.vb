@@ -11,7 +11,7 @@ Public Class Utilitaria
 
     Public Shared Function EnviarEmail(ByVal Assunto As String, ByVal Mensagem As String, ByVal NomeFrom As String, ByVal EmailFrom As String, Optional ByVal EmailTo As String = Nothing) As Boolean
         Dim flag As Boolean = False
-        Dim emailExpression As New Regex("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$")
+        Dim emailExpression As New Regex("\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")
         Dim smtp As String = IIf(Current.Request.Url.ToString.IndexOf("localhost") > -1, "smtp.webgma.com", "localhost")
 
         If Assunto <> "" And Mensagem <> "" And NomeFrom <> "" And EmailFrom <> "" Then
@@ -30,6 +30,21 @@ Public Class Utilitaria
 
                     flag = True
                 Catch ex As Exception
+                    Using objErro As New GMA.DsAdmin.Erros
+                        Dim lDataSet As System.Data.DataSet = objErro.ConsultarErros(-1).Table.DataSet
+
+                        With lDataSet.Tables(0)
+                            .Rows.Add(.NewRow())
+                            .Rows(0)("nom_pagina_err") = Current.Request.Url.ToString()
+                            .Rows(0)("num_ip_err") = Current.Request.UserHostAddress
+                            .Rows(0)("des_message_err") = ex.Message
+                            .Rows(0)("des_stacktrace_err") = ex.StackTrace
+                            .Rows(0)("des_source_err") = ex.Source
+                        End With
+
+                        objErro.IncluirErros(lDataSet)
+                    End Using
+
                     Dim Message As New MailMessage(AppSettings("EmailErros"), AppSettings("EmailErros"))
                     Message.IsBodyHtml = True
                     Message.Subject = "Erro no disparo de e-mail"
