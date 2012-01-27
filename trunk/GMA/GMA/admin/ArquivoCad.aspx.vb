@@ -41,15 +41,15 @@ Partial Class admin_ArquivoCad
 
     Protected Sub btnSalvar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
         Dim arquivo As String = ""
-
-        If nom_arquivo_arq.Text <> "" Then
-            arquivo = nom_arquivo_arq.Text
-        ElseIf upl_nom_arquivo_arq.HasFile Then
+        
+        If upl_nom_arquivo_arq.HasFile Then
             Dim caminho As String = Server.MapPath("..") & "\arquivos"
             Dim nome As String = "arq_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_arquivo_arq.FileName.Split(".")(1).ToLower
 
             upl_nom_arquivo_arq.SaveAs(caminho & "\" & nome)
             arquivo = nome
+        ElseIf nom_arquivo_arq.Text <> "" Then
+            arquivo = nom_arquivo_arq.Text
         End If
 
         If arquivo <> "" Then

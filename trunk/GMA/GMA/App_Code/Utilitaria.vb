@@ -9,62 +9,60 @@ Public Class Utilitaria
 
 #Region " E-mail "
 
-    Public Shared Function EnviarEmail(ByVal Assunto As String, ByVal Mensagem As String, ByVal NomeFrom As String, ByVal EmailFrom As String, Optional ByVal EmailTo As String = Nothing) As Boolean
+    Public Shared Function EnviarEmail(ByVal Assunto As String, ByVal Mensagem As String, Optional ByVal EmailTo As String = Nothing) As Boolean
         Dim flag As Boolean = False
         Dim emailExpression As New Regex("\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")
         Dim smtp As String = IIf(Current.Request.Url.ToString.IndexOf("localhost") > -1, "smtp.webgma.com", "localhost")
 
-        If Assunto <> "" And Mensagem <> "" And NomeFrom <> "" And EmailFrom <> "" Then
-            If emailExpression.IsMatch(EmailFrom) Then
-                Try
-                    Dim Message As New MailMessage()
-                    Message.From = New MailAddress(EmailFrom, NomeFrom)
-                    Message.To.Add(IIf(EmailTo Is Nothing, AppSettings("Atendimento"), EmailTo))
+        If Assunto <> "" And Mensagem <> "" Then
+            Try
+                Dim Message As New MailMessage()
+                Message.From = New MailAddress(AppSettings("Atendimento"), AppSettings("Atendimento"))
+                Message.To.Add(IIf(EmailTo Is Nothing, AppSettings("Atendimento"), EmailTo))
 
-                    Message.IsBodyHtml = True
-                    Message.Subject = Assunto
-                    Message.Body = MontarHTML(Mensagem)
+                Message.IsBodyHtml = True
+                Message.Subject = Assunto
+                Message.Body = MontarHTML(Mensagem)
 
-                    Dim SmtpClient As New SmtpClient(smtp)
-                    SmtpClient.Send(Message)
+                Dim SmtpClient As New SmtpClient(smtp)
+                SmtpClient.Send(Message)
 
-                    flag = True
-                Catch ex As Exception
-                    Using objErro As New GMA.DsAdmin.Erros
-                        Dim lDataSet As System.Data.DataSet = objErro.ConsultarErros(-1).Table.DataSet
+                flag = True
+            Catch ex As Exception
+                Using objErro As New GMA.DsAdmin.Erros
+                    Dim lDataSet As System.Data.DataSet = objErro.ConsultarErros(-1).Table.DataSet
 
-                        With lDataSet.Tables(0)
-                            .Rows.Add(.NewRow())
-                            .Rows(0)("nom_pagina_err") = Current.Request.Url.ToString()
-                            .Rows(0)("num_ip_err") = Current.Request.UserHostAddress
-                            .Rows(0)("des_message_err") = ex.Message
-                            .Rows(0)("des_stacktrace_err") = ex.StackTrace
-                            .Rows(0)("des_source_err") = ex.Source
-                        End With
+                    With lDataSet.Tables(0)
+                        .Rows.Add(.NewRow())
+                        .Rows(0)("nom_pagina_err") = Current.Request.Url.ToString()
+                        .Rows(0)("num_ip_err") = Current.Request.UserHostAddress
+                        .Rows(0)("des_message_err") = ex.Message
+                        .Rows(0)("des_stacktrace_err") = ex.StackTrace
+                        .Rows(0)("des_source_err") = ex.Source
+                    End With
 
-                        objErro.IncluirErros(lDataSet)
-                    End Using
+                    objErro.IncluirErros(lDataSet)
+                End Using
 
-                    Dim Message As New MailMessage(AppSettings("EmailErros"), AppSettings("EmailErros"))
-                    Message.IsBodyHtml = True
-                    Message.Subject = "Erro no disparo de e-mail"
-                    Message.Body = MontarHTML("Mensagem: " & ex.Message & "<br><br>" & "StackTrace: " & ex.StackTrace)
+                Dim Message As New MailMessage(AppSettings("EmailErros"), AppSettings("EmailErros"))
+                Message.IsBodyHtml = True
+                Message.Subject = "Erro no disparo de e-mail"
+                Message.Body = MontarHTML("Mensagem: " & ex.Message & "<br><br>" & "StackTrace: " & ex.StackTrace)
 
-                    Dim SmtpClient As New SmtpClient(smtp)
-                    SmtpClient.Send(Message)
+                Dim SmtpClient As New SmtpClient(smtp)
+                SmtpClient.Send(Message)
 
-                    flag = False
-                Finally
-                    '*** Necessário para a perfeita execução do sistema
-                End Try
-            End If
+                flag = False
+            Finally
+                '*** Necessário para a perfeita execução do sistema
+            End Try
 
             Return flag
         End If
     End Function
 
 #End Region
-    
+
 #Region " Montar HTML "
 
     Public Shared Function MontarHTML(ByVal Conteudo As String) As String

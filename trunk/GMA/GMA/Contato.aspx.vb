@@ -38,7 +38,7 @@ Partial Class Contato
 
             Mensagem &= "<b>Mensagem: </b>" & txbMensagem.Text
 
-            flag = EnviarEmail(txbAssunto.Text.Trim, Mensagem, txbNome.Text, txbEmail.Text, Nothing)
+            flag = EnviarEmail(txbAssunto.Text.Trim, Mensagem, Nothing)
 
             If flag Then
                 Mensagem = "O contato foi enviado com sucesso!"
