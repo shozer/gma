@@ -51,7 +51,7 @@ Partial Class admin_ParceirosCad
                     Exit Sub
                 End If
 
-                Dim caminho As String = Server.MapPath("..") & "\img\"
+                Dim caminho As String = Server.MapPath("..") & "\img\parceiros\"
                 Dim nome As String = "img_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & extensao
 
                 upl_des_imagem_par.SaveAs(caminho & nome)
