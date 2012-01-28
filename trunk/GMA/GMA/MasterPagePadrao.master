@@ -26,7 +26,14 @@
                 next: '#up',
                 prev: '#down',
                 pager: '#pager'
-            })
+            });
+
+            jQuery('#parceiro ul').cycle({
+                fx: 'fade',
+                visible: 2,
+                speed: 500,
+                timeout: 4000
+            });
         })
     </script>
 
@@ -122,10 +129,7 @@ document.createElement("footer");
                     </a>
                 </h1>
                 <!-- Teste -->
-                <div class="parceiro">
-                    <a href="#">
-                        <img src="img/_logo_eliane.jpg" style="border: 0;" alt="GMA Arquitetura" />
-                    </a>
+                <div id="parceiro" class="parceiro" runat="server">
                 </div>
                 <div class="clear">
                 </div>

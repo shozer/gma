@@ -21,6 +21,7 @@ Partial Class Principal
                 lDataView = objProjeto.ListarProjetoPrincipal()
             End Using
 
+            '**** Projeto da vitrine principal
             If lDataView.Table.Rows.Count > 0 Then
                 Dim lDV As DataView
 
@@ -90,6 +91,7 @@ Partial Class Principal
                 End If
             Next
 
+            '***** Parceiros
             Using objParceiro As New Parceiro
                 lDataView = objParceiro.ListarParceiroAtivo()
             End Using
@@ -109,10 +111,10 @@ Partial Class Principal
 
                 If Not lRow("des_link_par") Is DBNull.Value Then
                     parceiro.InnerHtml &= "<a href='" & lRow("des_link_par") & "' target='_blank'>"
-                    parceiro.InnerHtml &= "    <img src='img/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' />"
+                    parceiro.InnerHtml &= "    <img src='img/parceiros/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' title='" & lRow("nom_parceiro_par") & "' />"
                     parceiro.InnerHtml &= "</a>"
                 Else
-                    parceiro.InnerHtml &= "    <img src='img/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' />"
+                    parceiro.InnerHtml &= "    <img src='img/parceiros/" & lRow("des_imagem_par") & "' style='border: 0;' width='139px' heigth='134px' alt='" & lRow("nom_parceiro_par") & "' title='" & lRow("nom_parceiro_par") & "' />"
                 End If
 
                 parceiro.InnerHtml &= "</li>" & vbCrLf

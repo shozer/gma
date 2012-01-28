@@ -151,20 +151,7 @@ Public Class Parceiro
 
             command.ExecuteNonQuery()
         Catch ex As Exception
-            Using objErro As New GMA.DsAdmin.Erros
-                Dim lDataSet As System.Data.DataSet = objErro.ConsultarErros(-1).Table.DataSet
-
-                With lDataSet.Tables(0)
-                    .Rows.Add(.NewRow())
-                    .Rows(0)("nom_pagina_err") = Current.Request.Url.ToString()
-                    .Rows(0)("num_ip_err") = Current.Request.UserHostAddress
-                    .Rows(0)("des_message_err") = ex.Message
-                    .Rows(0)("des_stacktrace_err") = ex.StackTrace
-                    .Rows(0)("des_source_err") = ex.Source
-                End With
-
-                objErro.IncluirErros(lDataSet)
-            End Using
+            'Registrar no log
         Finally
             conn.Close()
         End Try
