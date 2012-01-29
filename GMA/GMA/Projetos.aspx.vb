@@ -7,6 +7,9 @@ Partial Class Projetos
 #Region " Load "
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim myContext As HttpContext = HttpContext.Current
+        myContext.RewritePath("Projetos.aspx")
+
         If Not IsPostBack Then
             If Request("cod_tipo_projeto_tpr") <> "" Then
                 If Char.IsNumber(Request("cod_tipo_projeto_tpr")) Then
@@ -33,7 +36,7 @@ Partial Class Projetos
                                     lblTitulo.InnerText = .Rows(0)("nom_tipo_projeto_pt_tpr")
                             End Select
                         End With
-                        
+
                         Using objProjetos As New Projeto
                             lDataView = objProjetos.ListarProjetoAtivoPorTipoProjeto(CType(Request("cod_tipo_projeto_tpr"), Int32))
                         End Using
