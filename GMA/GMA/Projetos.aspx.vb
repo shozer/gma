@@ -7,9 +7,6 @@ Partial Class Projetos
 #Region " Load "
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim myContext As HttpContext = HttpContext.Current
-        myContext.RewritePath("Projetos.aspx")
-
         If Not IsPostBack Then
             If Request("cod_tipo_projeto_tpr") <> "" Then
                 If Char.IsNumber(Request("cod_tipo_projeto_tpr")) Then
