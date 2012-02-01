@@ -10,7 +10,7 @@
             Situação do projeto em português:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_situacao_projeto_pt_spr" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="nom_situacao_projeto_pt_spr" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha a situação do projeto em português!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_situacao_projeto_pt_spr"></asp:RequiredFieldValidator>
         </div>

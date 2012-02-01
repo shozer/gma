@@ -51,7 +51,6 @@
             </ItemTemplate>
         </asp:Repeater>
     </ul>
-
     <script type="text/javascript" src="../js/jquery.dragsort-0.3.10.min.js"></script>
 
     <script type="text/javascript">

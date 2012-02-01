@@ -9,5 +9,6 @@
         <EmptyDataRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" Font-Size="12px"/>
     </asp:GridView>
     
+    <asp:TextBox SkinID="Obrigatorio" runat="server" BackColor="#CFDDFC"></asp:TextBox>
    
     

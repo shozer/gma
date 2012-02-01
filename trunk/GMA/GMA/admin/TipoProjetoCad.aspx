@@ -22,7 +22,7 @@
             Tipo de projeto em português:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_tipo_projeto_pt_tpr" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="nom_tipo_projeto_pt_tpr" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha o Tipo de projeto em português!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_tipo_projeto_pt_tpr"></asp:RequiredFieldValidator>
         </div>
@@ -42,7 +42,7 @@
             Qtd. projetos na vitrine:
         </div>
         <div class="campo">
-            <asp:TextBox ID="qtd_projetos_vitrine_tpr" runat="server"></asp:TextBox>
+            <asp:TextBox ID="qtd_projetos_vitrine_tpr" runat="server" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Preencha a quantidade de projetos na vitrine!"
                 Text="*" Display="Dynamic" ControlToValidate="qtd_projetos_vitrine_tpr"></asp:RequiredFieldValidator>
         </div>
