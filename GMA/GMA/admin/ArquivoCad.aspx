@@ -18,7 +18,7 @@
         </div>
         <div class="campo">
             <asp:TextBox ID="des_arquivo_pt_arq" runat="server" TextMode="MultiLine" Width="400px"
-                Height="250px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                Height="250px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                     runat="server" ErrorMessage="Preencha a descrição em português!" Text="*" Display="Dynamic"
                     ControlToValidate="des_arquivo_pt_arq"></asp:RequiredFieldValidator>
         </div>

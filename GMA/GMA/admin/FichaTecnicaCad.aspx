@@ -10,7 +10,7 @@
             Projeto em português:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_projeto_pt_fte" runat="server" Width="400px"></asp:TextBox><asp:RequiredFieldValidator
+            <asp:TextBox ID="nom_projeto_pt_fte" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator
                 ID="RequiredFieldValidator2" runat="server" ErrorMessage="Preencha o projeto em português!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_projeto_pt_fte"></asp:RequiredFieldValidator>
         </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="campo">
             <asp:TextBox ID="des_projeto_pt_fte" runat="server" TextMode="MultiLine" Width="400px"
-                Height="250px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                Height="250px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                     runat="server" ErrorMessage="Preencha a descrição em português!" Text="*" Display="Dynamic"
                     ControlToValidate="des_projeto_pt_fte"></asp:RequiredFieldValidator>
         </div>

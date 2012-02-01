@@ -10,7 +10,7 @@
             Título em português:
         </div>
         <div class="campo">
-            <asp:TextBox ID="des_titulo_pt_not" runat="server" Width="400px"></asp:TextBox><asp:RequiredFieldValidator
+            <asp:TextBox ID="des_titulo_pt_not" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator
                 ID="RequiredFieldValidator2" runat="server" ErrorMessage="Preencha o título em português!"
                 Text="*" Display="Dynamic" ControlToValidate="des_titulo_pt_not"></asp:RequiredFieldValidator>
         </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="campo">
             <asp:TextBox ID="des_descricao_pt_not" runat="server" TextMode="MultiLine" Width="400px"
-                Height="100px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
+                Height="100px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1"
                     runat="server" ErrorMessage="Preencha a descrição em português!" Text="*" Display="Dynamic"
                     ControlToValidate="des_descricao_pt_not"></asp:RequiredFieldValidator>
         </div>
@@ -54,7 +54,7 @@
         </div>
         <div class="campo">
             <asp:TextBox ID="des_noticia_pt_not" runat="server" TextMode="MultiLine" Width="400px"
-                Height="250px"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3"
+                Height="250px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3"
                     runat="server" ErrorMessage="Preencha a notícia em português!" Text="*" Display="Dynamic"
                     ControlToValidate="des_noticia_pt_not"></asp:RequiredFieldValidator>
         </div>

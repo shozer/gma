@@ -10,7 +10,7 @@
             Nome:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_usuario_usu" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="nom_usuario_usu" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha o nome!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_usuario_usu"></asp:RequiredFieldValidator>
         </div>
@@ -18,7 +18,7 @@
             E-mail:
         </div>
         <div class="campo">
-            <asp:TextBox ID="des_email_usu" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="des_email_usu" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Preencha o e-mail!"
                 Text="*" Display="Dynamic" ControlToValidate="des_email_usu"></asp:RequiredFieldValidator><asp:RegularExpressionValidator
                     ID="RegularExpressionValidator1" runat="server" Display="Dynamic" ControlToValidate="des_email_usu"
@@ -28,7 +28,7 @@
             Login:
         </div>
         <div class="campo">
-            <asp:TextBox ID="cod_usuario_usu" runat="server" Width="400px"></asp:TextBox><asp:RequiredFieldValidator
+            <asp:TextBox ID="cod_usuario_usu" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator
                 ID="RequiredFieldValidator2" runat="server" ErrorMessage="Preencha o login!"
                 Text="*" Display="Dynamic" ControlToValidate="cod_usuario_usu"></asp:RequiredFieldValidator>
         </div>
@@ -36,7 +36,7 @@
             Senha:
         </div>
         <div class="campo">
-            <asp:TextBox ID="des_senha_usu" runat="server" Width="400px" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="des_senha_usu" runat="server" Width="400px" TextMode="Password" SkinID="Obrigatorio"></asp:TextBox>
         </div>
         <div class="campo_titulo">
             Telefone:

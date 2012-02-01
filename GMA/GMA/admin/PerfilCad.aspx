@@ -10,7 +10,7 @@
             Perfil:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_perfil_per" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="nom_perfil_per" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha o Perfil!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_perfil_per"></asp:RequiredFieldValidator>
         </div>

@@ -10,7 +10,7 @@
             Profissional:
         </div>
         <div class="campo">
-            <asp:TextBox ID="nom_profissional_prf" runat="server" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="nom_profissional_prf" runat="server" Width="400px" SkinID="Obrigatorio"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Preencha o Profissional!"
                 Text="*" Display="Dynamic" ControlToValidate="nom_profissional_prf"></asp:RequiredFieldValidator>
         </div>
