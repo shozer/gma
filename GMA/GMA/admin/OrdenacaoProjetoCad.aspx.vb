@@ -25,23 +25,30 @@ Partial Class admin_OrdenacaoProjetoCad
                             lDataView = objProjeto.ListarProjetoAtivoPorTipoProjeto(CType(Request("cod_tipo_projeto_tpr"), Int32))
                         End Using
 
+                        Dim dic As New Dictionary(Of Int32, String)
+                        For Each lRow As DataRow In lDataView.Table.Rows
+                            dic.Add(CType(lRow("num_posicao_vitrine_pro"), Int32), lRow("des_identificacao_pro"))
+                        Next
+
                         If lDataView.Table.Rows.Count > 0 Then
-                            Dim str(lDataView.Table.Rows.Count) As String
+                            Dim str(qtd_projetos_vitrine_tpr - 1) As String
 
                             For iterator As Int32 = 0 To qtd_projetos_vitrine_tpr - 1
-                                Dim count As Int32 = -1
-
-                                For Each lRow As DataRow In lDataView.Table.Rows
-                                    count += 1
-
-                                    If Not lRow("num_posicao_vitrine_pro") Is DBNull.Value Then
-                                        If CType(lRow("num_posicao_vitrine_pro"), Int32) = iterator Then
-                                            str(count) = lRow("des_identificacao_pro")
-                                        End If
+                                If dic.Count > 0 Then
+                                    If dic.ContainsKey(iterator) Then
+                                        str(iterator) = dic(iterator)
+                                        dic.Remove(iterator)
                                     Else
-                                        '*** Marcar para depois
+                                        If dic.Max().Key > qtd_projetos_vitrine_tpr Then
+                                            str(iterator) = dic.Max().Value
+                                            dic.Remove(dic.Max().Key)
+                                        Else
+                                            str(iterator) = "" '*** Projeto em branco
+                                        End If
                                     End If
-                                Next
+                                Else
+                                    str(iterator) = "" '*** Projeto em branco
+                                End If
                             Next
 
                             Gallery.DataSource = str
