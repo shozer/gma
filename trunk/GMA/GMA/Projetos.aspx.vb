@@ -13,6 +13,7 @@ Partial Class Projetos
                     Dim lDataView As DataView
                     Dim qtd_projetos_vitrine_tpr As Int32 = 0
 
+                    '*** Consultar tipo projeto
                     Using objTipoProjeto As New TipoProjeto
                         lDataView = objTipoProjeto.ConsultarTipoProjeto(CType(Request("cod_tipo_projeto_tpr"), Int32))
                     End Using
@@ -34,6 +35,7 @@ Partial Class Projetos
                             End Select
                         End With
 
+                        '*** Listar projetos por tipo projeto
                         Using objProjetos As New Projeto
                             lDataView = objProjetos.ListarProjetoAtivoPorTipoProjeto(CType(Request("cod_tipo_projeto_tpr"), Int32))
                         End Using
@@ -48,7 +50,7 @@ Partial Class Projetos
                             End If
 
                             For Each lRow As DataRow In lDataView.Table.Rows
-                                If CType(lRow("num_posicao_vitrine_pro"), Int32) = iterator Then
+                                If CType(lRow("num_posicao_vitrine_pro"), Int32) + 1 = iterator Then
                                     If count = 5 Then
                                         divProjetos.InnerHtml &= "<div class='bloco_projeto margin_right_0'>" & vbCrLf
                                     Else

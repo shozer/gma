@@ -5,6 +5,16 @@ Imports GMA.DsAdmin
 Partial Class admin_Default
     Inherits System.Web.UI.Page
 
+#Region " Load "
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            cod_usuario_usu.Focus()
+        End If
+    End Sub
+
+#End Region
+
 #Region " Botão "
 
     Protected Sub btnConfirmar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnConfirmar.Click
@@ -45,5 +55,5 @@ Partial Class admin_Default
     End Sub
 
 #End Region
-
+    
 End Class

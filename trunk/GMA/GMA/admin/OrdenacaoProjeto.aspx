@@ -21,7 +21,7 @@
         </div>
         <div class="linha_filtro">
             <div class="botao_filtro">
-                <asp:Button ID="btnConsultar" CssClass="botao" runat="server" Text="Consultar" />
+                <asp:Button ID="btnConsultar" runat="server" Text="Consultar" />
             </div>
         </div>
         <div class="clear">

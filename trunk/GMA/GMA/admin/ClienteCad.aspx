@@ -66,8 +66,8 @@
         </div>
     </div>
     <div class="filtros">
-        <asp:Button ID="btnSalvar" CssClass="botao" runat="server" Text="Salvar" />
-        <asp:Button ID="btnCancelar" CssClass="botao" runat="server" Text="Cancelar" CausesValidation="false"
+        <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
+        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CausesValidation="false"
             PostBackUrl="~/admin/Cliente.aspx" />
     </div>
 </asp:Content>

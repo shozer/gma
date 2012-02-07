@@ -5,8 +5,8 @@
     <h1>
         Usuários</h1>
     <div class="filtros">
-        <asp:Button ID="btnConsultar" CssClass="botao" runat="server" Text="Consultar" />
-        <asp:Button ID="btnIncluir" CssClass="botao" runat="server" Text="Incluir" PostBackUrl="~/admin/UsuarioCad.aspx" />
+        <asp:Button ID="btnConsultar" runat="server" Text="Consultar" />
+        <asp:Button ID="btnIncluir" runat="server" Text="Incluir" PostBackUrl="~/admin/UsuarioCad.aspx" />
     </div>
     <div class="clear">
     </div>

@@ -201,6 +201,29 @@ Public Class Projeto
         End Try
     End Sub
 
+    Public Sub AlterarProjetoPosicao(ByVal cod_projeto_pro As Int32, ByVal num_posicao_vitrine_pro As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Update tb_gma_projeto Set "
+        query &= "num_posicao_vitrine_pro = ?num_posicao_vitrine_pro "
+        query &= "Where cod_projeto_pro = ?cod_projeto_pro "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?num_posicao_vitrine_pro", num_posicao_vitrine_pro)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
 #End Region
 
 #Region " Excluir "
