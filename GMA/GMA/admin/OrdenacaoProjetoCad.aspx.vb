@@ -27,31 +27,44 @@ Partial Class admin_OrdenacaoProjetoCad
 
                         Dim dic As New Dictionary(Of Int32, String)
                         For Each lRow As DataRow In lDataView.Table.Rows
-                            dic.Add(CType(lRow("num_posicao_vitrine_pro"), Int32), lRow("des_identificacao_pro"))
+                            dic.Add(CType(lRow("num_posicao_vitrine_pro"), Int32), lRow("des_identificacao_pro") & ";" & lRow("cod_projeto_pro").ToString())
                         Next
 
                         If lDataView.Table.Rows.Count > 0 Then
-                            Dim str(qtd_projetos_vitrine_tpr - 1) As String
+                            Dim lDataSet As New DataSet
 
-                            For iterator As Int32 = 0 To qtd_projetos_vitrine_tpr - 1
-                                If dic.Count > 0 Then
-                                    If dic.ContainsKey(iterator) Then
-                                        str(iterator) = dic(iterator)
-                                        dic.Remove(iterator)
-                                    Else
-                                        If dic.Max().Key > qtd_projetos_vitrine_tpr Then
-                                            str(iterator) = dic.Max().Value
-                                            dic.Remove(dic.Max().Key)
+                            lDataSet.Tables.Add(New DataTable())
+
+                            With lDataSet.Tables(0)
+                                .Columns.Add(New DataColumn("cod_projeto_pro", GetType(Int32)))
+                                .Columns.Add(New DataColumn("des_identificacao_pro", GetType(String)))
+
+                                For iterator As Int32 = 0 To qtd_projetos_vitrine_tpr - 1
+                                    '*** Cria nova linha
+                                    .Rows.Add(.NewRow())
+
+                                    If dic.Count > 0 Then
+                                        If dic.ContainsKey(iterator) Then
+                                            .Rows(.Rows.Count - 1)("cod_projeto_pro") = CType(dic(iterator).Split(";")(1), Int32)
+                                            .Rows(.Rows.Count - 1)("des_identificacao_pro") = dic(iterator).Split(";")(0)
+                                            dic.Remove(iterator)
                                         Else
-                                            str(iterator) = "" '*** Projeto em branco
+                                            Dim valor As New List(Of Int32)(dic.Keys)
+                                            If valor.Max > qtd_projetos_vitrine_tpr Then
+                                                .Rows(.Rows.Count - 1)("cod_projeto_pro") = CType(dic(valor.Max).Split(";")(1), Int32)
+                                                .Rows(.Rows.Count - 1)("des_identificacao_pro") = dic(valor.Max).Split(";")(0)
+                                                dic.Remove(valor.Max)
+                                            Else
+                                                .Rows(.Rows.Count - 1)("cod_projeto_pro") = 0
+                                            End If
                                         End If
+                                    Else
+                                        .Rows(.Rows.Count - 1)("cod_projeto_pro") = 0
                                     End If
-                                Else
-                                    str(iterator) = "" '*** Projeto em branco
-                                End If
-                            Next
+                                Next
+                            End With
 
-                            Gallery.DataSource = str
+                            Gallery.DataSource = lDataSet
                             Gallery.DataBind()
                         Else
                             ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('Nenhum projeto ativo foi encontrado!'); window.location.href('" & Request.Url.ToString().Substring(0, Request.Url.ToString().LastIndexOf("/")) & "/OrdenacaoProjeto.aspx" & "');", True)
@@ -86,8 +99,10 @@ Partial Class admin_OrdenacaoProjetoCad
     Public Shared Sub SaveListOrder(ByVal ids As Int32())
         For i As Int32 = 0 To ids.Length
             Dim id As Int32 = ids(i)
-            Dim ordinal As Int32 = i
-            '...
+
+            Using objProjeto As New Projeto
+                objProjeto.AlterarProjetoPosicao(id, i)
+            End Using
         Next
     End Sub
 

@@ -40,17 +40,17 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
      <h1>
-        Ordenação do projeto</h1>
+        Ordem do projeto na vitrine</h1>
     <ul id="galleryUL">
         <asp:Repeater ID="Gallery" runat="server">
             <ItemTemplate>
-                <li itemid='<%# Container.ItemIndex %>'>
+                <li itemid='<%# Container.DataItem("cod_projeto_pro") %>'>
                     <div>
-                        <%# Container.DataItem %></div>
+                        <%#Container.DataItem("des_identificacao_pro")%></div>
                 </li>
             </ItemTemplate>
         </asp:Repeater>
-    </ul>
+    </ul>        
     <script type="text/javascript" src="../js/jquery.dragsort-0.3.10.min.js"></script>
 
     <script type="text/javascript">
@@ -63,6 +63,7 @@
 		    };
     </script>
 
-    <div style="clear: both;">
+    <div class="clear">
     </div>
+    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" PostBackUrl="~/admin/OrdenacaoProjeto.aspx" />
 </asp:Content>
