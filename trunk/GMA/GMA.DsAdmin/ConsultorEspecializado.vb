@@ -33,6 +33,34 @@ Public Class ConsultorEspecializado
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarConsultorEspecializadoPorProjeto(ByVal cod_projeto_pro As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select tb_gma_consultor_especializado.cod_consultor_especializado_ces, nom_consultor_ces, des_email_ces, num_telefone_ces, sts_ativo_ces "
+        query &= "From tb_gma_consultor_especializado "
+        query &= "inner join tb_gma_projeto_consultor on tb_gma_consultor_especializado.cod_consultor_especializado_ces = tb_gma_projeto_consultor.cod_consultor_especializado_ces "
+        query &= "Where (cod_projeto_pro = ?cod_projeto_pro) "
+        query &= "Order by nom_consultor_ces "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_consultor_especializado")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "
@@ -94,6 +122,27 @@ Public Class ConsultorEspecializado
         Return primaryKey
     End Function
 
+    Public Sub IncluirProjetoConsultor(ByVal cod_consultor_especializado_ces As Int32, ByVal cod_projeto_pro As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Insert into tb_gma_projeto_consultor(cod_consultor_especializado_ces, cod_projeto_pro) "
+        query &= "values(?cod_consultor_especializado_ces, ?cod_projeto_pro);"
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_consultor_especializado_ces", cod_consultor_especializado_ces)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
 #End Region
 
 #Region " Alterar "
@@ -144,6 +193,25 @@ Public Class ConsultorEspecializado
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
             command.Parameters.AddWithValue("?cod_consultor_especializado_ces", cod_consultor_especializado_ces)
 
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Public Sub ExcluirProjetoConsultorPorProjeto(ByVal cod_projeto_pro As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Delete from tb_gma_projeto_consultor Where cod_projeto_pro = ?cod_projeto_pro "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
             command.ExecuteNonQuery()
         Catch ex As Exception
             'Registrar no log

@@ -13,8 +13,11 @@ Public Class Projeto
         Dim conn As MySqlConnection = Nothing
         Dim lDSRetorno As New DataSet
 
-        Dim query As String = "Select cod_projeto_pro, des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, cod_ficha_tecnica_fte, cod_tipo_projeto_tpr, cod_usuario_usu, cod_cliente_cli, cod_situacao_projeto_spr, des_local_pro, flg_vitrine_principal_pro, sts_ativo_pro "
+        Dim query As String = "Select tb_gma_projeto.cod_projeto_pro, des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, cod_ficha_tecnica_fte, tb_gma_projeto.cod_tipo_projeto_tpr, nom_tipo_projeto_pt_tpr, cod_usuario_usu, tb_gma_projeto.cod_cliente_cli, nom_cliente_cli, tb_gma_projeto.cod_situacao_projeto_spr, nom_situacao_projeto_pt_spr, des_local_pro, flg_vitrine_principal_pro, sts_ativo_pro "
         query &= "From tb_gma_projeto "
+        query &= "inner join tb_gma_tipo_projeto on tb_gma_projeto.cod_tipo_projeto_tpr = tb_gma_tipo_projeto.cod_tipo_projeto_tpr "
+        query &= "inner join tb_gma_situacao_projeto on tb_gma_projeto.cod_situacao_projeto_spr = tb_gma_situacao_projeto.cod_situacao_projeto_spr "
+        query &= "inner join tb_gma_cliente on tb_gma_projeto.cod_cliente_cli = tb_gma_cliente.cod_cliente_cli "
         query &= "Order by des_identificacao_pro "
 
         Try

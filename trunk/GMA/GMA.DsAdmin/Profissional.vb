@@ -33,6 +33,34 @@ Public Class Profissional
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarProfissionalPorProjeto(ByVal cod_projeto_pro As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select tb_gma_profissional.cod_profissional_prf, nom_profissional_prf, des_email_prf, num_telefone_prf, num_celular_prf, sts_ativo_prf "
+        query &= "From tb_gma_profissional "
+        query &= "inner join tb_gma_projeto_profissional on tb_gma_profissional.cod_profissional_prf = tb_gma_projeto_profissional.cod_profissional_prf "
+        query &= "Where (cod_projeto_pro = ?cod_projeto_pro) "
+        query &= "Order by nom_profissional_prf "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_profissional")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "
@@ -95,6 +123,27 @@ Public Class Profissional
         Return primaryKey
     End Function
 
+    Public Sub IncluirProjetoProfissional(ByVal cod_profissional_prf As Int32, ByVal cod_projeto_pro As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Insert into tb_gma_projeto_profissional(cod_profissional_prf, cod_projeto_pro) "
+        query &= "values(?cod_profissional_prf, ?cod_projeto_pro);"
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_profissional_prf", cod_profissional_prf)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
 #End Region
 
 #Region " Alterar "
@@ -146,6 +195,26 @@ Public Class Profissional
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
             command.Parameters.AddWithValue("?cod_profissional_prf", cod_profissional_prf)
+
+            command.ExecuteNonQuery()
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Public Sub ExcluirProjetoProfissionalPorProjeto(ByVal cod_projeto_pro As Int32)
+        Dim conn As MySqlConnection = Nothing
+
+        Dim query As String = "Delete from tb_gma_projeto_profissional where cod_projeto_pro = ?cod_projeto_pro"
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
 
             command.ExecuteNonQuery()
         Catch ex As Exception

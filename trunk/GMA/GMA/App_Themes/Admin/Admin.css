@@ -153,6 +153,14 @@ h1
 	font-size: 16px;
 }
 
+.linha_projeto
+{
+	width: 650px;
+	border: 1px solid #4f4f4f;
+	float: left;
+	margin: 7px 0px 15px 0px;
+}
+
 .campos
 {
 	margin-top: 5px;
