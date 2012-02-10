@@ -41,7 +41,6 @@
             </a>
         </h1>
         <ul class="menu-hv">
-            <li><a href="#">Home</a></li>
             <li><a href="#">Cadastro</a>
                 <ul>
                     <li><a href="Perfil.aspx">Perfis</a></li>
