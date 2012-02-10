@@ -44,27 +44,16 @@ Partial Class admin_ProjetosCad
                 End Using
 
                 With lDataView.Table
-                    'nom_projeto_pt_fte.Text = .Rows(0)("nom_projeto_pt_fte")
                     nom_projeto_es_fte.Text = .Rows(0)("nom_projeto_es_fte").ToString()
                     nom_projeto_en_fte.Text = .Rows(0)("nom_projeto_en_fte").ToString()
                     des_projeto_pt_fte.Text = .Rows(0)("des_projeto_pt_fte")
                     des_projeto_es_fte.Text = .Rows(0)("des_projeto_es_fte").ToString()
                     des_projeto_en_fte.Text = .Rows(0)("des_projeto_en_fte").ToString()
                     des_programa_pt_fte.Text = .Rows(0)("des_programa_pt_fte").ToString()
-                    des_programa_es_fte.Text = .Rows(0)("des_programa_es_fte").ToString()
-                    des_programa_en_fte.Text = .Rows(0)("des_programa_en_fte").ToString()
                     des_artigo_pt_fte.Text = .Rows(0)("des_artigo_pt_fte").ToString()
-                    des_artigo_es_fte.Text = .Rows(0)("des_artigo_es_fte").ToString()
-                    des_artigo_en_fte.Text = .Rows(0)("des_artigo_en_fte").ToString()
                     des_video_pt_fte.Text = .Rows(0)("des_video_pt_fte").ToString()
-                    des_video_es_fte.Text = .Rows(0)("des_video_es_fte").ToString()
-                    des_video_en_fte.Text = .Rows(0)("des_video_en_fte").ToString()
                     des_entrevista_pt_fte.Text = .Rows(0)("des_entrevista_pt_fte").ToString()
-                    des_entrevista_es_fte.Text = .Rows(0)("des_entrevista_es_fte").ToString()
-                    des_entrevista_en_fte.Text = .Rows(0)("des_entrevista_en_fte").ToString()
                     des_livro_pt_fte.Text = .Rows(0)("des_livro_pt_fte").ToString()
-                    des_livro_es_fte.Text = .Rows(0)("des_livro_es_fte").ToString()
-                    des_livro_en_fte.Text = .Rows(0)("des_livro_en_fte").ToString()
                 End With
 
                 '*** Cadastro dos profissionais
@@ -86,6 +75,19 @@ Partial Class admin_ProjetosCad
                     lstConsultoresSelecionados.Items.Add(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
                     lstTodosConsultores.Items.Remove(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
                 Next
+
+                '*** Galeria de imagens
+                Using obj As New ImagemProjeto
+                    lDataView = obj.ListarImagemProjetoPorProjeto(CType(Request("cod_projeto_pro"), Int32))
+                End Using
+
+                For Each lRow As DataRow In lDataView.Table.Rows
+                    divGaleria.InnerHtml += "<div class='foto_projeto'><img src='../img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' /></div>"
+                Next
+
+                If lDataView.Table.Rows.Count > 0 Then
+                    divGaleria.InnerHtml += "<div class='clear'></div>"
+                End If
             Else
                 lblTitulo.Text = "Inclusão do projeto"
             End If
@@ -112,20 +114,10 @@ Partial Class admin_ProjetosCad
                 .Rows(0)("des_projeto_es_fte") = IIf(des_projeto_es_fte.Text = "", DBNull.Value, des_projeto_es_fte.Text)
                 .Rows(0)("des_projeto_en_fte") = IIf(des_projeto_en_fte.Text = "", DBNull.Value, des_projeto_en_fte.Text)
                 .Rows(0)("des_programa_pt_fte") = IIf(des_programa_pt_fte.Text = "", DBNull.Value, des_programa_pt_fte.Text)
-                .Rows(0)("des_programa_es_fte") = IIf(des_programa_es_fte.Text = "", DBNull.Value, des_programa_es_fte.Text)
-                .Rows(0)("des_programa_en_fte") = IIf(des_programa_en_fte.Text = "", DBNull.Value, des_programa_en_fte.Text)
                 .Rows(0)("des_artigo_pt_fte") = IIf(des_artigo_pt_fte.Text = "", DBNull.Value, des_artigo_pt_fte.Text)
-                .Rows(0)("des_artigo_es_fte") = IIf(des_artigo_es_fte.Text = "", DBNull.Value, des_artigo_es_fte.Text)
-                .Rows(0)("des_artigo_en_fte") = IIf(des_artigo_en_fte.Text = "", DBNull.Value, des_artigo_en_fte.Text)
                 .Rows(0)("des_video_pt_fte") = IIf(des_video_pt_fte.Text = "", DBNull.Value, des_video_pt_fte.Text)
-                .Rows(0)("des_video_es_fte") = IIf(des_video_es_fte.Text = "", DBNull.Value, des_video_es_fte.Text)
-                .Rows(0)("des_video_en_fte") = IIf(des_video_en_fte.Text = "", DBNull.Value, des_video_en_fte.Text)
                 .Rows(0)("des_entrevista_pt_fte") = IIf(des_entrevista_pt_fte.Text = "", DBNull.Value, des_entrevista_pt_fte.Text)
-                .Rows(0)("des_entrevista_es_fte") = IIf(des_entrevista_es_fte.Text = "", DBNull.Value, des_entrevista_es_fte.Text)
-                .Rows(0)("des_entrevista_en_fte") = IIf(des_entrevista_en_fte.Text = "", DBNull.Value, des_entrevista_en_fte.Text)
                 .Rows(0)("des_livro_pt_fte") = IIf(des_livro_pt_fte.Text = "", DBNull.Value, des_livro_pt_fte.Text)
-                .Rows(0)("des_livro_es_fte") = IIf(des_livro_es_fte.Text = "", DBNull.Value, des_livro_es_fte.Text)
-                .Rows(0)("des_livro_en_fte") = IIf(des_livro_en_fte.Text = "", DBNull.Value, des_livro_en_fte.Text)
             End With
 
             If Request("cod_projeto_pro") Is Nothing Then

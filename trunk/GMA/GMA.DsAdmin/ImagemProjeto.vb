@@ -37,10 +37,10 @@ Public Class ImagemProjeto
         Dim conn As MySqlConnection = Nothing
         Dim lDSRetorno As New DataSet
 
-        Dim query As String = "Select cod_imagem_projeto_ipr, nom_imagem_projeto_ipr, cod_projeto_pro, nom_ordem_ipr "
+        Dim query As String = "Select cod_imagem_projeto_ipr, nom_imagem_projeto_ipr, cod_projeto_pro, num_ordem_ipr "
         query &= "From tb_gma_imagem_projeto "
         query &= "Where cod_projeto_pro = ?cod_projeto_pro "
-        query &= "Order by nom_ordem_ipr "
+        query &= "Order by num_ordem_ipr "
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)

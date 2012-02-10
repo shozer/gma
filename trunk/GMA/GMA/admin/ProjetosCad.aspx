@@ -72,94 +72,34 @@
                 TypeName="GMA.DsAdmin.Cliente" runat="server"></asp:ObjectDataSource>
         </div>
         <div class="campo_titulo">
-            Programa em português:
+            Programa:
         </div>
         <div class="campo">
             <asp:TextBox ID="des_programa_pt_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
-            Programa em espanhol:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_programa_es_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Programa em inglês:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_programa_en_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Artigo em português:
+            Artigo:
         </div>
         <div class="campo">
             <asp:TextBox ID="des_artigo_pt_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
-            Artigo em espanhol:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_artigo_es_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Artigo em inglês:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_artigo_en_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Vídeo em português:
+            Vídeo:
         </div>
         <div class="campo">
             <asp:TextBox ID="des_video_pt_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
-            Vídeo em espanhol:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_video_es_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Vídeo em inglês:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_video_en_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Entrevista em português:
+            Entrevista:
         </div>
         <div class="campo">
             <asp:TextBox ID="des_entrevista_pt_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
-            Entrevista em espanhol:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_entrevista_es_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Entrevista em inglês:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_entrevista_en_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Livro em português:
+            Livro:
         </div>
         <div class="campo">
             <asp:TextBox ID="des_livro_pt_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Livro em espanhol:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_livro_es_fte" runat="server" Width="400px"></asp:TextBox>
-        </div>
-        <div class="campo_titulo">
-            Livro em inglês:
-        </div>
-        <div class="campo">
-            <asp:TextBox ID="des_livro_en_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
             Tipo do projeto:
@@ -217,21 +157,21 @@
                                 <asp:ObjectDataSource ID="odsProfissionais" EnableViewState="false" SelectMethod="ListarProfissional"
                                     TypeName="GMA.DsAdmin.Profissional" runat="server"></asp:ObjectDataSource>
                             </td>
-                            <td>
-                                <asp:Button ID="btnRemoverTodosProfissionais" runat="server" CausesValidation="false"
-                                    Text="<<" ToolTip="Remover todos os profissionais" />
-                                <br />
-                                <br />
-                                <asp:Button ID="btnRemoverProfissionaisSelecionados" runat="server" CausesValidation="false"
-                                    Text="<" ToolTip="Remover os profissionais selecionados" />
+                            <td align="center">
+                                <asp:Button ID="btnAdicionarTodosProfissionais" runat="server" CausesValidation="false"
+                                    Text=">>" ToolTip="Adicionar todos os profissionais" />
                                 <br />
                                 <br />
                                 <asp:Button ID="btnAdicionarProfissionaisSelecionados" runat="server" CausesValidation="false"
                                     Text=">" ToolTip="Adicionar os profissionais selecionados" />
                                 <br />
                                 <br />
-                                <asp:Button ID="btnAdicionarTodosProfissionais" runat="server" CausesValidation="false"
-                                    Text=">>" ToolTip="Adicionar todos os profissionais" />
+                                <asp:Button ID="btnRemoverProfissionaisSelecionados" runat="server" CausesValidation="false"
+                                    Text="<" ToolTip="Remover os profissionais selecionados" />
+                                <br />
+                                <br />
+                                <asp:Button ID="btnRemoverTodosProfissionais" runat="server" CausesValidation="false"
+                                    Text="<<" ToolTip="Remover todos os profissionais" />
                             </td>
                             <td>
                                 Profissionais envolvidos:<br />
@@ -255,21 +195,21 @@
                                 <asp:ObjectDataSource ID="odsConsultores" EnableViewState="false" SelectMethod="ListarConsultorEspecializado"
                                     TypeName="GMA.DsAdmin.ConsultorEspecializado" runat="server"></asp:ObjectDataSource>
                             </td>
-                            <td>
-                                <asp:Button ID="btnRemoverTodosConsultores" runat="server" CausesValidation="false"
-                                    Text="<<" ToolTip="Remover todos os consultores" />
-                                <br />
-                                <br />
-                                <asp:Button ID="btnRemoverConsultoresSelecionados" runat="server" CausesValidation="false"
-                                    Text="<" ToolTip="Remover os consultores selecionados" />
+                            <td align="center">
+                                <asp:Button ID="btnAdicionarTodosConsultores" runat="server" CausesValidation="false"
+                                    Text=">>" ToolTip="Adicionar todos os consultores" />
                                 <br />
                                 <br />
                                 <asp:Button ID="btnAdicionarConsultoresSelecionados" runat="server" CausesValidation="false"
                                     Text=">" ToolTip="Adicionar os consultores selecionados" />
                                 <br />
                                 <br />
-                                <asp:Button ID="btnAdicionarTodosConsultores" runat="server" CausesValidation="false"
-                                    Text=">>" ToolTip="Adicionar todos os consultores" />
+                                <asp:Button ID="btnRemoverConsultoresSelecionados" runat="server" CausesValidation="false"
+                                    Text="<" ToolTip="Remover os consultores selecionados" />
+                                <br />
+                                <br />
+                                <asp:Button ID="btnRemoverTodosConsultores" runat="server" CausesValidation="false"
+                                    Text="<<" ToolTip="Remover todos os consultores" />
                             </td>
                             <td>
                                 Consultores envolvidos:<br />
@@ -292,6 +232,23 @@
                 <asp:AsyncPostBackTrigger ControlID="btnAdicionarTodosConsultores" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
+        <div class="campo_titulo">
+            Imagens do projeto:
+        </div>
+        <div class="campo">
+            <div id="divGaleria" class="galeria_projeto" runat="server">
+            </div>
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr1" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr2" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr3" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr4" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr5" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr6" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr7" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr8" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr9" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr10" runat="server" />
+        </div>
         <div class="clear">
         </div>
     </div>
