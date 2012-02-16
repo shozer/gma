@@ -242,32 +242,6 @@
                         </tr>
                     </table>
                 </div>
-                <div class="campo_titulo">
-                    Imagens do projeto:
-                </div>
-                <div class="campo">
-                    <asp:HiddenField ID="hfImagemClick" runat="server" />
-                    <div id="divGaleria" class="galeria_projeto" runat="server">
-                    </div>
-                    <asp:Panel ID="pnlFoto" runat="server">
-                        <img src="../img/bot_pesquisar.png" alt="Visualizar" title="Ampliar a imagem selecionada!"
-                            onclick="VisualizarImagem();" style="border: 0; cursor: pointer;">
-                        <asp:ImageButton ID="btnExcluir" runat="server" ImageUrl="~/img/bot_excluir.png"
-                            ToolTip="Remover a imagem selecionada!" OnClientClick="return confirm('Deseja excluir a imagem?');" />
-                    </asp:Panel>
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr1" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr2" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr3" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr4" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr5" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr6" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr7" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr8" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr9" runat="server" />
-                    <asp:FileUpload ID="upl_nom_imagem_projeto_ipr10" runat="server" />
-                </div>
-                <div class="clear">
-                </div>
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btnRemoverTodosProfissionais" EventName="Click" />
@@ -278,9 +252,41 @@
                 <asp:AsyncPostBackTrigger ControlID="btnRemoverConsultoresSelecionados" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnAdicionarConsultoresSelecionados" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btnAdicionarTodosConsultores" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btnExcluir" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
+        <div class="campo_titulo">
+            Imagens do projeto:
+        </div>
+        <div class="campo">
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <asp:HiddenField ID="hfImagemClick" runat="server" />
+                    <div id="divGaleria" class="galeria_projeto" runat="server">
+                    </div>
+                    <asp:Panel ID="pnlFoto" runat="server">
+                        <img src="../img/bot_pesquisar.png" alt="Visualizar" title="Ampliar a imagem selecionada!"
+                            onclick="VisualizarImagem();" style="border: 0; cursor: pointer;">
+                        <asp:ImageButton ID="btnExcluir" runat="server" ImageUrl="~/img/bot_excluir.png"
+                            ToolTip="Remover a imagem selecionada!" OnClientClick="return confirm('Deseja excluir a imagem?');" />
+                    </asp:Panel>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnExcluir" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr1" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr2" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr3" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr4" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr5" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr6" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr7" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr8" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr9" runat="server" />
+            <asp:FileUpload ID="upl_nom_imagem_projeto_ipr10" runat="server" />
+        </div>
+        <div class="clear">
+        </div>
     </div>
     <div class="filtros">
         <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />

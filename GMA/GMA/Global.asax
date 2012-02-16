@@ -39,8 +39,8 @@
                 cod_erro_err = objErro.IncluirErros(lDataSet)
             End Using
             
-            Server.ClearError()
-            Server.Transfer("~/admin/Erro.aspx?cod_erro_err=" & cod_erro_err)
+            'Server.ClearError()
+            'Server.Transfer("~/admin/Erro.aspx?cod_erro_err=" & cod_erro_err)
         End If
     End Sub
                                       
