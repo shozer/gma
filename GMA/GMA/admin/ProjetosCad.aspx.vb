@@ -81,17 +81,23 @@ Partial Class admin_ProjetosCad
                     lDataView = obj.ListarImagemProjetoPorProjeto(CType(Request("cod_projeto_pro"), Int32))
                 End Using
 
-                For Each lRow As DataRow In lDataView.Table.Rows
-                    divGaleria.InnerHtml += "<div class='foto_projeto'><img src='../img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' /></div>"
-                Next
-
                 If lDataView.Table.Rows.Count > 0 Then
+                    Dim Lista As New List(Of String)
+
+                    For Each lRow As DataRow In lDataView.Table.Rows
+                        Lista.Add(lRow("nom_imagem_projeto_ipr"))
+                        divGaleria.InnerHtml += "<div class='foto_projeto'><img src='../img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' onclick=""imgClick('projetos/" & lRow("nom_imagem_projeto_ipr") & "', this);"" width='80px' height='80px' style='cursor:pointer;' /></div>"
+                    Next
+
+                    ViewState("Imagens") = Lista
                     divGaleria.InnerHtml += "<div class='clear'></div>"
                 End If
             Else
                 lblTitulo.Text = "Inclusão do projeto"
             End If
         End If
+
+        pnlFoto.Visible = Not ViewState("Imagens") Is Nothing
     End Sub
 
 #End Region
@@ -101,7 +107,15 @@ Partial Class admin_ProjetosCad
     Protected Sub btnSalvar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSalvar.Click
         Dim cod_ficha_tecnica_fte As Int32
         Dim cod_projeto_pro As Int32
+        Dim Lista As New List(Of String)
 
+        '*** Salva as imagens e carrega na ViewState
+        CarregarSalvarImagens()
+        If Not ViewState("Imagens") Is Nothing Then
+            Lista = ViewState("Imagens")
+        End If
+
+        '*** Cadastro da ficha técnica
         Using obj As New FichaTecnica
             Dim lDataSet As DataSet = obj.ConsultarFichaTecnica(-1).Table.DataSet
 
@@ -129,6 +143,7 @@ Partial Class admin_ProjetosCad
             End If
         End Using
 
+        '*** Cadastro do projeto
         Using objProjeto As New Projeto
             Dim lDataSet As DataSet = objProjeto.ConsultarProjeto(-1).Table.DataSet
 
@@ -153,6 +168,7 @@ Partial Class admin_ProjetosCad
             End If
         End Using
 
+        '*** Associação dos profissionais participantes
         Using objProfissional As New Profissional
             objProfissional.ExcluirProjetoProfissionalPorProjeto(cod_projeto_pro)
 
@@ -161,6 +177,7 @@ Partial Class admin_ProjetosCad
             Next
         End Using
 
+        '*** Associação dos consultores participantes
         Using objConsultor As New ConsultorEspecializado
             objConsultor.ExcluirProjetoConsultorPorProjeto(cod_projeto_pro)
 
@@ -169,7 +186,51 @@ Partial Class admin_ProjetosCad
             Next
         End Using
 
+        Using objImagem As New ImagemProjeto
+            objImagem.ExcluirImagemProjetoPorProjeto(cod_projeto_pro)
+
+            If Lista.Count > 0 Then
+                Dim lDataSet As DataSet = objImagem.ConsultarImagemProjeto(-1).Table.DataSet
+
+                With lDataSet.Tables(0)
+                    .Rows.Add(.NewRow())
+                    .Rows(0)("cod_projeto_pro") = cod_projeto_pro
+                    .Rows(0)("num_ordem_ipr") = 9999
+
+                    For Each item As String In Lista
+                        If item <> "" Then
+                            .Rows(0)("nom_imagem_projeto_ipr") = item
+                            objImagem.IncluirImagemProjeto(lDataSet)
+                        End If
+                    Next
+                End With
+            End If
+        End Using
+
         Response.Redirect("Projetos.aspx")
+    End Sub
+
+    Protected Sub btnExcluir_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles btnExcluir.Click
+        If hfImagemClick.Value <> "" Then
+            Dim imagem As String = hfImagemClick.Value.Split("/")(1)
+            Dim Lista As List(Of String) = ViewState("Imagens")
+
+            If Lista.Contains(imagem) Then
+                Lista.Remove(imagem)
+            End If
+
+            If Lista.Count = 0 Then
+                ViewState("Imagens") = Nothing
+                pnlFoto.Visible = False
+            Else
+                ViewState("Imagens") = Lista
+            End If
+
+            PreencherGaleria()
+            hfImagemClick.Value = ""
+        Else
+            ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('Selecione a imagem que deverá ser excluída!');", True)
+        End If
     End Sub
 
     Protected Sub btnRemoverTodosProfissionais_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRemoverTodosProfissionais.Click
@@ -284,6 +345,111 @@ Partial Class admin_ProjetosCad
 
         '*** Remove a lista
         lstConsultoresSelecionados.Items.Clear()
+    End Sub
+
+#End Region
+
+#Region " Métodos Gerais "
+
+    Private Sub PreencherGaleria()
+        divGaleria.InnerHtml = ""
+
+        If Not ViewState("Imagens") Is Nothing Then
+            Dim Lista As List(Of String) = ViewState("Imagens")
+
+            For Each item As String In Lista
+                If item <> "" Then
+                    divGaleria.InnerHtml += "<div class='foto_projeto'><img src='../img/projetos/" & item & "' onclick=""imgClick('projetos/" & item & "', this);"" width='80px' height='80px' style='cursor:pointer;' /></div>"
+                End If
+            Next
+
+            divGaleria.InnerHtml += "<div class='clear'></div>"
+        End If
+    End Sub
+
+    Private Sub CarregarSalvarImagens()
+        Dim Caminho As String = Server.MapPath("..") & "\img\projetos\"
+        Dim Lista As New List(Of String)
+
+        If Not ViewState("Imagens") Is Nothing Then
+            Lista = ViewState("Imagens")
+        End If
+
+        If upl_nom_imagem_projeto_ipr1.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr1.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr1.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr2.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr2.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr2.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr3.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr3.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr3.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr4.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr4.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr4.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr5.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr5.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr5.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr6.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr6.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr6.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr7.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr7.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr7.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr8.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr8.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr8.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr9.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr9.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr9.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If upl_nom_imagem_projeto_ipr10.HasFile Then
+            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr10.FileName.Split(".")(1).ToLower
+
+            upl_nom_imagem_projeto_ipr10.SaveAs(Caminho & Nome)
+            Lista.Add(Nome)
+        End If
+
+        If Lista.Count > 0 Then
+            ViewState("Imagens") = Lista
+        Else
+            ViewState("Imagens") = Nothing
+        End If
     End Sub
 
 #End Region
