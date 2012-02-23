@@ -90,16 +90,17 @@ document.createElement("footer");
             <nav class="menu">
                 <ul id="topnav">
                     <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx?cod_tipo_projeto_tpr=2">RESIDENCIAL</a>
-                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=3">COMERCIAL</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=1">
-                            URBANISMO/PAISAGISMO</a><a href="Projetos.aspx?cod_tipo_projeto_tpr=4">RESTAURO</a><a
-                                href="Projetos.aspx?cod_tipo_projeto_tpr=5"> INTERIOR/ DESIGN</a> </span>
+                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=3">COMERCIAL/INSTITUCIONAL</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=4">
+                            RESTAURO</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=1">URBANISMO/PAISAGISMO</a>
+                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=5">INTERIOR/ DESIGN</a> </span></li>
+                    <li><a href="#">ASSESSORIA</a> <span><a href="#">PROJETO</a><a href="#">LAYOUT</a> </span>
                     </li>
-                    <li><a href="#">CONSULTORIA</a> <span><a href="#">PROJETO</a><a href="#">OBRAS</a> <a
-                        href="#">LAYOUT</a> </span></li>
-                    <li><a href="#">GESTÃO DE OBRAS</a></li>
-                    <li><a href="#">VISUALIZAÇÃO 3D</a> <span><a href="#">RENDERINGS</a><a href="#">PLANTAS
-                        DECORADAS</a><a href="#">ANIMAÇÃO</a> </span></li>
-                    <li><a href="#">UTILITÁRIOS</a></li>
+                    <li><a href="#">GESTÃO DE OBRAS</a><span><a href="#">REFORMA</a><a href="#">CONSTRUÇÃO</a>
+                    </span></li>
+                    <li><a href="#">COMUNICAÇÃO VISUAL</a> <span><a href="#">RENDERINGS</a><a href="#">PLANTAS
+                        DECORADAS</a><a href="#">ANIMAÇÃO</a><a href="#">MARCAS</a> </span></li>
+                    <li><a href="#">UTILITÁRIOS</a> <span><a href="#">BLOCOS CAD</a><a href="#">BLOCOS SKETCHUP</a><a
+                        href="#">PADRÃO GMA</a><a href="#">MARCAS</a> </span></li>
                 </ul>
                 <div class="clear">
                 </div>
