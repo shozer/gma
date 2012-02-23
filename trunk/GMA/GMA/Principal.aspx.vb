@@ -8,6 +8,8 @@ Partial Class Principal
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            Dim timeout As Int32 = 6000
+
             If Not Session("idioma") Is Nothing Then
                 Session("idioma") = Session("idioma")
             Else
@@ -43,7 +45,7 @@ Partial Class Principal
 
                         box4.InnerHtml &= "<div class='container_banner'>" & vbCrLf
                         box4.InnerHtml &= " <a href='Projetos.aspx?cod_projeto_pro=" & .Rows(0)("cod_projeto_pro") & "'>" & vbCrLf
-                        box4.InnerHtml &= lRow("nom_imagem_projeto_ipr") & vbCrLf
+                        box4.InnerHtml &= "     <img alt='imagem' src='img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' width='961px' height='395px' />" & vbCrLf
                         box4.InnerHtml &= " </a>" & vbCrLf
                         box4.InnerHtml &= "</div>" & vbCrLf
                     Next
@@ -96,6 +98,22 @@ Partial Class Principal
                 lDataView = objParceiro.ListarParceiroAtivo()
             End Using
 
+            Dim contador As Int32 = lDataView.Table.Rows.Count
+
+            While contador
+                If timeout > 1000 Then
+                    timeout -= 1000
+                Else
+                    If timeout > 500 Then
+                        timeout -= 100
+                    End If
+                End If
+
+                contador -= 1
+            End While
+
+            Session("timeout") = timeout
+
             count = 0
             parceiro.InnerHtml = ""
 
@@ -106,7 +124,7 @@ Partial Class Principal
                     parceiro.InnerHtml &= "<ul>" & vbCrLf
                 End If
 
-                '*** Cadastro das notícias
+                '*** Cadastro dos parceiros
                 parceiro.InnerHtml &= "<li>" & vbCrLf
 
                 If Not lRow("des_link_par") Is DBNull.Value Then

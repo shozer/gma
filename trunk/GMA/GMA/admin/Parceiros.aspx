@@ -36,6 +36,14 @@
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_parceiro_par", "~/admin/ParceirosCad.aspx?cod_parceiro_par={0}") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemTemplate>
+                            <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/img/bot_excluir.png" Width="32px"
+                                Height="32px" ToolTip="Excluir" CommandName="btnDelete" OnClientClick="return confirm('Deseja excluir?')" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <EmptyDataTemplate>
                     Nenhuma informação foi encontrada.
@@ -43,6 +51,10 @@
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:ObjectDataSource ID="odsPrincipal" EnableViewState="false" SelectMethod="ListarParceiro"
-        runat="server" TypeName="GMA.DsAdmin.Parceiro"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsPrincipal" EnableViewState="false" DeleteMethod="ExcluirParceiro"
+        SelectMethod="ListarParceiro" runat="server" TypeName="GMA.DsAdmin.Parceiro">
+        <DeleteParameters>
+            <asp:Parameter Name="cod_parceiro_par" Type="Int32" />
+        </DeleteParameters>
+    </asp:ObjectDataSource>
 </asp:Content>

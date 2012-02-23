@@ -109,12 +109,6 @@ Partial Class admin_ProjetosCad
         Dim cod_projeto_pro As Int32
         Dim Lista As New List(Of String)
 
-        '*** Salva as imagens e carrega na ViewState
-        CarregarSalvarImagens()
-        If Not ViewState("Imagens") Is Nothing Then
-            Lista = ViewState("Imagens")
-        End If
-
         '*** Cadastro da ficha técnica
         Using obj As New FichaTecnica
             Dim lDataSet As DataSet = obj.ConsultarFichaTecnica(-1).Table.DataSet
@@ -152,11 +146,13 @@ Partial Class admin_ProjetosCad
                 .Rows(0)("des_identificacao_pro") = des_identificacao_pro.Text
                 .Rows(0)("cod_ficha_tecnica_fte") = cod_ficha_tecnica_fte
                 .Rows(0)("des_local_pro") = des_local_pro.Text
+                .Rows(0)("num_posicao_vitrine_pro") = 9999
                 .Rows(0)("cod_tipo_projeto_tpr") = cod_tipo_projeto_tpr.SelectedValue
                 .Rows(0)("cod_cliente_cli") = cod_cliente_cli.SelectedValue
                 .Rows(0)("cod_situacao_projeto_spr") = cod_situacao_projeto_spr.SelectedValue
                 .Rows(0)("flg_vitrine_principal_pro") = flg_vitrine_principal_pro.Checked
                 .Rows(0)("sts_ativo_pro") = sts_ativo_pro.Checked
+                .Rows(0)("cod_usuario_usu") = Session("cod_usuario_usu")
             End With
 
             If Request("cod_projeto_pro") Is Nothing Then
@@ -185,6 +181,12 @@ Partial Class admin_ProjetosCad
                 objConsultor.IncluirProjetoConsultor(CType(item.Value, Int32), cod_projeto_pro)
             Next
         End Using
+
+        '*** Salva as imagens e carrega na ViewState
+        CarregarSalvarImagens(cod_projeto_pro)
+        If Not ViewState("Imagens") Is Nothing Then
+            Lista = ViewState("Imagens")
+        End If
 
         Using objImagem As New ImagemProjeto
             objImagem.ExcluirImagemProjetoPorProjeto(cod_projeto_pro)
@@ -367,7 +369,7 @@ Partial Class admin_ProjetosCad
         End If
     End Sub
 
-    Private Sub CarregarSalvarImagens()
+    Private Sub CarregarSalvarImagens(ByVal cod_projeto_pro As Int32)
         Dim Caminho As String = Server.MapPath("..") & "\img\projetos\"
         Dim Lista As New List(Of String)
 
@@ -376,70 +378,70 @@ Partial Class admin_ProjetosCad
         End If
 
         If upl_nom_imagem_projeto_ipr1.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr1.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro1_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr1.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr1.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr2.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr2.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro2_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr2.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr2.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr3.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr3.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro3_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr3.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr3.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr4.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr4.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro4_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr4.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr4.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr5.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr5.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro5_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr5.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr5.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr6.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr6.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro6_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr6.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr6.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr7.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr7.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro7_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr7.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr7.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr8.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr8.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro8_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr8.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr8.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr9.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr9.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro9_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr9.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr9.SaveAs(Caminho & Nome)
             Lista.Add(Nome)
         End If
 
         If upl_nom_imagem_projeto_ipr10.HasFile Then
-            Dim Nome As String = "pro_" & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr10.FileName.Split(".")(1).ToLower
+            Dim Nome As String = "pro10_" & cod_projeto_pro & DateTime.Now.ToString("ddMMyyyyhhmmssfff") & "." & upl_nom_imagem_projeto_ipr10.FileName.Split(".")(1).ToLower
 
             upl_nom_imagem_projeto_ipr10.SaveAs(Caminho & Nome)
             Lista.Add(Nome)

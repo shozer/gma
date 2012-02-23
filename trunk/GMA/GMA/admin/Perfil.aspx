@@ -32,6 +32,14 @@
                                 Height="32px" ToolTip="Alterar" PostBackUrl='<%# Eval("cod_perfil_per", "~/admin/PerfilCad.aspx?cod_perfil_per={0}") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField>
+                        <HeaderStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" />
+                        <ItemTemplate>
+                            <asp:ImageButton ID="btnDelete" runat="server" ImageUrl="~/img/bot_excluir.png" Width="32px"
+                                Height="32px" ToolTip="Excluir" CommandName="btnDelete" OnClientClick="return confirm('Deseja excluir?')" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <EmptyDataTemplate>
                     Nenhuma informação foi encontrada.
@@ -40,5 +48,9 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:ObjectDataSource ID="odsPrincipal" EnableViewState="false" SelectMethod="ListarPerfil"
-        runat="server" TypeName="GMA.DsAdmin.Perfil"></asp:ObjectDataSource>
+        runat="server" DeleteMethod="ExcluirPerfil" TypeName="GMA.DsAdmin.Perfil">
+        <DeleteParameters>
+            <asp:Parameter Name="cod_perfil_per" Type="Int32" />
+        </DeleteParameters>
+    </asp:ObjectDataSource>
 </asp:Content>
