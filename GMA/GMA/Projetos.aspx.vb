@@ -60,7 +60,7 @@ Partial Class Projetos
                                     divProjetos.InnerHtml &= "  <a href='DescricaoProjeto.aspx?cod_projeto_pro=" & lRow("cod_projeto_pro") & "'>" & vbCrLf
 
                                     If Not lRow("nom_imagem_projeto_ipr") Is DBNull.Value Then
-                                        divProjetos.InnerHtml &= "      <img src='img/" & lRow("nom_imagem_projeto_ipr") & "' style='border: 0;' alt='' />" & vbCrLf
+                                        divProjetos.InnerHtml &= "      <img src='img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' style='border: 0;' alt='' width='119px' />" & vbCrLf
                                     End If
 
                                     divProjetos.InnerHtml &= "  </a>" & vbCrLf

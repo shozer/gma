@@ -8,6 +8,8 @@ Partial Class MasterPagePadraoInterna
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            Dim timeout As Int32 = 6000
+
             If Session("idioma") Is Nothing Then
                 Session("idioma") = 1
             Else
@@ -21,7 +23,22 @@ Partial Class MasterPagePadraoInterna
                 lDataView = objParceiro.ListarParceiroAtivo()
             End Using
 
+            Dim contador As Int32 = lDataView.Table.Rows.Count
             Dim count As Int32 = 0
+
+            While contador
+                If timeout > 1000 Then
+                    timeout -= 1000
+                Else
+                    If timeout > 500 Then
+                        timeout -= 100
+                    End If
+                End If
+
+                contador -= 1
+            End While
+
+            Session("timeout") = timeout
             parceiro.InnerHtml = ""
 
             For Each lRow As DataRow In lDataView.Table.Rows
