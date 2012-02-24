@@ -36,7 +36,7 @@
     <div id="container">
     <div class="topo_admin">
         <h1 class="logo">
-            <a href="Principal.aspx">
+            <a href="../Principal.aspx">
                 <img src="../img/logo_site.jpg" style="border: 0;" alt="GMA Arquitetura" />
             </a>
         </h1>
