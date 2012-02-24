@@ -56,26 +56,6 @@ Partial Class admin_ProjetosCad
                     des_livro_pt_fte.Text = .Rows(0)("des_livro_pt_fte").ToString()
                 End With
 
-                '*** Cadastro dos profissionais
-                Using obj As New Profissional
-                    lDataView = obj.ListarProfissionalPorProjeto(CType(Request("cod_projeto_pro"), Int32))
-                End Using
-
-                For Each lRow As DataRow In lDataView.Table.Rows
-                    lstProfissionaisEnvolvidos.Items.Add(New ListItem(lRow("nom_profissional_prf"), lRow("cod_profissional_prf")))
-                    lstTodosProfissionais.Items.Remove(New ListItem(lRow("nom_profissional_prf"), lRow("cod_profissional_prf")))
-                Next
-
-                '*** Cadastro dos consultores
-                Using obj As New ConsultorEspecializado
-                    lDataView = obj.ListarConsultorEspecializadoPorProjeto(CType(Request("cod_projeto_pro"), Int32))
-                End Using
-
-                For Each lRow As DataRow In lDataView.Table.Rows
-                    lstConsultoresSelecionados.Items.Add(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
-                    lstTodosConsultores.Items.Remove(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
-                Next
-
                 '*** Galeria de imagens
                 Using obj As New ImagemProjeto
                     lDataView = obj.ListarImagemProjetoPorProjeto(CType(Request("cod_projeto_pro"), Int32))
@@ -456,4 +436,36 @@ Partial Class admin_ProjetosCad
 
 #End Region
 
+#Region " PreRenderComplete "
+
+    Protected Sub Page_PreRenderComplete(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRenderComplete
+        If Not IsPostBack Then
+            If Request("cod_projeto_pro") <> "" Then
+                Dim lDataView As DataView
+
+                '*** Cadastro dos profissionais
+                Using obj As New Profissional
+                    lDataView = obj.ListarProfissionalPorProjeto(CType(Request("cod_projeto_pro"), Int32))
+                End Using
+
+                For Each lRow As DataRow In lDataView.Table.Rows
+                    lstProfissionaisEnvolvidos.Items.Add(New ListItem(lRow("nom_profissional_prf"), lRow("cod_profissional_prf")))
+                    lstTodosProfissionais.Items.Remove(New ListItem(lRow("nom_profissional_prf"), lRow("cod_profissional_prf")))
+                Next
+
+                '*** Cadastro dos consultores
+                Using obj As New ConsultorEspecializado
+                    lDataView = obj.ListarConsultorEspecializadoPorProjeto(CType(Request("cod_projeto_pro"), Int32))
+                End Using
+
+                For Each lRow As DataRow In lDataView.Table.Rows
+                    lstConsultoresSelecionados.Items.Add(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
+                    lstTodosConsultores.Items.Remove(New ListItem(lRow("nom_consultor_ces"), lRow("cod_consultor_especializado_ces")))
+                Next
+            End If
+        End If
+    End Sub
+
+#End Region
+    
 End Class
