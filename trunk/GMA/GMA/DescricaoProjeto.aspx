@@ -38,7 +38,7 @@
             </div>
         </div>
         <p class="buttons_slide_int" id="handles4">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span class="margin_right_0"></span>
         </p>
     </div>
     <div class="content_interna_projetos">

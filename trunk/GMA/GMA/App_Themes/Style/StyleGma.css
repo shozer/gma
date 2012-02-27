@@ -168,7 +168,7 @@ ul#topnav li:hover span
 ul#topnav li span a
 {
 	display: inline;
-	padding: 7px 23px 5px 23px !important;
+	padding: 7px 22px 5px 22px !important;
 	margin-right: 17px;
 }
 ul#topnav li span a:hover
@@ -185,8 +185,11 @@ ul#topnav li span a:hover
 	width: 139px;
 	height: 134px;
 	float: right;
+	overflow: hidden;
 	margin-top: 10px;
 }
+
+
 
 /*main --------------------*/
 
@@ -700,6 +703,13 @@ a.link_box
 	list-style: none;
 	width: 359px !important;
 	float: left;
+	height:80px !important;
+}
+
+
+#noticias ul li
+{	
+	width: 346px !important;
 }
 
 .setas_noticias
@@ -730,21 +740,21 @@ a#down
 	text-indent: -900px;
 	margin-top: 50px;
 }
-span.noticia_list a
-{
-	width: 351px;
-	padding-left: 25px;
-	display: block;
-	font-size: 12px;
-	color: #ffffff;
-	margin-bottom: 24px;
-	background-image: url(../../img/bullet_noticias.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px 3px;
-	text-decoration: none;
+
+span.noticia_list a {
+    background-image: url("../../img/bullet_noticias.jpg");
+    background-position: 0 3px;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 24px;
+    padding-left: 25px;
+    padding-right: 35px;
+    text-decoration: none;
+    width: 326px;
+
 }
-
-
 
 /*reutilizável --------------------*/
 .margin_right_0

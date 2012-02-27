@@ -18,11 +18,11 @@
 
     <script type="text/javascript">
         jQuery(function() {
-            jQuery('#noticias ul').cycle({
+            jQuery('#noticias ul li').cycle({
                 fx: 'scrollDown',
                 visible: 2,
                 speed: 300,
-                timeout: 2000,
+                timeout: 8000,
                 next: '#up',
                 prev: '#down',
                 pager: '#pager'
