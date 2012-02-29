@@ -91,6 +91,30 @@ Public Class Projeto
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ListarProjetoVitrine() As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_projeto_pro, des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, cod_ficha_tecnica_fte, cod_tipo_projeto_tpr, cod_usuario_usu, cod_cliente_cli, cod_situacao_projeto_spr, des_local_pro, flg_vitrine_principal_pro, sts_ativo_pro "
+        query &= "From tb_gma_projeto "
+        query &= "Where flg_vitrine_principal_pro = 1 "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_projeto")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Consultar "

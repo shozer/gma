@@ -467,5 +467,24 @@ Partial Class admin_ProjetosCad
     End Sub
 
 #End Region
-    
+
+#Region " Eventos Gerais "
+
+    Protected Sub flg_vitrine_principal_pro_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles flg_vitrine_principal_pro.CheckedChanged
+        If flg_vitrine_principal_pro.Checked Then
+            Dim lDataView As DataView
+
+            Using objVitrine As New Projeto
+                lDataView = objVitrine.ListarProjetoVitrine()
+            End Using
+
+            If lDataView.Table.Rows.Count > 0 Then
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Motivo", "MostrarDiv();", True)
+                Exit Sub
+            End If
+        End If
+    End Sub
+
+#End Region
+
 End Class
