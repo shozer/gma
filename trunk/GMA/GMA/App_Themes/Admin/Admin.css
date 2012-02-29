@@ -12,6 +12,7 @@ h1
 	font-weight: bold;
 	font-family: Lucida Sans Unicode; /*border-bottom: 1px solid #000;*/
 }
+
 #container
 {
 	width: 970px;
@@ -102,7 +103,7 @@ h1
 	float: left;
 }
 
-.foto_projeto 
+.foto_projeto
 {
 	width: 142px;
 	height: 100px;
@@ -111,10 +112,10 @@ h1
 
 .selected
 {
-    border: 2px solid #FF0000;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+	border: 2px solid #FF0000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 #menu ul
@@ -418,5 +419,111 @@ h1
 	margin-top: 0px !important;
 }
 
-.clear
+/*#######################início do modal##########################*/
+
+#mask
 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+}
+
+#boxes .window
+{
+    position: absolute;
+    left: 35%;
+    width: 340px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -10px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+}
+
+#boxes #dialog
+{
+    width: 341px;
+    height: 280px;
+    padding: 10px;
+    background-image: url("../../img/BOX.jpg");
+    background-repeat: no-repeat;
+}
+
+.form
+{
+    width: 332px;
+    height: 290px;
+    margin: 0 auto;
+}
+
+.topo_form
+{
+    width: 332px;
+    height: 40px;
+    text-align: left;
+}
+
+.topo_form img
+{
+    float: left;
+    margin-left: 145px;
+}
+
+.topo_form p
+{
+    float: left;
+    font-family: Arial;
+    font-size: 14px;
+    color: #292929;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.close
+{
+    display: block;
+    width: 35px;
+    height: 40px;
+    margin-left: 140px;
+    margin-top: 5px;
+    float: left;
+}
+
+.campos_modal
+{
+    width: 332px;
+    height: 240px;
+    text-align: left;
+}
+
+.campo_modal
+{
+    width: 342px;
+    margin-top: 5px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.campo_modal p
+{
+    font-family: Arial;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.bt_enviar
+{
+    width: 284px;
+    height: 28px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+
+/*#######################Fim do modal##########################*/

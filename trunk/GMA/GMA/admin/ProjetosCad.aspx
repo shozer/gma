@@ -6,6 +6,41 @@
     <script type="text/javascript" src="../js/jquery.tools.min.js"></script>
 
     <script type="text/javascript">
+        function MostrarDiv() {
+            document.getElementById("dialog").style.display = "block";
+
+            var id = "#ctl00_ContentPlaceHolder1_flg_vitrine_principal_pro";
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            $('#mask').css({ 'width': maskWidth, 'height': maskHeight });
+            $('#mask').fadeIn(50);
+            $('#mask').fadeTo("slow", 0.8);
+
+            //Get the window height and width
+            var winH = $(window).height();
+            var winW = $(window).width();
+
+            $(id).css('top', winH + $(id).height() / 2);
+            $(id).css('left', winW / 2 - $(id).width() / 2);
+
+            $(id).fadeIn(500);
+        }
+        function FecharDiv() {
+            $('#mask').hide();
+            $('.window').hide();
+        }
+
+        $(document).ready(function() {
+            $('.window .close').click(function(e) {
+                e.preventDefault();
+
+                $('#mask').hide();
+                $('.window').hide();
+            });
+
+        });
+        
         function VisualizarImagem() {
             var img = document.getElementById("ctl00_ContentPlaceHolder1_hfImagemClick").value;
 
@@ -13,6 +48,7 @@
                 window.open('MostrarImagem.aspx?vid=' + img, 'name');
             }
         }
+
         function imgClick(imagem, obj) {
             document.getElementById("ctl00_ContentPlaceHolder1_hfImagemClick").value = imagem;
 
@@ -155,7 +191,36 @@
             Aparecer na vitrine principal:
         </div>
         <div class="campo">
-            <asp:CheckBox ID="flg_vitrine_principal_pro" runat="server" Checked="true" />
+            <div id="boxes">
+                <div id="dialog" class="window">
+                    <div class="form">
+                        <div class="topo_form">
+                            <p>
+                                <asp:Label ID="lblIDR" EnableViewState="false" runat="server" Text="IDR"></asp:Label></p>
+                            <a href="#" onclick="FecharDiv();" class="close">
+                                <img src="../img/Close.gif" alt="Fechar" style="border: 0" /></a>
+                        </div>
+                        <div class="campos_modal">
+                            <div class="campo_modal">
+                                <asp:Label ID="Label15" EnableViewState="false" Text="Deseja carregar as informações dessa IDR?"
+                                    runat="server"></asp:Label>
+                            </div>
+                            <div class="bt_enviar">
+                                <asp:Button ID="btnSim" runat="server" Text="Sim" CausesValidation="false" />
+                                <asp:Button ID="btnNao" runat="server" Text="Não" CausesValidation="false" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+                <div id="mask">
+                </div>
+            </div>
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+                    <asp:CheckBox ID="flg_vitrine_principal_pro" runat="server" AutoPostBack="true" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
         <div class="campo_titulo">
             Ativo:
