@@ -40,7 +40,7 @@
             });
 
         });
-        
+
         function VisualizarImagem() {
             var img = document.getElementById("ctl00_ContentPlaceHolder1_hfImagemClick").value;
 
@@ -191,35 +191,42 @@
             Aparecer na vitrine principal:
         </div>
         <div class="campo">
-            <div id="boxes">
-                <div id="dialog" class="window">
-                    <div class="form">
-                        <div class="topo_form">
-                            <p>
-                                <asp:Label ID="lblIDR" EnableViewState="false" runat="server" Text="IDR"></asp:Label></p>
-                            <a href="#" onclick="FecharDiv();" class="close">
-                                <img src="../img/Close.gif" alt="Fechar" style="border: 0" /></a>
-                        </div>
-                        <div class="campos_modal">
-                            <div class="campo_modal">
-                                <asp:Label ID="Label15" EnableViewState="false" Text="Deseja carregar as informações dessa IDR?"
-                                    runat="server"></asp:Label>
-                            </div>
-                            <div class="bt_enviar">
-                                <asp:Button ID="btnSim" runat="server" Text="Sim" CausesValidation="false" />
-                                <asp:Button ID="btnNao" runat="server" Text="Não" CausesValidation="false" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
-                <div id="mask">
-                </div>
-            </div>
             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
+                    <div id="boxes">
+                        <div id="dialog" class="window">
+                            <div class="form">
+                                <div class="topo_form">
+                                    <p>
+                                        <asp:Label ID="lblIDR" EnableViewState="false" runat="server" Text=""></asp:Label></p>
+                                </div>
+                                <div class="campos_modal">
+                                    <div class="campo_modal">
+                                        <asp:Label ID="Label1" EnableViewState="false" runat="server" Text="Já existem 3 projetos na vitrine principal. Selecione um projeto e clique no botão Sim para remover da vitrine."></asp:Label>
+                                        <asp:RadioButtonList ID="rblProjetos" DataSourceID="odsProjeto" EnableViewState="false"
+                                            DataValueField="cod_projeto_pro" DataTextField="des_identificacao_pro" runat="server"
+                                            RepeatDirection="Vertical">
+                                        </asp:RadioButtonList>
+                                        <asp:ObjectDataSource ID="odsProjeto" EnableViewState="false" TypeName="GMA.DsAdmin.Projeto"
+                                            SelectMethod="ListarProjetoVitrine" runat="server"></asp:ObjectDataSource>
+                                    </div>
+                                    <div class="bt_enviar">
+                                        <asp:Button ID="btnSim" runat="server" Text="Sim" CausesValidation="false" />
+                                        <asp:Button ID="btnNao" runat="server" Text="Não" CausesValidation="false" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+                        <div id="mask">
+                        </div>
+                    </div>
                     <asp:CheckBox ID="flg_vitrine_principal_pro" runat="server" AutoPostBack="true" />
                 </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnSim" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="btnNao" EventName="Click" />
+                </Triggers>
             </asp:UpdatePanel>
         </div>
         <div class="campo_titulo">

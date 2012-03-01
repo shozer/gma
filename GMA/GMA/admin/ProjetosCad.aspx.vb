@@ -15,6 +15,7 @@ Partial Class admin_ProjetosCad
 
         If Not IsPostBack Then
             Dim lDataView As DataView
+            ViewState("flg_vitrine_principal_pro") = False
 
             If Not Request("cod_projeto_pro") Is Nothing Then
                 Dim cod_ficha_tecnica_fte As Int32
@@ -37,6 +38,8 @@ Partial Class admin_ProjetosCad
                     flg_vitrine_principal_pro.Checked = .Rows(0)("flg_vitrine_principal_pro")
                     sts_ativo_pro.Checked = .Rows(0)("sts_ativo_pro")
                 End With
+
+                ViewState("flg_vitrine_principal_pro") = flg_vitrine_principal_pro.Checked
 
                 '*** Cadastro da ficha técnica
                 Using obj As New FichaTecnica
@@ -213,6 +216,16 @@ Partial Class admin_ProjetosCad
         Else
             ScriptManager.RegisterClientScriptBlock(Page, Page.GetType, "block", "alert('Selecione a imagem que deverá ser excluída!');", True)
         End If
+    End Sub
+
+    Protected Sub btnSim_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSim.Click
+        Using objProjeto As New Projeto
+            objProjeto.AlterarProjetoStatusVitrine(rblProjetos.SelectedValue, False)
+        End Using
+    End Sub
+
+    Protected Sub btnNao_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnNao.Click
+        flg_vitrine_principal_pro.Checked = False
     End Sub
 
     Protected Sub btnRemoverTodosProfissionais_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRemoverTodosProfissionais.Click
@@ -478,7 +491,8 @@ Partial Class admin_ProjetosCad
                 lDataView = objVitrine.ListarProjetoVitrine()
             End Using
 
-            If lDataView.Table.Rows.Count > 0 Then
+            If lDataView.Table.Rows.Count = 3 AndAlso Not ViewState("flg_vitrine_principal_pro") Then
+                rblProjetos.SelectedIndex = 0
                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "Motivo", "MostrarDiv();", True)
                 Exit Sub
             End If
@@ -486,5 +500,5 @@ Partial Class admin_ProjetosCad
     End Sub
 
 #End Region
-
+    
 End Class

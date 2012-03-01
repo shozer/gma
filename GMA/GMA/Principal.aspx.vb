@@ -20,37 +20,59 @@ Partial Class Principal
             Dim count As Int32 = 0
 
             Using objProjeto As New Projeto
-                lDataView = objProjeto.ListarProjetoPrincipal()
+                lDataView = objProjeto.ListarProjetoVitrine()
             End Using
 
-            '**** Projeto da vitrine principal
             If lDataView.Table.Rows.Count > 0 Then
+                'box1.InnerHtml = ""
+                box4.InnerHtml = ""
+                handles4.InnerHtml = ""
+            End If
+
+            '**** Projeto da vitrine principal
+            For Each lRow As DataRow In lDataView.Table.Rows
                 Dim lDV As DataView
 
-                With lDataView.Table
-                    Using objIP As New ImagemProjeto
-                        lDV = objIP.ListarImagemProjetoPrincipalPorProjeto(CType(.Rows(0)("cod_projeto_pro"), Int32))
-                    End Using
+                Using objIP As New ImagemProjeto
+                    lDV = objIP.ListarImagemProjetoPrincipalPorProjeto(CType(lRow("cod_projeto_pro"), Int32))
+                End Using
 
-                    If lDV.Table.Rows.Count > 0 Then
-                        lblTituloProjeto.InnerText = .Rows(0)("des_identificacao_pro")
-                        lblLocalProjeto.InnerText = .Rows(0)("des_local_pro")
+                If lDV.Table.Rows.Count > 0 Then
+                    Dim NomeProjeto As String = ""
+                    Dim Briefing As String = ""
 
-                        box4.InnerHtml = ""
-                        handles4.InnerHtml = ""
-                    End If
+                    'box1.InnerHtml &= "<div class='descricao_projeto'>" & vbLf
 
-                    For Each lRow As DataRow In lDV.Table.Rows
-                        handles4.InnerHtml &= "<span></span>"
+                    Select Case Session("idioma")
+                        Case "1"
+                            NomeProjeto = lRow("nom_projeto_pt_fte")
+                            Briefing = lRow("des_briefing_pt_pro").ToString()
+                        Case "2"
+                            NomeProjeto = IIf(lRow("nom_projeto_es_fte") Is DBNull.Value, lRow("nom_projeto_pt_fte"), lRow("nom_projeto_es_fte"))
+                            Briefing = IIf(lRow("des_briefing_es_pro") Is DBNull.Value, lRow("des_briefing_pt_pro").ToString(), lRow("des_briefing_es_pro"))
+                        Case "3"
+                            NomeProjeto = IIf(lRow("nom_projeto_en_fte") Is DBNull.Value, lRow("nom_projeto_pt_fte"), lRow("nom_projeto_en_fte"))
+                            Briefing = IIf(lRow("des_briefing_en_pro") Is DBNull.Value, lRow("des_briefing_pt_pro").ToString(), lRow("des_briefing_en_pro"))
+                    End Select
 
-                        box4.InnerHtml &= "<div class='container_banner'>" & vbCrLf
-                        box4.InnerHtml &= " <a href='Projetos.aspx?cod_projeto_pro=" & .Rows(0)("cod_projeto_pro") & "'>" & vbCrLf
-                        box4.InnerHtml &= "     <img alt='imagem' src='img/projetos/" & lRow("nom_imagem_projeto_ipr") & "' width='961px' height='395px' />" & vbCrLf
-                        box4.InnerHtml &= " </a>" & vbCrLf
-                        box4.InnerHtml &= "</div>" & vbCrLf
-                    Next
-                End With
-            End If
+                    lblTituloProjeto.InnerText = NomeProjeto
+                    lblLocalProjeto.InnerText = lRow("des_local_pro")
+                    lblBriefing.InnerText = Briefing
+                    'box1.InnerHtml &= "<h2> " & NomeProjeto & "</h2>" & vbLf
+                    'box1.InnerHtml &= "<h3> " & lRow("des_local_pro") & "</h3>" & vbLf
+                    'box1.InnerHtml &= "<div class='clear'></div>" & vbLf
+                    'box1.InnerHtml &= "<div class='divisao_descricao'></div>" & vbLf
+                    'box1.InnerHtml &= "<span>" & Briefing & "</span>" & vbLf
+                    'box1.InnerHtml &= "</div>" & vbLf
+
+                    handles4.InnerHtml &= "<span></span>"
+                    box4.InnerHtml &= "<div class='container_banner'>" & vbCrLf
+                    box4.InnerHtml &= " <a href='Projetos.aspx?cod_projeto_pro=" & lRow("cod_projeto_pro") & "'>" & vbCrLf
+                    box4.InnerHtml &= "     <img alt='imagem' src='img/projetos/" & lDV.Table.Rows(0)("nom_imagem_projeto_ipr") & "' width='961px' height='395px' />" & vbCrLf
+                    box4.InnerHtml &= " </a>" & vbCrLf
+                    box4.InnerHtml &= "</div>" & vbCrLf
+                End If
+            Next
 
             '***** Notícias
             noticias.InnerHtml = ""

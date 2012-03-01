@@ -67,6 +67,20 @@
                     currentHandle.addClass('active');
                 }
             });
+            /*
+            var nS1 = new noobSlide({
+            box: $('box1'),
+            items: $$('#box1 div'),
+            size: 961,
+            interval: 10000,
+            autoPlay: true,
+            handles: $$('#handles4 span'),
+            onWalk: function(currentItem, currentHandle) {
+            this.handles.removeClass('active');
+            currentHandle.addClass('active');
+            }
+            });
+            */
         });
     </script>
 
@@ -123,18 +137,20 @@ document.createElement("footer");
         <section class="main">
             <div class="banner_destaque">
                 <div class="lateral_banner">
-                    <div class="descricao_projeto">
-                        <h2 id="lblTituloProjeto" runat="server">
-                            Casamalha</h2>
-                        <h3 id="lblLocalProjeto" runat="server">
-                            Paraty-Br</h3>
-                        <div class="clear">
+                    <div id="box1" runat="server">
+                        <div class="descricao_projeto">
+                            <h2 id="lblTituloProjeto" runat="server">
+                                Casamalha</h2>
+                            <h3 id="lblLocalProjeto" runat="server">
+                                Paraty-Br</h3>
+                            <div class="clear">
+                            </div>
+                            <div class="divisao_descricao">
+                            </div>
+                            <span id="lblBriefing" runat="server">A empresa GMA (Grupo Multidisciplinar para Arquitetura)
+                                capacitados a traduzir as necessidades do cliente desenvolvendo critérios e ações
+                                para uma arquitetura de qualidade eficiente e econômica.</span>
                         </div>
-                        <div class="divisao_descricao">
-                        </div>
-                        <span>A empresa GMA (Grupo Multidisciplinar para Arquitetura) capacitados a traduzir
-                            as necessidades do cliente desenvolvendo critérios e ações para uma arquitetura
-                            de qualidade eficiente e econômica.</span>
                     </div>
                     <p class="buttons" id="handles4" runat="server">
                         <span></span><span></span><span></span>
