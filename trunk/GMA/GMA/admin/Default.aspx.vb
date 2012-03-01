@@ -28,7 +28,6 @@ Partial Class admin_Default
             Session("cod_usuario_usu") = cod_usuario_usu.Text.Trim
             Response.Redirect("Usuario.aspx")
         Else
-            cod_usuario_usu.Text = ""
             des_senha_usu.Text = ""
             ScriptManager.RegisterClientScriptBlock(Page, btnConfirmar.GetType, "block", "alert('O usuário é inválido, verifique o seu usuário e senha!');", True)
         End If
