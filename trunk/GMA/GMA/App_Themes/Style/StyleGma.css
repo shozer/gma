@@ -16,6 +16,16 @@ h1, h2, h3, h4, h5, ul, li, a, p
 
 /*intro --------------------*/
 
+
+h2
+{
+	color: #F7A30F;
+	font-family: Lucida Sans;
+	font-size: 24px;
+	padding-top: 67px;
+	
+}
+
 #container_intro
 {
 	width: 960px;
@@ -247,7 +257,7 @@ ul#topnav li span a:hover
 	width: 709px;
 	float: left;
 	margin-top: 34px;
-	margin-left:9.6px;
+	margin-left: 9.6px;
 }
 
 /* Slide projetos */
@@ -264,8 +274,8 @@ ul#topnav li span a:hover
 .setas_projetos
 {
 	width: 687px;
-	margin-left:22px;
-	margin-top:6px;
+	margin-left: 22px;
+	margin-top: 6px;
 }
 
 #carrossel ul
@@ -278,28 +288,26 @@ ul#topnav li span a:hover
 	float: left;
 	display: inline;
 	width: 687px;
-	padding-left:22.6px;
-	
+	padding-left: 22.6px;
 }
 
 a.prev
 {
-	width:11px;
-	height:21px;
-	display:block;
-	float:left;
-	
-	}
+	width: 11px;
+	height: 21px;
+	display: block;
+	float: left;
+}
 
 
 a.next
 {
-	width:11px;
-	height:21px;
-	display:block;
-	float:right;
-	text-decoration:none;
-	}
+	width: 11px;
+	height: 21px;
+	display: block;
+	float: right;
+	text-decoration: none;
+}
 
 
 .bloco_projeto
@@ -307,14 +315,13 @@ a.next
 	float: left;
 	width: 119px;
 	margin-right: 22.6px;
-	text-decoration:none;
+	text-decoration: none;
 }
 
 .bloco_projeto a
 {
-	display:block;
-	
-	}
+	display: block;
+}
 
 .divisao_bloco_projetos
 {
@@ -331,7 +338,7 @@ a.next
 	height: 85px;
 	margin-right: 22.6px;
 	border: 1px solid #f6ae02;
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 .bloco_projeto img
@@ -356,8 +363,8 @@ a.next
 span.texto_menor
 {
 	display: inline !important;
-    font-size: 11px !important;
-    margin-top: 0 !important;
+	font-size: 11px !important;
+	margin-top: 0 !important;
 }
 
 .descricao_projeto
@@ -410,110 +417,99 @@ span.branca
 
 .container_interna_projetos
 {
-    border-bottom: 1px solid #28449C;
-    padding-bottom: 5px;
-    width: 960px;
-    margin-top:20px;
-	
-	}
+	border-bottom: 1px solid #28449C;
+	padding-bottom: 5px;
+	width: 960px;
+	margin-top: 20px;
+}
 
 .container_interna_projetos h4
 {
-    font-size:14px;
-	color:#ffffff;
-	font-weight:normal;	
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: normal;
 }
 .container_sidebar_left
 {
-	width:361px;
-	float:left;
-	padding-top:15px;
-	
-	}
+	width: 361px;
+	float: left;
+	padding-top: 15px;
+}
 
 .container_sidebar_left h2
 {
-	font-size:28px;
-	color:#ffffff;	
-	}	
+	font-size: 28px;
+	color: #ffffff;
+}
 
 .container_sidebar_left p
 {
-	font-size:13px;
-	color:#ffffff;
-	width:331px;
-	height:425px;
-	background-color:#f7a30f;
-	padding:15px;
-	line-height:18px;
-	margin-top:15px;
-	margin-bottom:20px;	
-	}			
+	font-size: 13px;
+	color: #ffffff;
+	width: 331px;
+	height: 425px;
+	background-color: #f7a30f;
+	padding: 15px;
+	line-height: 18px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
 
 .container_sidebar_right
 {
-	width:556px;
-	float:right;
-	padding-top:20px;
-	 
-	}
+	width: 556px;
+	float: right;
+	padding-top: 20px;
+}
 
 
 .container_sidebar_right h3
 {
-	font-size:15px;
-	color:#ffffff;
-	
-	}
+	font-size: 15px;
+	color: #ffffff;
+}
 
 .container_info_sidebar_right
 {
-	width:556px;
-	margin-bottom:51px;
-
-	
-	}
+	width: 556px;
+	margin-bottom: 51px;
+}
 
 .left_info_sidebar_right
 {
-	width:280px;
-	float:left;
+	width: 280px;
+	float: left;
 	margin-top: 38px;
-	
-	}
+}
 .left_info_sidebar_right span
 {
-	font-size:13px;
-	color:#d5d5d5;
-	margin-top:10px;
-	display:block;
-	
-	}	
+	font-size: 13px;
+	color: #d5d5d5;
+	margin-top: 10px;
+	display: block;
+}
 
 .right_info_sidebar_right
 {
-	width:229px;
-	float:right;
+	width: 229px;
+	float: right;
 	margin-top: 38px;
-	
-	}
+}
 
 .border_azul_menor
 {
 	border-bottom: 1px solid #28449C;
-	padding-bottom:10px;
-	margin-bottom:10px;
-	
-	}	
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
 
 .right_info_sidebar_right span
 {
-	font-size:13px;
-	color:#d5d5d5;
-	margin-top:10px;
-	display:block;
-	
-	}									
+	font-size: 13px;
+	color: #d5d5d5;
+	margin-top: 10px;
+	display: block;
+}
 
 /*################### banner carrossel #############################*/
 
@@ -549,21 +545,19 @@ span.branca
 {
 	width: 958px;
 	height: 9px;
-	margin-top:7px;
-
-	}
+	margin-top: 7px;
+}
 
 .buttons_slide_int span
 {
-	
 	cursor: pointer;
 	background-image: url(../../img/marcador_banner_inativo.jpg);
 	background-repeat: no-repeat;
 	width: 145px;
 	height: 9px;
 	margin-right: 17.6px;
-	display:block;
-	float:left;
+	display: block;
+	float: left;
 }
 .buttons_slide_int span.active, .buttons_slide_int span:hover
 {
@@ -571,8 +565,8 @@ span.branca
 	background-repeat: no-repeat;
 	width: 145px;
 	height: 9px;
-	display:block;
-	float:left;
+	display: block;
+	float: left;
 }
 
 
@@ -660,6 +654,13 @@ a.link_box
 	float: left;
 }
 
+#texto_noticia
+{
+	color: #ffffff;
+	font-size: 14px; 
+	margin-top: 15px;
+	
+	}
 
 .titulo_noticias span
 {
@@ -703,12 +704,12 @@ a.link_box
 	list-style: none;
 	width: 359px !important;
 	float: left;
-	height:80px !important;
+	height: 80px !important;
 }
 
 
 #noticias ul li
-{	
+{
 	width: 346px !important;
 }
 
@@ -741,19 +742,19 @@ a#down
 	margin-top: 50px;
 }
 
-span.noticia_list a {
-    background-image: url("../../img/bullet_noticias.jpg");
-    background-position: 0 3px;
-    background-repeat: no-repeat;
-    color: #FFFFFF;
-    display: block;
-    font-size: 12px;
-    margin-bottom: 24px;
-    padding-left: 25px;
-    padding-right: 35px;
-    text-decoration: none;
-    width: 326px;
-
+span.noticia_list a
+{
+	background-image: url( "../../img/bullet_noticias.jpg" );
+	background-position: 0 3px;
+	background-repeat: no-repeat;
+	color: #FFFFFF;
+	display: block;
+	font-size: 12px;
+	margin-bottom: 24px;
+	padding-left: 25px;
+	padding-right: 35px;
+	text-decoration: none;
+	width: 326px;
 }
 
 /*reutilizável --------------------*/
@@ -764,8 +765,7 @@ span.noticia_list a {
 .margin_top_0
 {
 	margin-top: 0px !important;
-	
-	}
+}
 
 .clear
 {
@@ -815,7 +815,6 @@ span.noticia_list a {
 
 .container_contato h2
 {
-	
 	color: #F7A30F;
 	font-size: 32px;
 	padding: 20px;
@@ -847,7 +846,6 @@ span.noticia_list a {
 
 .container_espaco_cliente h2
 {
-	
 	color: #F7A30F;
 	font-size: 32px;
 	padding: 20px;
@@ -916,8 +914,7 @@ span.validat
 {
 	width: 2px !important;
 	margin-right: 0px !important;
-	
-	}
+}
 
 .container_info
 {

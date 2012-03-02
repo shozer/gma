@@ -56,14 +56,15 @@
         <section class="main">
             <div id="noticia">
                 <div id="titulo_noticia">
-                    <asp:Label ID="lblTitulo" runat="server"></asp:Label>
+                    <h2>
+                        <asp:Label ID="lblTitulo" runat="server"></asp:Label>
+                    </h2>
                 </div>
                 <div id="texto_noticia">
                     <asp:Label ID="lblNoticia" runat="server"></asp:Label>
                 </div>
             </div>
         </section>
-        
     </div>
     </form>
 
