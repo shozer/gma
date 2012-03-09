@@ -37,6 +37,9 @@ Partial Class admin_ProjetosCad
                     cod_situacao_projeto_spr.SelectedValue = .Rows(0)("cod_situacao_projeto_spr")
                     flg_vitrine_principal_pro.Checked = .Rows(0)("flg_vitrine_principal_pro")
                     sts_ativo_pro.Checked = .Rows(0)("sts_ativo_pro")
+                    des_briefing_pt_pro.Text = .Rows(0)("des_briefing_pt_pro").ToString()
+                    des_briefing_es_pro.Text = .Rows(0)("des_briefing_es_pro").ToString()
+                    des_briefing_en_pro.Text = .Rows(0)("des_briefing_en_pro").ToString()
                 End With
 
                 ViewState("flg_vitrine_principal_pro") = flg_vitrine_principal_pro.Checked
@@ -129,13 +132,16 @@ Partial Class admin_ProjetosCad
                 .Rows(0)("des_identificacao_pro") = des_identificacao_pro.Text
                 .Rows(0)("cod_ficha_tecnica_fte") = cod_ficha_tecnica_fte
                 .Rows(0)("des_local_pro") = des_local_pro.Text
-                .Rows(0)("num_posicao_vitrine_pro") = 9999
+                '.Rows(0)("num_posicao_vitrine_pro") = 9999
                 .Rows(0)("cod_tipo_projeto_tpr") = cod_tipo_projeto_tpr.SelectedValue
                 .Rows(0)("cod_cliente_cli") = cod_cliente_cli.SelectedValue
                 .Rows(0)("cod_situacao_projeto_spr") = cod_situacao_projeto_spr.SelectedValue
                 .Rows(0)("flg_vitrine_principal_pro") = flg_vitrine_principal_pro.Checked
                 .Rows(0)("sts_ativo_pro") = sts_ativo_pro.Checked
                 .Rows(0)("cod_usuario_usu") = Session("cod_usuario_usu")
+                .Rows(0)("des_briefing_pt_pro") = IIf(des_briefing_pt_pro.Text = "", DBNull.Value, des_briefing_pt_pro.Text)
+                .Rows(0)("des_briefing_es_pro") = IIf(des_briefing_es_pro.Text = "", DBNull.Value, des_briefing_es_pro.Text)
+                .Rows(0)("des_briefing_en_pro") = IIf(des_briefing_en_pro.Text = "", DBNull.Value, des_briefing_en_pro.Text)
             End With
 
             If Request("cod_projeto_pro") Is Nothing Then

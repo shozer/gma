@@ -47,12 +47,22 @@ Partial Class admin_OrdenacaoProjetoCad
                                         If dic.ContainsKey(iterator) Then
                                             .Rows(.Rows.Count - 1)("cod_projeto_pro") = CType(dic(iterator).Split(";")(1), Int32)
                                             .Rows(.Rows.Count - 1)("des_identificacao_pro") = dic(iterator).Split(";")(0)
+
+                                            Using objProjeto As New Projeto
+                                                objProjeto.AlterarProjetoPosicao(CType(dic(iterator).Split(";")(1), Int32), iterator)
+                                            End Using
+
                                             dic.Remove(iterator)
                                         Else
                                             Dim valor As New List(Of Int32)(dic.Keys)
                                             If valor.Max > qtd_projetos_vitrine_tpr Then
                                                 .Rows(.Rows.Count - 1)("cod_projeto_pro") = CType(dic(valor.Max).Split(";")(1), Int32)
                                                 .Rows(.Rows.Count - 1)("des_identificacao_pro") = dic(valor.Max).Split(";")(0)
+
+                                                Using objProjeto As New Projeto
+                                                    objProjeto.AlterarProjetoPosicao(CType(dic(valor.Max).Split(";")(1), Int32), iterator)
+                                                End Using
+
                                                 dic.Remove(valor.Max)
                                             Else
                                                 .Rows(.Rows.Count - 1)("cod_projeto_pro") = 0
@@ -107,5 +117,5 @@ Partial Class admin_OrdenacaoProjetoCad
     End Sub
 
 #End Region
-
+    
 End Class
