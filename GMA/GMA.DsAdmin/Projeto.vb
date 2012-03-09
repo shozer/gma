@@ -156,7 +156,7 @@ Public Class Projeto
         Dim primaryKey As Int32 = -1
 
         Dim query As String = "Insert into tb_gma_projeto(des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, cod_ficha_tecnica_fte, cod_tipo_projeto_tpr, cod_usuario_usu, cod_cliente_cli, cod_situacao_projeto_spr, des_local_pro, flg_vitrine_principal_pro, sts_ativo_pro, des_briefing_pt_pro, des_briefing_es_pro, des_briefing_en_pro) "
-        query &= "values(?des_identificacao_pro, NOW(), ?num_posicao_vitrine_pro, ?cod_ficha_tecnica_fte, ?cod_tipo_projeto_tpr, ?cod_usuario_usu, ?cod_cliente_cli, ?cod_situacao_projeto_spr, ?des_local_pro, ?flg_vitrine_principal_pro, ?sts_ativo_pro, ?des_briefing_pt_pro, ?des_briefing_es_pro, ?des_briefing_en_pro); SELECT LAST_INSERT_ID();"
+        query &= "select ?des_identificacao_pro, NOW(), max(num_posicao_vitrine_pro) + 1, ?cod_ficha_tecnica_fte, ?cod_tipo_projeto_tpr, ?cod_usuario_usu, ?cod_cliente_cli, ?cod_situacao_projeto_spr, ?des_local_pro, ?flg_vitrine_principal_pro, ?sts_ativo_pro, ?des_briefing_pt_pro, ?des_briefing_es_pro, ?des_briefing_en_pro from tb_gma_projeto where cod_tipo_projeto_tpr = ?cod_tipo_projeto_tpr; SELECT LAST_INSERT_ID();"
 
         Try
             conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
@@ -165,7 +165,6 @@ Public Class Projeto
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
             command.Parameters.AddWithValue("?des_identificacao_pro", dsRegistro.Tables(0).Rows(0)("des_identificacao_pro"))
             command.Parameters.AddWithValue("?cod_ficha_tecnica_fte", dsRegistro.Tables(0).Rows(0)("cod_ficha_tecnica_fte"))
-            command.Parameters.AddWithValue("?num_posicao_vitrine_pro", dsRegistro.Tables(0).Rows(0)("num_posicao_vitrine_pro"))
             command.Parameters.AddWithValue("?cod_tipo_projeto_tpr", dsRegistro.Tables(0).Rows(0)("cod_tipo_projeto_tpr"))
             command.Parameters.AddWithValue("?cod_usuario_usu", dsRegistro.Tables(0).Rows(0)("cod_usuario_usu"))
             command.Parameters.AddWithValue("?cod_cliente_cli", dsRegistro.Tables(0).Rows(0)("cod_cliente_cli"))
@@ -197,7 +196,6 @@ Public Class Projeto
         Dim query As String = "Update tb_gma_projeto Set "
         query &= "des_identificacao_pro = ?des_identificacao_pro, "
         query &= "dat_cadastro_pro = NOW(), "
-        query &= "num_posicao_vitrine_pro = ?num_posicao_vitrine_pro, "
         query &= "cod_ficha_tecnica_fte = ?cod_ficha_tecnica_fte, "
         query &= "cod_tipo_projeto_tpr = ?cod_tipo_projeto_tpr, "
         query &= "cod_usuario_usu = ?cod_usuario_usu, "
@@ -217,7 +215,6 @@ Public Class Projeto
 
             Dim command As MySqlCommand = New MySqlCommand(query, conn)
             command.Parameters.AddWithValue("?des_identificacao_pro", dsRegistro.Tables(0).Rows(0)("des_identificacao_pro"))
-            command.Parameters.AddWithValue("?num_posicao_vitrine_pro", dsRegistro.Tables(0).Rows(0)("num_posicao_vitrine_pro"))
             command.Parameters.AddWithValue("?cod_ficha_tecnica_fte", dsRegistro.Tables(0).Rows(0)("cod_ficha_tecnica_fte"))
             command.Parameters.AddWithValue("?cod_tipo_projeto_tpr", dsRegistro.Tables(0).Rows(0)("cod_tipo_projeto_tpr"))
             command.Parameters.AddWithValue("?cod_usuario_usu", dsRegistro.Tables(0).Rows(0)("cod_usuario_usu"))

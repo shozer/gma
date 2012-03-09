@@ -85,6 +85,29 @@
             <asp:TextBox ID="nom_projeto_en_fte" runat="server" Width="400px"></asp:TextBox>
         </div>
         <div class="campo_titulo">
+            Briefing do projeto em português:
+        </div>
+        <div class="campo">
+            <asp:TextBox ID="des_briefing_pt_pro" runat="server" TextMode="MultiLine" Width="400px"
+                Height="100px" SkinID="Obrigatorio"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator7"
+                    runat="server" ErrorMessage="Preencha o briefing em português!" Text="*" Display="Dynamic"
+                    ControlToValidate="des_briefing_pt_pro"></asp:RequiredFieldValidator>
+        </div>
+        <div class="campo_titulo">
+            Briefing do projeto em espanhol:
+        </div>
+        <div class="campo">
+            <asp:TextBox ID="des_briefing_es_pro" runat="server" TextMode="MultiLine" Width="400px"
+                Height="100px"></asp:TextBox>
+        </div>
+        <div class="campo_titulo">
+            Briefing do projeto em inglês:
+        </div>
+        <div class="campo">
+            <asp:TextBox ID="des_briefing_en_pro" runat="server" TextMode="MultiLine" Width="400px"
+                Height="100px"></asp:TextBox>
+        </div>
+        <div class="campo_titulo">
             Descrição do projeto em português:
         </div>
         <div class="campo">
