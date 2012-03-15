@@ -132,7 +132,6 @@ Partial Class admin_ProjetosCad
                 .Rows(0)("des_identificacao_pro") = des_identificacao_pro.Text
                 .Rows(0)("cod_ficha_tecnica_fte") = cod_ficha_tecnica_fte
                 .Rows(0)("des_local_pro") = des_local_pro.Text
-                '.Rows(0)("num_posicao_vitrine_pro") = 9999
                 .Rows(0)("cod_tipo_projeto_tpr") = cod_tipo_projeto_tpr.SelectedValue
                 .Rows(0)("cod_cliente_cli") = cod_cliente_cli.SelectedValue
                 .Rows(0)("cod_situacao_projeto_spr") = cod_situacao_projeto_spr.SelectedValue

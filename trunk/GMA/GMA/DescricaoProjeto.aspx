@@ -44,11 +44,11 @@
     </div>
     <div class="content_interna_projetos">
         <div class="content_sidebar_left">
-            <h2>
+            <h2 id="lblTitulo" runat="server">
                 Casa Espaço</h2>
-            <h4>
+            <h4 id="lblLocal" runat="server">
                 Alphaville litoral norte - Salvador BR</h4>
-            <p>
+            <p id="lblDescricao" runat="server">
                 O pensar arquitetura é resultado de um método de experimentação onde o arquiteto
                 e o cliente fazem parte de um mesmo processo para criação. "Arquitetura como uma
                 produção coletiva". O pensar arquitetura é resultado de um método de experimentação
