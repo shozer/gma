@@ -147,6 +147,35 @@ Public Class Projeto
         Return lDSRetorno.Tables(0).DefaultView
     End Function
 
+    Public Function ConsultarProjetoCompleto(ByVal cod_projeto_pro As Int32) As DataView
+        Dim conn As MySqlConnection = Nothing
+        Dim lDSRetorno As New DataSet
+
+        Dim query As String = "Select cod_projeto_pro, des_identificacao_pro, dat_cadastro_pro, num_posicao_vitrine_pro, tb_gma_projeto.cod_ficha_tecnica_fte, cod_tipo_projeto_tpr, cod_usuario_usu, tb_gma_projeto.cod_cliente_cli, cod_situacao_projeto_spr, des_local_pro, flg_vitrine_principal_pro, sts_ativo_pro, des_briefing_pt_pro, des_briefing_es_pro, des_briefing_en_pro, "
+        query &= "nom_projeto_pt_fte, nom_projeto_en_fte, nom_projeto_es_fte, des_projeto_pt_fte, des_projeto_en_fte, des_projeto_es_fte, des_programa_pt_fte, des_artigo_pt_fte, des_video_pt_fte, des_entrevista_pt_fte, des_livro_pt_fte "
+        query &= "From tb_gma_projeto "
+        query &= "inner join tb_gma_ficha_tecnica on tb_gma_projeto.cod_ficha_tecnica_fte = tb_gma_ficha_tecnica.cod_ficha_tecnica_fte "
+        query &= "inner join tb_gma_cliente on tb_gma_projeto.cod_cliente_cli = tb_gma_cliente.cod_cliente_cli "
+        query &= "Where cod_projeto_pro = ?cod_projeto_pro "
+
+        Try
+            conn = New MySqlConnection(ConnectionStrings.Item("StringConexao").ConnectionString)
+            conn.Open()
+
+            Dim command As MySqlCommand = New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("?cod_projeto_pro", cod_projeto_pro)
+
+            Dim DA As MySqlDataAdapter = New MySqlDataAdapter(command)
+            DA.Fill(lDSRetorno, "tb_gma_projeto")
+        Catch ex As Exception
+            'Registrar no log
+        Finally
+            conn.Close()
+        End Try
+
+        Return lDSRetorno.Tables(0).DefaultView
+    End Function
+
 #End Region
 
 #Region " Incluir "
