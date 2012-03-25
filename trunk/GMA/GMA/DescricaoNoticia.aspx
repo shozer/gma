@@ -40,7 +40,7 @@
             </nav>
             <div class="layer_inf">
                 <h1 class="logo">
-                    <a href="#">
+                    <a href="Principal.aspx">
                         <img src="img/logo_site.jpg" style="border: 0;" alt="GMA Arquitetura" />
                     </a>
                 </h1>
