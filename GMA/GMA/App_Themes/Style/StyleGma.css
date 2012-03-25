@@ -179,7 +179,7 @@ ul#topnav li span a
 {
 	display: inline;
 	padding: 7px 22px 5px 22px !important;
-	margin-right: 17px;
+	margin-right: 12px;
 }
 ul#topnav li span a:hover
 {
@@ -379,6 +379,7 @@ span.texto_menor
 	padding-top: 17px;
 	padding-left: 25px;
 	font-family: Lucida Sans;
+	padding-left:10px;
 }
 
 .descricao_projeto h3
@@ -388,6 +389,8 @@ span.texto_menor
 	float: right;
 	font-weight: bolder;
 	margin-right: 53px;
+	padding-left:10px;
+    
 }
 
 .descricao_projeto span

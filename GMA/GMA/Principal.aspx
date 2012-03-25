@@ -39,6 +39,7 @@
 
     <script src="js/exemploModal.js" type="text/javascript"></script>
 
+
     <script type="text/javascript" src="js/jquery-modal-1.0.js"></script>
 
     <script type="text/javascript">
@@ -106,7 +107,7 @@ document.createElement("footer");
                     <li><a href="#">PROJETOS</a> <span><a href="Projetos.aspx?cod_tipo_projeto_tpr=2">RESIDENCIAL</a>
                         <a href="Projetos.aspx?cod_tipo_projeto_tpr=3">COMERCIAL/INSTITUCIONAL</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=4">
                             RESTAURO</a> <a href="Projetos.aspx?cod_tipo_projeto_tpr=1">URBANISMO/PAISAGISMO</a>
-                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=5">INTERIOR/ DESIGN</a> </span></li>
+                        <a href="Projetos.aspx?cod_tipo_projeto_tpr=5">INTERIOR/DESIGN</a> <!--a href="#">LUMINOTÉCNICO</a--> </span></li>
                     <li><a href="#">ASSESSORIA</a> <span><a href="#">PROJETO</a><a href="#">LAYOUT</a> </span>
                     </li>
                     <li><a href="#">GESTÃO DE OBRAS</a><span><a href="#">REFORMA</a><a href="#">CONSTRUÇÃO</a>
