@@ -741,8 +741,16 @@ a.link_box
 	color: #ffffff;
 	font-size: 14px; 
 	margin-top: 15px;
+	padding-bottom:15px;
+	border-bottom:1px dotted #f0f0f0;
 	
 	}
+.btn_curtir
+{
+	width: 52px;
+	float:right;
+	margin-top:10px;
+	}	
 
 .titulo_noticias span
 {
