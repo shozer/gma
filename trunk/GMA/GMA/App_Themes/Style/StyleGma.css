@@ -126,7 +126,85 @@ a.idioma span
 	margin-left: 280px;
 }
 
-ul#topnav
+#nav {
+width: 687px;
+position: absolute;
+z-index: 2;
+top: 0;
+left: 0;
+padding-top: 130px;
+margin-left: 280px;
+}
+#nav .select {
+margin: 0;
+padding: 0 0 0 0;
+float: left;
+width: 834px;
+list-style: none;
+position: relative;
+font-size: 11px;
+}
+#nav li {
+float:left;
+
+}
+#nav .select a {
+
+padding: 17px 23px 5px 23px;
+display: block;
+color: #ffffff;
+text-decoration: none;
+margin-right: 20px;
+}
+
+#nav .select li:hover a {
+
+color: #F7A30F;
+background-color: Black;
+border-top: 1px solid #28449c;
+border-left: 1px solid #28449c;
+border-right: 1px solid #28449c;
+border-bottom: 2px solid #00000;
+padding: 16px 22px 5px 22px;
+margin-right: 20px;
+}
+
+#nav .sub {
+display:none;
+margin:0;
+padding:0 0 0 60px;
+list-style:none;
+width:834px;
+}
+
+#nav .sub li {
+	margin-right:27px;
+}
+
+#nav .select li:hover .sub {
+display:block;
+position:absolute;
+float:left;
+top:37px;
+left: -60px;
+text-align:center;
+padding-top:8px;
+}
+#nav .select li:hover .sub li a {
+display:block;
+float:left;
+padding:0 16px;
+margin:0;
+color:#FFF;
+border:none !important;
+}
+#nav .select li:hover .sub li a:hover {
+color: #F7A30F;
+border:none !important;
+}
+
+
+/*ul#topnav
 {
 	margin: 0;
 	padding: 0 0 0 0;
@@ -188,7 +266,7 @@ ul#topnav li span a:hover
 	background-color: transparent;
 	color: #F7A30F;
 	margin-left: 0px;
-}
+}*/
 
 .parceiro
 {
