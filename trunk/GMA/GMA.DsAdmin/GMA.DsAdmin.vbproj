@@ -92,6 +92,7 @@
     <Compile Include="Seguranca.vb" />
     <Compile Include="SituacaoProjeto.vb" />
     <Compile Include="TipoProjeto.vb" />
+    <Compile Include="TipoTrabalho.vb" />
     <Compile Include="Usuario.vb" />
   </ItemGroup>
   <ItemGroup>
